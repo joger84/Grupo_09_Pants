@@ -14,4 +14,4 @@ app.get('/register', (req,res) => res.sendFile(path.resolve(__dirname,'views/reg
 
 app.get('/productDetail.css', (req,res) => res.sendFile(path.resolve(__dirname,'views/productDetail.css')))
 
-app.get('/login.css', (req, res) => res.sendFile(path.resolve(__dirname, 'views/login.css')))
+app.get('/login.css', (req, res) => res.sendFile(path.resolve(__dirname, 'views/login.html')))
