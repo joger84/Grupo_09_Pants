@@ -41,3 +41,7 @@ Somos una empresa dedica a la fabricacion y venta de pantalones Jeans, de modo o
 // Enlace de Wireframe
 
 https://marvelapp.com/project/5971752
+
+// Enlace Tablero de Trabajo
+
+https://trello.com/b/igZW7EDY/grupo09pantsalone
