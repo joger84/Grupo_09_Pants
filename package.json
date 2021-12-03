@@ -1,0 +1,24 @@
+{
+  "name": "grupo_09_pants",
+  "version": "1.0.0",
+  "description": "PantsAlone",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joger84/Grupo_09_Pants.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joger84/Grupo_09_Pants/issues"
+  },
+  "homepage": "https://github.com/joger84/Grupo_09_Pants#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}
