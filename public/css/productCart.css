@@ -1,3 +1,36 @@
-p{
-    background-color: red;
+@import url(normalize.css);
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Bakbak One', cursive;
+}
+.navbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #5386A4;
+}
+.container-img{
+    width: 150px;
+}
+.img-header{
+    width: 100%;
+}
+.nav-link{
+    width: 440px;
+}
+.navbar-nav{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+.nav-item{
+    margin: 0 15px;
+}
+.nav-link{
+    text-decoration: none;
+    color: white;
 }
