@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+
+* {
+    font-family: 'Bakbak One', cursive;   
+}
+
+.login {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    justify-content: stretch;
+    width: 50%;
+    margin: auto;
+}
+.c-button {
+    display: flex;
+    flex-wrap: wrap;
+}
+.button {
+    margin:15px;
+
+}
+
+.button :hover {
+    background-color: #5386A4;
+    color: white
+
+}
