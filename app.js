@@ -13,6 +13,6 @@ app.get('/productCart', (req,res) => res.sendFile(path.resolve(__dirname,'views/
 
 app.get('/register', (req,res) => res.sendFile(path.resolve(__dirname,'views/register.html')))
 
-app.get('/productDetail.css', (req,res) => res.sendFile(path.resolve(__dirname,'views/productDetail.css')))
+app.get('/productDetail', (req,res) => res.sendFile(path.resolve(__dirname,'views/productDetail.html')))
 
-app.get('/login.css', (req, res) => res.sendFile(path.resolve(__dirname, 'views/login.html')))
+app.get('/login', (req, res) => res.sendFile(path.resolve(__dirname, 'views/login.html')))
