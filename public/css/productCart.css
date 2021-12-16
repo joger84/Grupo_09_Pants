@@ -5,6 +5,13 @@
     box-sizing: border-box;
     font-family: 'Bakbak One', cursive;
 }
+body{
+    background-image: url(/img/background.jpg);
+    background-size: cover;
+}
+.ta-c{
+    text-align: center;
+}
 .navbar{
     display: flex;
     width: 100%;
@@ -12,6 +19,8 @@
     align-items: center;
     flex-wrap: wrap;
     background-color: #5386A4;
+    opacity: 0.9;
+    /* border: solid 1px red; */
 }
 .container-img{
     width: 150px;
@@ -19,13 +28,12 @@
 .img-header{
     width: 100%;
 }
-.nav-link{
-    width: 440px;
-}
 .navbar-nav{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
+    padding: 0;
 }
 .nav-item{
     margin: 0 15px;
@@ -33,4 +41,155 @@
 .nav-link{
     text-decoration: none;
     color: white;
+    width: 45%;
+    letter-spacing: 1.5px;
+}
+.icon-car{
+    font-size: 25px;
+}
+.form-busqueda{
+    position: relative;
+}
+.form-control{
+    line-height: 25px;
+    border: 1px solid rgb(228, 224, 224);
+    border-radius: 5px;
+    width: 70%;
+    outline: none;
+}
+.btn-buscar{
+    line-height: 25px;
+    border: 1px solid rgb(228, 224, 224);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.burger-menu{
+    display: none;
+}
+/* Fin del header */
+/* Inicio del Main */
+.carrusel{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.c-carrusel{
+    width: 100%;
+    height: 200px;
+    border: 1px solid red;
+    background-color: cornflowerblue;
+    opacity: 0.9;
+}
+.arrow-left{
+margin-right: 10px;
+}
+.arrow-right{
+margin-left: 10px;
+}
+
+
+
+/* Inicio Footer */
+#footer{
+    margin-top: 200px;
+    background-color: #5386A4;
+    opacity: 0.9;
+    letter-spacing: 1.5px;
+    color: white;
+}
+.containerFooter{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.c-footer{
+    width: 250px;
+    margin-bottom: 20px;
+}
+.footer-list{
+    line-height: 2;
+}
+.footer-link{
+    text-decoration: none;
+    color: white;
+    width: 45%;
+    letter-spacing: 1.5px;
+}
+.copy p {
+    margin-bottom: 0;
+}
+.c-redes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.c-redes a{
+    text-decoration: none;
+}
+.icon{
+    font-size: 50px;
+    color: white;
+}
+@media (max-width: 769px){
+    .form-control{
+        width: 95%;
+    }
+    .btn-buscar{
+       position: absolute;
+       right: 10px;
+       background-color: #FFFFFF;
+       border: none;
+    }
+    .burger-menu{
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #A7CBBE;
+        color:#004771;
+        cursor: pointer;
+        /* border: 1px solid #E1AFA0; */
+        border-radius: 20px;
+        top: 10px;
+        right: 10px;
+    }
+    .burger-menu:hover{
+        background-color: #CFE3DD;
+        color: #fff;
+    }
+    .burger-menu i{
+        font-size: 20px;
+    }
+    .nav-link{
+        display: none;
+    }
+    /* Fin del header */
+    /* main */
+    .carrucel{
+        display: none;
+    }
+}
+
+@media (max-width: 400px){
+    .container-img{
+        width: 180px;
+    }
+    .form-busqueda{
+        margin-bottom: 20px;
+    }
+    /* Fin del header */
+}
+@media (max-width: 361px){
+    .inputBuscar{
+        width: 70%;
+    }
+    /* Fin del header */
 }
