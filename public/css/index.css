@@ -31,6 +31,7 @@ body{
 .navbar-nav{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
     padding: 0;
 }
@@ -42,6 +43,9 @@ body{
     color: white;
     width: 45%;
     letter-spacing: 1.5px;
+}
+.icon-car{
+    font-size: 25px;
 }
 .form-busqueda{
     position: relative;
@@ -64,10 +68,13 @@ body{
 }
 /* Fin del header */
 /* Inicio del Main */
-.carrucel{
+.carrusel{
     width: 50%;
     margin: auto;
     margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .c-carrusel{
     width: 100%;
@@ -75,6 +82,12 @@ body{
     border: 1px solid red;
     background-color: cornflowerblue;
     opacity: 0.9;
+}
+.arrow-left{
+margin-right: 10px;
+}
+.arrow-right{
+margin-left: 10px;
 }
 
 
@@ -106,6 +119,9 @@ body{
     color: white;
     width: 45%;
     letter-spacing: 1.5px;
+}
+.copy p {
+    margin-bottom: 0;
 }
 .c-redes{
     display: flex;
