@@ -29,6 +29,8 @@ body{
 
 /*Box pictures Art*/
 .product-article{
+    background-color: white;
+    opacity: 0.9;
     border:solid 1px black;
     width: 53%; 
     display: flex;
@@ -43,16 +45,20 @@ body{
 
 /*Box small pictures*/
 .small-pic{
-    border:solid 1px rgb(31, 166, 190);
+    
     display: flex;
     flex-flow: column wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-content: space-around;
     justify-content: space-evenly;
     padding: 10px;
-    width: 40%;
+    width: 30%;
 }
 /*Box Send + Gift*/
 .add-pay{
+    background-color: white;
+    opacity: 0.9;
     border:solid 1px rgb(46, 77, 33);
     width: 60%; 
     display: flex;
@@ -69,13 +75,16 @@ body{
 
 
 .box-description{
+    background-color: white;
+    opacity: 0.9;
     border:solid 1px black;
     width: 30%; 
     flex-direction: column;
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: start;
-    align-content: space-around;
+    justify-content: space-evenly;
+    align-content: stretch;
+    align-items: center;
     margin: 20px;
     padding: 10px;
     box-shadow: 0px 0px 10px rgb(0, 0, 0, 5);
@@ -84,7 +93,7 @@ body{
 /*picture 1*/
 .product-1{
     width: 40%;
-    border: dotted 1px #84a5bb;   
+       
     align-items: stretch;
     height: 350px;
 }
@@ -92,20 +101,17 @@ body{
 /*picture 2*/
 .product-2{
     width: 40%;
-    border: dotted 1px #84a5bb;
-}
+    }
 
 
 /*picture 3*/
 .product-3{
     width: 40%;
-    border: dotted 1px #84a5bb;
-}
+}    
 
 /*picture 4*/
 .product-4{
     width: 40%;
-    border: dotted 1px #84a5bb;
 }
 
 .descProd{
@@ -117,14 +123,19 @@ body{
     margin: 20px;
     padding: 10px;
 }
+.priceProd{
+    font-size: 25px;
+}
 
-.iicon-gift{
+.icon-gift{
     font-size: 40px;
     align-items: center;
     font-size: 20px;
     margin-left: 20px;
 }
 .pay{
+    background-color: white;
+    opacity: 0.9;
     border:solid 1px rgb(189, 123, 123);
     width: 95%; 
     display: flex;
