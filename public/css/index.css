@@ -9,6 +9,9 @@ body{
     background-image: url(/img/background.jpg);
     
 }
+.ta-c{
+    text-align: center;
+}
 .navbar{
     display: flex;
     width: 100%;
@@ -60,6 +63,23 @@ body{
     display: none;
 }
 /* Fin del header */
+/* Inicio del Main */
+.carrucel{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+.c-carrusel{
+    width: 100%;
+    height: 200px;
+    border: 1px solid red;
+    background-color: cornflowerblue;
+    opacity: 0.9;
+}
+
+
+
+/* Inicio Footer */
 #footer{
     margin-top: 200px;
     background-color: #5386A4;
@@ -71,10 +91,34 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 
 }
 .c-footer{
     width: 250px;
+    margin-bottom: 20px;
+}
+.footer-list{
+    line-height: 2;
+}
+.footer-link{
+    text-decoration: none;
+    color: white;
+    width: 45%;
+    letter-spacing: 1.5px;
+}
+.c-redes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.c-redes a{
+    text-decoration: none;
+}
+.icon{
+    font-size: 50px;
+    color: white;
 }
 @media (max-width: 769px){
     .form-control{
@@ -112,6 +156,10 @@ body{
         display: none;
     }
     /* Fin del header */
+    /* main */
+    .carrucel{
+        display: none;
+    }
 }
 
 @media (max-width: 400px){
