@@ -68,9 +68,37 @@ body{
 }
 /* Fin del header */
 /* main */
+.compras{
+    display: flex;
+}
+.descripcion{
+    display: flex;
+}
+
 .botonDelete{
     color: black;
-    
+    border-radius: 5px;
+    cursor: pointer;
+}
+.aplicarDesc{
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.payButton{
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cantButton{
+    border-radius: 5px;
+}
+.fa-trash-alt{
+    border-radius: 5px;
+    position: relative;
+    left: 20px;
+    color: black;
+
 }
 /* Inicio Footer */
 #footer{
