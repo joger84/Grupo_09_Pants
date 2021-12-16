@@ -7,7 +7,13 @@
 }
 body{
     background-image: url(/img/background.jpg);
+    background-size: cover;
     
+}
+h3{
+    color: #fff;
+    font-weight: 100;
+    margin-left: 30px;
 }
 .ta-c{
     text-align: center;
@@ -69,9 +75,8 @@ body{
 /* Fin del header */
 /* Inicio del Main */
 .carrusel{
-    width: 50%;
-    margin: auto;
-    margin-top: 20px;
+    width: 75%;
+    margin: 30px auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -79,8 +84,10 @@ body{
 .c-carrusel{
     width: 100%;
     height: 200px;
-    border: 1px solid red;
-    background-color: cornflowerblue;
+    /* border: 1px solid red; */
+    background-image: url(/img/img-carrusel1.png);
+   background-size: 100% 100%;
+   background-color: crimson;
     opacity: 0.9;
 }
 .arrow-left{
@@ -89,9 +96,45 @@ margin-right: 10px;
 .arrow-right{
 margin-left: 10px;
 }
-
-
-
+.c-section{
+    width: 100%;
+    background-color: #59859F;
+    opacity: 0.9;
+    padding: 20px 0;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.c-niño-sect1{
+    width: 250px;
+    
+}
+.c-niño-sect2{
+    width: 150px;
+    margin-bottom: 20px;
+}
+.sect1{
+    border: 1px solid rgb(224, 207, 207);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.sect2{
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.c-img{
+    display: flex;
+    justify-content: center;
+}
+.img-pants{
+    width: 100%;
+    border-radius: 10px;
+}
 /* Inicio Footer */
 #footer{
     margin-top: 200px;
