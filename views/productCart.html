@@ -41,9 +41,9 @@
                 <h4>Pantalon 1</h4>
                 <div class="descripcion">
                     <a href=""><img name="fotopant" src="/img/PantMTiroAltoD.png" width="300px" height="300px" alt=""></a>
-                    <span class="precio">$10.000,00</span>
+                    <span class="precio">$5.000,00</span>
                         <div class="container">
-                            <p>Cantidad</p>
+                            <span>Cantidad</span>
                             <select class="cantButton" name="cantidad" id="cantidad" style="appearance:menulist-button;">
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -58,25 +58,35 @@
                                 <option value="10">10</option>
                             </select>
                             <a href=""><i class="far fa-trash-alt"></i><input class="botonDelete" type="reset" value="   Borrar"></a>
-                            <div>
-                                <p>Envío</p>
-                                <p>Impuestos</p>
+                            <div class="descriPrecio">
+                                <span>Pantalón tiro alto mujer</span>
+                                <span>$5000,00</span>
                             </div>
-                            <p>Ingresá tu código de descuento</p><input type="text" ><a href=""><input class="aplicarDesc" type="submit" value="Aplicar"></a>
-                            <div>
-                                <h3>Subtotal</h3>
-                                <h2>Total</h2>
-                                <a href=""><input class="payButton" type="submit" value="Pagar"></a>
+                            <div class="envioCosto">
+                                <span>Envío</span>
+                                <span>$600,00</span>
+                            </div>
+                            <div class="impuestoCosto">
+                                <span>Impuestos</span>
+                                <span>$0,00</span>
+                            </div>
+                            <p id="desc">Ingresá tu código de descuento</p><input class="barraDesc" type="text" ><a href=""><input class="aplicarDesc" type="submit" value="Aplicar"></a>
+                            <div class="precioSubtotal">
+                                <span >Subtotal</span>
+                                <span>$5600,0</span>
+                            </div>
+                            <div class="precioTotal">
+                                <span class="total">Total</span>
+                                <span>$5600,00</span>
+                            </div>
+                            <div class="buyNow">
+                                <a href=""><input class="buyButton" type="submit" value="Comprar ahora"></a>
+                                <a href="/index"><input class="buyContinue" type="submit" value="Seguir comprando"></a>
                             </div>
                         </div>
                     </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section>
-            <div>
-                <a href="/index">Seguir comprando</a>
             </div>
         </section>
     </main>
@@ -97,7 +107,7 @@
               </ul>
             </section>
             <section class="c-footer">
-                <p class="ta-c">Redes Socilaes</p>
+                <p class="ta-c">Redes Socilales</p>
                 <div class="c-redes">
                   <a href="#"><i class="fab fa-facebook icon"></i></a>
                   <a href="#"><i class="fab fa-instagram icon"></i></a>

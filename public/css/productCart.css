@@ -4,6 +4,7 @@
 *{
     box-sizing: border-box;
     font-family: 'Bakbak One', cursive;
+    /* border: solid 1px red */
 }
 body{
     background-image: url(/img/background.jpg);
@@ -68,11 +69,17 @@ body{
 }
 /* Fin del header */
 /* main */
+.container{
+    border: solid 1px black;
+    box-shadow: 0px 0px 10px rgb(0 0 0);
+    width: 300;
+}
 .compras{
     display: flex;
 }
 .descripcion{
     display: flex;
+    
 }
 
 .botonDelete{
@@ -85,10 +92,32 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
-.payButton{
+.buyButton{
     color: black;
     border-radius: 5px;
     cursor: pointer;
+
+}
+.buyContinue{
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+/*botones hover*/
+.buyButton:hover{
+    transition: 0.5s;
+    background-color: #5386A4;
+}
+.buyContinue:hover{
+    transition: 0.5s;
+    background-color: #5386A4;
+}
+/*fin hover*/
+.buyNow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .cantButton{
     border-radius: 5px;
@@ -100,6 +129,39 @@ body{
     color: black;
 
 }
+
+.descriPrecio{
+    display: flex;
+}
+
+.envioCosto{
+    display: flex;
+}
+
+.impuestoCosto{
+    display: flex;
+}
+p#desc{
+    margin-bottom: 0;
+}
+.barraDesc{
+    border-radius: 5px;
+}
+
+.precioSubtotal{
+    display: flex;
+    font-size: 22px;
+    justify-content: space-between;
+    align-content: space-between
+}
+
+.precioTotal{
+    font-size: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between
+}
+
 /* Inicio Footer */
 #footer{
     margin-top: 200px;
