@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/productCart.css">
-    <title>productCart</title>
+    <title>Carrito</title>
 </head>
 
 <body>
@@ -38,54 +38,93 @@
         <h2>Mis compras</h2>
         <section class="compras">
             <div class="nombreProducto">
-                <h4>Pantalon 1</h4>
+                <h4 class="artNum">Artículo 1</h4>
                 <div class="descripcion">
-                    <a href=""><img name="fotopant" src="/img/PantMTiroAltoD.png" width="300px" height="300px" alt=""></a>
-                    <span class="precio">$5.000,00</span>
-                        <div class="container">
-                            <span>Cantidad</span>
-                            <select class="cantButton" name="cantidad" id="cantidad" style="appearance:menulist-button;">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <a href=""><i class="far fa-trash-alt"></i><input class="botonDelete" type="reset" value="   Borrar"></a>
-                            <div class="descriPrecio">
-                                <span>Pantalón tiro alto mujer</span>
-                                <span>$5000,00</span>
-                            </div>
-                            <div class="envioCosto">
-                                <span>Envío</span>
-                                <span>$600,00</span>
-                            </div>
-                            <div class="impuestoCosto">
-                                <span>Impuestos</span>
-                                <span>$0,00</span>
-                            </div>
-                            <p id="desc">Ingresá tu código de descuento</p><input class="barraDesc" type="text" ><a href=""><input class="aplicarDesc" type="submit" value="Aplicar"></a>
-                            <div class="precioSubtotal">
-                                <span >Subtotal</span>
-                                <span>$5600,0</span>
-                            </div>
-                            <div class="precioTotal">
-                                <span class="total">Total</span>
-                                <span>$5600,00</span>
-                            </div>
-                            <div class="buyNow">
-                                <a href=""><input class="buyButton" type="submit" value="Comprar ahora"></a>
-                                <a href="/"><input class="buyContinue" type="submit" value="Seguir comprando"></a>
-                            </div>
+                    <a href=""><img name="fotopant" src="/img/PantMTiroAltoD.png" width="100px" height="100px"
+                            alt=""></a>
+                    <div class="container">
+                        <span>Cantidad</span>
+                        <select class="cantButton" name="cantidad" id="cantidad" style="appearance:menulist-button;">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <a href=""><i class="far fa-trash-alt"></i><input class="botonDelete" type="reset"
+                                value="   Borrar"></a>
+                        <div class="descriPrecio">
+                            <span>Pantalón tiro alto mujer</span>
+                            <span>$5000,00</span>
+                        </div>
+                        <div class="impuestoCosto">
+                            <span>Impuestos</span>
+                            <span>$0,00</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="compras">
+            <div class="nombreProducto">
+                <h4 class="artNum">Artículo 2</h4>
+                <div class="descripcion">
+                    <a href=""><img name="fotopant" src="/img/niño1.png" width="100px" height="100px"
+                            alt=""></a>
+                    <div class="container">
+                        <span>Cantidad</span>
+                        <select class="cantButton" name="cantidad" id="cantidad" style="appearance:menulist-button;">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <a href=""><i class="far fa-trash-alt"></i><input class="botonDelete" type="reset"
+                                value="   Borrar"></a>
+                        <div class="descriPrecio">
+                            <span>Pantalón niño</span>
+                            <span>$3500,00</span>
+                        </div>
+                        <div class="impuestoCosto">
+                            <span>Impuestos</span>
+                            <span>$0,00</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="containerResumen">
+                <p id="desc">Ingresá tu código de descuento</p><input class="barraDesc" type="text"><a href=""><input
+                        class="aplicarDesc" type="submit" value="Aplicar"></a>
+                <div class="envioCosto">
+                    <span>Envío</span>
+                    <span>$600,00</span>
+                 </div>
+                <div class="precioSubtotal">
+                    <span>Subtotal</span>
+                    <span>$9100,00</span>
+                </div>
+                <div class="precioTotal">
+                    <span class="total">Total</span>
+                    <span>$9100,00</span>
+                </div>
+                <div class="buyNow">
+                    <a href="/"><input class="buyContinue" type="submit" value="Seguir comprando"></a>
+                    <a href=""><input class="buyButton" type="submit" value="Comprar ahora"></a>
                 </div>
             </div>
         </section>
@@ -94,32 +133,32 @@
         <div class="containerFooter">
             <section class="c-footer">
                 <ul class="footer-list">
-                  <li><a href="/" class="footer-link">Quienes somos</a></li>
-                  <li><a href="/" class="footer-link">Mision</a></li>
-                  <li><a href="/" class="footer-link">Vision</a></li>
+                    <li><a href="/" class="footer-link">Quienes somos</a></li>
+                    <li><a href="/" class="footer-link">Mision</a></li>
+                    <li><a href="/" class="footer-link">Vision</a></li>
                 </ul>
             </section>
             <section class="c-footer">
-              <ul class="footer-list">
-                <li><a href="/" class="footer-link">Contáctanos</a></li>
-                <li><a href="/" class="footer-link">Ubicación</a></li>
-                <li><a href="/" class="footer-link">Dirección</a></li>
-              </ul>
+                <ul class="footer-list">
+                    <li><a href="/" class="footer-link">Contáctanos</a></li>
+                    <li><a href="/" class="footer-link">Ubicación</a></li>
+                    <li><a href="/" class="footer-link">Dirección</a></li>
+                </ul>
             </section>
             <section class="c-footer">
                 <p class="ta-c">Redes Socilales</p>
                 <div class="c-redes">
-                  <a href="#"><i class="fab fa-facebook icon"></i></a>
-                  <a href="#"><i class="fab fa-instagram icon"></i></a>
-                  <a href="#"><i class="fab fa-whatsapp icon"></i></a>
+                    <a href="#"><i class="fab fa-facebook icon"></i></a>
+                    <a href="#"><i class="fab fa-instagram icon"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp icon"></i></a>
                 </div>
             </section>
         </div>
         <section class="copy">
             <p>Copyright © 2021-2022 PantsAlone C.A</p>
         </section>
-      </footer>
-      <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>  
+    </footer>
+    <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
