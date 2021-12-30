@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %> 
+<body>
+  <%- include('../partials/header') %>  
+    <form action = "/login" method="post">
+        <div class="login">
+            <br>
+            <input type = "text" name "" placeholder = "Nombre de Usuario">
+            <br>
+            <br>
+            <input type = "password" name = "clave" id = "password" placeholder = "Ingresá tu contraseña">
+            <br>
+            <input type = "radio" name = "recordarme" id = "recordarme">
+            <label for ="recordarme">Recordarme</label>
+            <br>
+            <a href="/" class = "button"><input type="button" value="Enviar"></a>
+            <a href="/" class = "button"><input type="button" value="Olvidé mi contraseña"></a>
+        </div>
+    </form>
+  <%- include('../partials/footer') %> 
+  <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
+</body>
+</html>
+
+
+    
+

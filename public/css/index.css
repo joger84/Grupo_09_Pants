@@ -71,6 +71,7 @@ h3{
 }
 .burger-menu{
     display: none;
+    transition: all 450ms;
 }
 /* Fin del header */
 /* Inicio del Main */
@@ -200,13 +201,15 @@ margin-left: 10px;
         color:#004771;
         cursor: pointer;
         /* border: 1px solid #E1AFA0; */
-        border-radius: 20px;
+        border-radius: 5px;
         top: 10px;
         right: 10px;
     }
     .burger-menu:hover{
+        border-radius: 50%;
         background-color: #CFE3DD;
         color: #fff;
+        transform: rotate(180deg);
     }
     .burger-menu i{
         font-size: 20px;

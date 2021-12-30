@@ -1,47 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/productDetail.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    
-<title>Document</title>
-</head>
-<header>
-    <nav class="navbar">
-        <div class="container-img">
-            <a class="" href="#"><img class="img-header" src="/img/logo.png" alt=""></a>
-        </div>    
-        <div class="nav-link" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/productDetail">Detalle del Producto</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/register">Registro</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/productCart"><i class="fas fa-shopping-cart icon-car"></i></a>
-              </li>
-            </ul>
-        </div>
-        <form class="form-busqueda">
-            <input class="form-control" type="search" placeholder="Buscar..." >
-            <button class="btn-buscar" type="submit"><i class="fas fa-search"></i></button>
-        </form>
-        <div class="burger-menu">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
-</header>
+  <%- include('../partials/head') %> 
 <body>
+  <%- include('../partials/header') %> 
     <main>
         <br>
         <section class="section-article">
@@ -112,37 +73,7 @@
           </div>
         </section>
     </main>
-    <footer id="footer">
-        <div class="containerFooter">
-            <section class="c-footer">
-                <ul class="footer-list">
-                  <li><a href="/" class="footer-link">Quienes somos</a></li>
-                  <li><a href="/" class="footer-link">Mision</a></li>
-                  <li><a href="/" class="footer-link">Vision</a></li>
-                </ul>
-            </section>
-            <section class="c-footer">
-              <ul class="footer-list">
-                <li><a href="/" class="footer-link">Contáctanos</a></li>
-                <li><a href="/" class="footer-link">Ubicación</a></li>
-                <li><a href="/" class="footer-link">Dirección</a></li>
-              </ul>
-            </section>
-            <section class="c-footer">
-                <p class="ta-c">Redes Sociales</p>
-                <div class="c-redes">
-                  <a href="#"><i class="fab fa-facebook icon"></i></a>
-                  <a href="#"><i class="fab fa-instagram icon"></i></a>
-                  <a href="#"><i class="fab fa-whatsapp icon"></i></a>
-                </div>
-            </section>
-        </div>
-        <section class="copy">
-            <p class="ta-c">Copyright © 2021-2022 PantsAlone C.A</p>
-        </section>
-      </footer>
-
+  <%- include('../partials/footer') %> 
       <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
-
 </body>
 </html>

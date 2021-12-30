@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<!-- <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
-</head>
+</head> -->
+  <%- include('./partials/head') %> 
+
+
+
 <body>
-    <header>
+    <!-- <header>
         <nav class="navbar">
             <div class="container-img">
                 <a class="" href="#"><img class="img-header" src="/img/logo.png" alt=""></a>
@@ -36,8 +40,12 @@
             <div class="burger-menu">
               <i class="fas fa-bars"></i>
             </div>
-          </nav>
-    </header>
+        </nav>
+    </header> -->
+    <%- include('./partials/header') %> 
+    
+    
+    
     <main>
       <section class="carrusel">
           <div class="arrow-left">
@@ -109,7 +117,11 @@
 
       </section> -->
     </main>
-    <footer id="footer">
+    
+    
+    
+    <%- include('./partials/footer') %> 
+    <!-- <footer id="footer">
       <div class="containerFooter">
           <section class="c-footer">
               <ul class="footer-list">
@@ -137,7 +149,7 @@
       <section class="copy">
           <p class="ta-c">Copyright © 2021-2022 PantsAlone C.A</p>
       </section>
-    </footer>
+    </footer> -->
     <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
 </body>
 </html>
