@@ -2,22 +2,28 @@
 <html lang="en">
     <%- include('../partials/head') %> 
 <body>
-    <%- include('../partials/header') %> 
+    <%- include('../partials/header') %>
+    <link rel="stylesheet" href="css/create.css"> 
+
     <h3>Id</h3>
             <input class="cantButton" type="text">
             <h3>Nombre del Producto</h3>
-            <input class="" type= "text">
+            <input class="productName" type= "text">
             <h3>Descripción</h3>
-            <input class="" type= "text">
+            <input class="description" type= "text">
             <label for="Selecciona una imagen de Perfil":></label>
             <h3>Imagen</h3>
-                    <input type="file" name="avatar" accept=".jpg">
+                <input type="file" name="avatar" accept=".jpg">
             <h3>Categoría</h3>
-            <input class="" type="text">
+            <input class="category" type="text">
             <h3>Colores</h3>
-            <input class="" type="text">
+<select class="colors" name="colores" id="colores" style="appearance:menulist-button;">
+              <option value="0">Blue</option>
+              <option value="1">Grey</option>
+              <option value="2">White</option>
+              </select>
             <h3>Precio</h3>
-            <input class="" type="text">
+            <input class="price" type="text">
             <h3></h3>
                            
                         
