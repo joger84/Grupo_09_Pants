@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="css/create.css"> 
 
     <h3>Id</h3>
-            <input class="cantButton" type="text">
+            <input class="cantButton" type="search">
+            <a href=""><input class="button" type="submit" value="Search"></a>
             <h3>Nombre del Producto</h3>
-            <input class="productName" type= "text">
+            <input class="Nombre del Producto" type= "text">
             <h3>Descripción</h3>
             <input class="description" type= "text">
             <label for="Selecciona una imagen de Perfil":></label>
@@ -17,12 +18,14 @@
             <h3>Categoría</h3>
             <input class="category" type="text">
             <h3>Colores</h3>
-<select class="colors" name="colores" id="colores" style="appearance:menulist-button;">
-              <option value="0">Blue</option>
-              <option value="1">Grey</option>
-              <option value="2">White</option>
-              </select>
-              <h3>Talle</h3>
+            <select class="colors" name="colores" id="colores" style="appearance:menulist-button;"> 
+                <option value="0">Blue</option>
+                <option value="1">Grey</option>
+                <option value="2">White</option>
+                <option value="3">Black</option>
+                <option value="4">Beige</option>
+            </select>
+                <h3>Talle</h3>
             <select class="cantButton" name="Talle" id="talle" style="appearance:menulist-button;">
                     <option value="xs">xs</option>
                     <option value="s">s</option>
@@ -31,11 +34,14 @@
                     <option value="xl">xl</option>
                     <option value="xxl">xxl</option>
             </select>
+
+
             <h3>Precio</h3>
             <input class="price" type="text">
             <br>
-            <a href=""><input class="editButton" type="submit" value="Crear"></a>
+            <a href=""><input class="editButton" type="submit" value="Guardar Cambios"></a>
             <a href=""><input class="botonDelete" type="reset" value="Borrar"></a>
+
                            
                         
     <%- include('../partials/footer') %> 
