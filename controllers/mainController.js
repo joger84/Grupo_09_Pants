@@ -11,18 +11,7 @@ const controllers = {
     register: (req,res) => {
         res.render('./users/register')
     },
-    productCart: (req,res) => {
-        res.render('./products/productCart')
-    },
-    productDetail: (req,res) => {
-        res.render('./products/productDetail')
-    },
-    create: (req,res) => {
-        res.render('./products/createProduct')
-    },
-    editProduct: (req,res) => {
-        res.render('./products/editProduct')
-    },
+    
 }
 
 module.exports = controllers;
