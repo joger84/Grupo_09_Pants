@@ -11,8 +11,6 @@ app.use(express.static(path.resolve(__dirname,'public')))
 app.listen(3000,()=> console.log('Servidor arriba!'))
 
 app.use('/', rutas)
-app.use('/login', rutas)
-app.use('/register', rutas)
 
 app.use('/products', rutasProducts)
 
