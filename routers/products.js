@@ -4,6 +4,8 @@ const controller = require('../controllers/products');
 
 router.get('/', controller.browse)
 
+router.get('/productDetail', controller.detail)
+
 router.get('/productCart', controller.cart)
 
 router.get('/createProduct', controller.create)

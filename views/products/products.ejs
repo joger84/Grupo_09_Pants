@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %> 
+<body>
+  <%- include('../partials/header') %> 
+    <%products.forEach(element => { %>
+        <section>
+        <h2><%= element.id %> </h2>
+        </section>
+
+    <% }); %>
+
+
+
+
+
+  <%- include('../partials/footer') %> 
+      <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
+</body>
+</html>
