@@ -3,37 +3,60 @@
     <%- include('../partials/head') %> 
 <body>
     <%- include('../partials/header') %>
-    <h3>Id</h3>
-            <input class="cantButton" type="text">
-            <h3>Nombre del Producto</h3>
-            <input class="productName" type= "text">
-            <h3>Descripción</h3>
-            <input class="description" type= "text">
-            <label for="Selecciona una imagen de Perfil":></label>
-            <h3>Imagen</h3>
-                <input type="file" name="avatar" accept=".jpg" multiple>
-            <h3>Categoría</h3>
-            <input class="category" type="text">
-            <h3>Colores</h3>
-<select class="colors" name="colores" id="colores" style="appearance:menulist-button;">
-              <option value="0">Blue</option>
-              <option value="1">Grey</option>
-              <option value="2">White</option>
-              </select>
-              <h3>Talle</h3>
-            <select class="cantButton" name="Talle" id="talle" style="appearance:menulist-button;">
+    <section class="overflow">
+        <form class="formCreate" action="/products/createProduct" method="POST">
+            <div class="formItem">
+                <label>Nombre</label>
+                <input class="productName" type= "text" name='name'>
+            </div>
+            <div class="formItem">
+                <label>Descripción</label>
+                <input class="description" type= "text" name='descripcion'>
+            </div>
+            <div class="formItem">
+                <label>Cantidad</label>
+                <input class="cantidad" type="number" name='cantidad'>
+            </div>
+            <div class="formItem">
+                <label>Imagen</label>
+                <input type="file" name="imagen" accept=".jpg" multiple>
+            </div>
+            <div class="formItem">
+                <label>Categoría</label>
+                <input class="category" type="text" name='categoria'>
+            </div>
+            <div class="formItem">
+                <label>Colores</label>
+                <select class="colors" name="colores" id="colores" style="appearance:menulist-button;">
+                    <option value="Blue">Blue</option>
+                    <option value="Grey">Grey</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                </select>
+            </div>
+            <div class="formItem">
+                <label>Talla</label>
+                <select class="cantButton" name="tallas" id="tall" style="appearance:menulist-button;">
                     <option value="xs">xs</option>
                     <option value="s">s</option>
                     <option value="m">m</option>
                     <option value="l">l</option>
                     <option value="xl">xl</option>
                     <option value="xxl">xxl</option>
-            </select>
-            <h3>Precio</h3>
-            <input class="price" type="text">
-            <br>
-            <a href=""><input class="editButton" type="submit" value="Crear"></a>
-            <a href=""><input class="botonDelete" type="reset" value="Borrar"></a>
+                </select>
+            </div>
+            <div class="formItem">
+                <label>Precio</label>
+                <input class="price" type="text" name='precio'>
+                <br>
+            </div>
+            <div class="btns">
+                <button class="editButton" type="submit" value="crear" name='crear'>Crear</button>
+                <button class="botonDelete" type="reset" value="borrar" name='borrar'>Borrar</button>
+                
+            </div>
+        </form>
+    </section>
                            
                         
     <%- include('../partials/footer') %> 

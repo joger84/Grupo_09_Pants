@@ -4,74 +4,7 @@
 <body>
   <%- include('../partials/header') %> 
     <main>
-        <br>
-        <section class="section-article">
-            <article class="product-article">
-                <div class="produtc-1"><img src="/img/pantMTiroAltoF.png" alt="PantMujerTiroAltoF"></div>
-                <div class="small-pic">
-                    <div class="product-2"><img src="/img/pantMTiroAltoT.png" alt="PantMTiroAltoT"></div>
-                    <div class="product-3"><img src="/img/pantMTiroAltoD.png" alt="PantMTiroAltoD"></div>
-                    <div class="product-4"><img src="/img/pantMTiroAltoI.png" alt="PantMTiroAltoI"></div>
-                    
-                </div>
-                <div class="descProd">
-                    <h3>Pantalon Mujer Tiro Alto</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                </article>
-                
-                <article class="box-description">    
-                    </div class="description-art">
-                    <h1>Nombre del Producto</h1>
-                    <span class="priceProd">$ 5.000</span>
-                    <div class="color"><span>Color</span></div>
-                    <label for="Color">Negro: <input type="radio" name= "Color" value="Negro"></label>
-                    <label for="Color">Azul: <input type="radio" name= "Color" value="Azul"></label>
-                    <label for="Color">Celeste: <input type="radio" name= "Color" value="Celeste"></label>
-                    <label for="Color">Blanco: <input type="radio" name= "Color" value="Blanco"></label>
-                    <br>
-                    
-                    <div class="Talle"><span>Talle</span></div>
-                    <a href="">-Tabla de talles-</a>
-                    <label for="Talle">XS: <input type="radio" name= "Talle" value="XSmall"></label>
-                    <label for="Talle">S: <input type="radio" name= "Talle" value="Small"></label>
-                    <label for="Talle">M: <input type="radio" name= "Talle" value="Medium"></label>
-                    <label for="Talle">L: <input type="radio" name= "Talle" value="Large"></label>
-                    <label for="Talle">XL: <input type="radio" name= "Talle" value="XLarge"></label>
-                    <label for="Talle">XXL: <input type="radio" name= "Talle" value="XXLarge"></label>
-                    <br>
-                    <span class="send">Metodos de Envio</span>
-                    <span class="how-pay">Metodos de Pago</span>
-                    <a href="/"><input class="add-button" type="button" value="Añadir al Carrito"></a>
-                    <a class="nav-link" href="/productCart"><i class="fas fa-shopping-cart icon-car-prod"></i></a>
-                    <div>
-                </article>        
-        </section>  
-        <section class="buy"> 
-            <article class="pay">  
-                
-                <p class="register">Registrate en PantsAlone.com</p>
-                <a href="/" class="icon-footer"><i class="fas fa-credit-card"></i></a>
-                <h3 class="title-footer">Pagá con tarjeta o en efectivo</h3>
-            </article>
-            <Article class="add-pay">  
-                <p></p><i class="fas fa-gift icon-gift"></i></p>
-                <h3 class="title-send">Pants Gift</h3>
-                <p class="body-send">Con tu compra mayor a $10.000, el envio es gratis!.</p>
-            </article>
-        </section>
-        <section class="tablas-talles">
-          <div><h1>TABLA DE TALLES NIÑOS</h1> 
-            <div class="Tabla-talles-ninios"><img src="/img/tabla-nina.png" alt="tabla-niña"></div>
-            <div class="Tabla-talles-ninios"><img src="/img/tabla-nino.png" alt="tabla-niño"></div>
-          </div>
-          <div><h1>TABLA DE TALLES MUJER</h1>
-            <div class="Tabla-talles-mujer"><img src="/img/tabla-mujer.png" alt="tabla-mujer"></div>
-          </div>
-          <div><h1>TABLA DE TALLES HOMBRE</h1>
-            <div class="Tabla-talles-hombre"><img src="/img/tabla-hombre.png" alt="tabla-hombre"></div>
-          </div>
-        </section>
+        <h3>Detalle del producto <%= product.id %> </h3> 
     </main>
   <%- include('../partials/footer') %> 
       <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>

@@ -4,16 +4,12 @@
 <body>
   <%- include('../partials/header') %> 
     <%products.forEach(element => { %>
-        <section>
+      <section>
         <h2><%= element.id %> </h2>
-        </section>
+        <a href="/products/productDetail/<%= element.id %>">Detalle</a>  
+      </section>
 
     <% }); %>
-
-
-
-
-
   <%- include('../partials/footer') %> 
       <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
 </body>

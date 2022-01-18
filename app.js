@@ -3,6 +3,12 @@ const path = require('path');
 const app = express();
 const rutas = require('./routers/mainRouter');
 const rutasProducts = require('./routers/products');
+const methodOverride = require('method-override')
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 
