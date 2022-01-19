@@ -60,7 +60,7 @@ const contollerProducts = {
         return res.redirect('/products');
     },
     edit: (req,res) => {
-        // return res.render('./products/editProduct')
+        return res.render('./products/editProduct')
         const id = Number(req.params.id);
 
     },
