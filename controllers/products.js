@@ -64,6 +64,20 @@ const contollerProducts = {
         const id = Number(req.params.id);
 
     },
-}
+    delete: (req, res) => {
+        const productId = Number(req.params.id)
+        product.findById(productId, (err, product) => {
+            if(err) res.status(500).send({message: 'Error al borrar el producto'})
 
-module.exports= contollerProducts;
+            product.remove(err => {
+                if(err) res.status(500).send({message: 'Error al borrar el producto'})
+                res.status(200).send({message: 'El producto ha sido eliminado'})
+            })
+        })
+    },
+}
+    
+
+
+
+module.exports = contollerProducts;
