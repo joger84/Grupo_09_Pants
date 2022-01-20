@@ -1,6 +1,5 @@
 @import url(normalize.css);
 @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
-
 *{
     box-sizing: border-box;
     font-family: 'Bakbak One', cursive;
@@ -8,8 +7,14 @@
 body{
     background-image: url(/img/background.jpg);
     background-size: cover;
-    
 }
+
+/* para darle el opacity solo a la foto del background
+.body. url{ 
+    -webkit-filter: contrast(50%);
+    filter: contrast(50%);
+}*/
+
 h3{
     color: #fff;
     font-weight: 100;
