@@ -4,16 +4,20 @@
     box-sizing: border-box;
     font-family: 'Bakbak One', cursive;
 }
-body{
-    background-image: url(/img/background.jpg);
-    background-size: cover;
-}
 
-/* para darle el opacity solo a la foto del background
-.body. url{ 
-    -webkit-filter: contrast(50%);
-    filter: contrast(50%);
-}*/
+body::after {
+    content: "";
+    background: url(/img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
 
 h3{
     color: #fff;
@@ -146,12 +150,14 @@ margin-left: 10px;
 }
 /* Inicio Footer */
 #footer{
-    margin-top: 280px;
     background-color: #5386A4;
     opacity: 0.9;
     letter-spacing: 1.5px;
     color: white;
     height: 190px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 .containerFooter{
     width: 100%;

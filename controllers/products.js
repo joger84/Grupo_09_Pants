@@ -67,13 +67,15 @@ const contollerProducts = {
     delete: (req, res) => {
         const productId = Number(req.params.id)
         product.findById(productId, (err, product) => {
-            if(err) res.status(500).send({message: 'Error al borrar el producto'})
-
-            product.remove(err => {
-                if(err) res.status(500).send({message: 'Error al borrar el producto'})
-                res.status(200).send({message: 'El producto ha sido eliminado'})
+            if(err){
+              res.status(500).send({message: 'Error al borrar el producto'})
+            }    
+            else {product.remove(err => {
+              res.status(200).send({message: 'El producto ha sido eliminado'})
             })
+            }
         })
+
     },
 }
     
