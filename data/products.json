@@ -31,5 +31,16 @@
   "color": "Blue",
   "talla": "xl",
   "precio": "3000"
+ },
+ {
+  "id": 5,
+  "name": "Mondeo",
+  "descripcion": "invierno",
+  "cantidad": "1",
+  "imagen": "1643059020750 imagenPrueba.jpg",
+  "categoria": "Men",
+  "color": "Grey",
+  "talla": "xxl",
+  "precio": "3000"
  }
 ]

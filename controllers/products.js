@@ -38,7 +38,7 @@ const contollerProducts = {
                 name: req.body.name,
                 descripcion: req.body.descripcion,
                 cantidad: req.body.cantidad,
-                imagen: 'default',
+                imagen: req.file.filename,
                 categoria: req.body.categoria,
                 color: req.body.colores,
                 talla: req.body.tallas,
