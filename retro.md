@@ -35,3 +35,23 @@ Entendiendo que fueron semanas de festividades, se postergo de manera excepciona
 
 5. Dejar de hacer:
 Por ahora nada que agregar
+
+
+SPRINT 4:
+1. Comenzar a hacer:   
+Anticipar imprevistos.
+
+2. Hacer más:
+Asumir los compromisos planteados en las reuniones con el equipo. Mejorar la comunicación inmediata.
+
+3. Continuar haciendo:
+Reuniones semanales grupales.
+Compromiso con el trabajo.
+Trabajo colaborativo.
+Estimar tiempo dedicado al sprint como punto de partida (grupal e individual).
+
+4. Hacer menos:
+Por ahora nada que agregar 
+
+5. Dejar de hacer:
+Por ahora nada que agregar
