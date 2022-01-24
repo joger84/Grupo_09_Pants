@@ -9,5 +9,27 @@
   "color": "Grey",
   "talla": "xl",
   "precio": "90.000"
+ },
+ {
+  "id": 3,
+  "name": "Siena",
+  "descripcion": "Verano",
+  "cantidad": "1",
+  "imagen": "default",
+  "categoria": "Woman",
+  "color": "Blue",
+  "talla": "xs",
+  "precio": "3000"
+ },
+ {
+  "id": 4,
+  "name": "Onix",
+  "descripcion": "otoño",
+  "cantidad": "1",
+  "imagen": "default",
+  "categoria": "Men",
+  "color": "Blue",
+  "talla": "xl",
+  "precio": "3000"
  }
 ]
