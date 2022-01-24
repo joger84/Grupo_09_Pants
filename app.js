@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const rutas = require('./routers/mainRouter');
 const rutasProducts = require('./routers/products');
+const rutasUser = require('./routers/userRouter');
 const methodOverride = require('method-override')
 
 app.use(express.urlencoded({ extended: false }));
@@ -17,6 +18,8 @@ app.use(express.static(path.resolve(__dirname,'public')))
 app.listen(3000,()=> console.log('Servidor arriba!'))
 
 app.use('/', rutas)
+
+app.use('/user', rutasUser)
 
 app.use('/products', rutasProducts)
 
