@@ -3,42 +3,63 @@
     <%- include('../partials/head') %> 
 <body>
     <%- include('../partials/header') %>
-    <h3>Id</h3>
-            <input class="cantButton" type="search">
-            <a href=""><input class="button" type="submit" value="Search"></a>
-            <h3>Nombre del Producto</h3>
-            <input class="Nombre del Producto" type= "text">
-            <h3>Descripción</h3>
-            <input class="description" type= "text">
-            <label for="Selecciona una imagen de Perfil":></label>
-            <h3>Imagen</h3>
-                <input type="file" name="avatar" accept=".jpg" multiple>
-            <h3>Categoría</h3>
-            <input class="category" type="text">
-            <h3>Colores</h3>
-            <select class="colors" name="colores" id="colores" style="appearance:menulist-button;"> 
-                <option value="0">Blue</option>
-                <option value="1">Grey</option>
-                <option value="2">White</option>
-                <option value="3">Black</option>
-                <option value="4">Beige</option>
-            </select>
-                <h3>Talle</h3>
-            <select class="cantButton" name="Talle" id="talle" style="appearance:menulist-button;">
+    <section class="overflow">
+        <form class="formCreate" action="/products/<%= product.id %>?_method=put" method="POST">
+            <div class="formItem">
+                <label>Nombre</label>
+                <input class="productName" type= "text" name='name' value="<%= product.name %>">
+            </div>
+            <div class="formItem">
+                <label>Descripción</label>
+                <input class="description" type= "text" name='descripcion' value="<%= product.descripcion %>">
+            </div>
+            <div class="formItem">
+                <label>Cantidad</label>
+                <input class="cantidad" type="number" name='cantidad' value="<%= product.cantidad %>">
+            </div>
+            <div class="formItem">
+                <label>Imagen</label>
+                <input type="file" name="imagen" accept=".jpg" multiple value="<%= product.imagen %>">
+            </div>
+            <div class="formItem">
+                <label>Categoría</label>
+                <select class="category" name="categoria" id="categoria" style="appearance:menulist-button;" value="<%= product.categoria %>">
+                    <option value="-">-</option>
+                    <option value="Woman">Woman</option>
+                    <option value="Men">Men</option>
+                    <option value="Kids">Kids</option>
+                </select>
+            </div>
+            <div class="formItem">
+                <label>Colores</label>
+                <select class="colors" name="colores" id="colores" style="appearance:menulist-button;" value="<%= product.color %>">
+                    <option value="Blue">Blue</option>
+                    <option value="Grey">Grey</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                </select>
+            </div>
+            <div class="formItem">
+                <label>Talla</label>
+                <select class="cantButton" name="tallas" id="tall" style="appearance:menulist-button;" value="<%= product.talla %>">
                     <option value="xs">xs</option>
                     <option value="s">s</option>
                     <option value="m">m</option>
                     <option value="l">l</option>
                     <option value="xl">xl</option>
                     <option value="xxl">xxl</option>
-            </select>
-
-
-            <h3>Precio</h3>
-            <input class="price" type="text">
-            <br>
-            <a href=""><input class="editButton" type="submit" value="Guardar Cambios"></a>
-            <a href=""><input class="botonDelete" type="reset" value="Borrar"></a>
+                </select>
+            </div>
+            <div class="formItem">
+                <label>Precio</label>
+                <input class="price" type="text" name='precio' value="<%= product.precio %>">
+                <br>
+            </div>
+            <div class="btns">
+                <button class="editButton" type="submit" value="crear" name='crear'>Guardar</button>
+            </div>
+        </form>
+    </section>
 
                            
                         

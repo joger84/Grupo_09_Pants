@@ -4,7 +4,23 @@
 <body>
   <%- include('../partials/header') %> 
     <main>
-        <h3>Detalle del producto <%= product.id %> </h3> 
+        <section class="containerProdcuto"> 
+            <article class="producto">
+              <h2><%= `Producto: ${product.name} con el id: ${product.id}` %> </h2>
+              <p><%= `Descripcion: ${product.descripcion} ` %></p>
+              <p><%= `Categoría: ${product.categoria} ` %></p>
+              <p><%= `Talla: ${product.talla} ` %></p>
+              <p><%= `Color: ${product.color} ` %></p>
+              <p><%= `Cantidad: ${product.cantidad} ` %></p>
+              <p><%= `Precio: ${product.precio} $ ` %></p>
+              <p><%= `Imagen: ${product.imagen} ` %></p>
+              <a href="#" class="btn">Agregar a carrito</a>
+              <a href="/products/edit/<%= product.id %>" class="btn">Editar</a>  
+              <form class="btnEliminar" action="/products/<%= product.id %>?_method=delete" method="POST">
+                <button type="submit" class="btn">Eliminar</button>
+              </form>
+            </article>
+      </section>
 
         
     </main>

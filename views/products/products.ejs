@@ -2,14 +2,18 @@
 <html lang="en">
   <%- include('../partials/head') %> 
 <body>
-  <%- include('../partials/header') %> 
-    <%products.forEach(element => { %>
-      <section>
-        <h2><%= element.id %> </h2>
-        <a href="/products/productDetail/<%= element.id %>">Detalle</a>  
-      </section>
-
-    <% }); %>
+  <%- include('../partials/header') %>
+    <section class="containerProdcuto"> 
+      <%products.forEach(element => { %>
+        <article class="producto">
+          <h2><%= `Producto: ${element.name} con el id: ${element.id}` %> </h2>
+          <p><%= `Categoría: ${element.categoria} ` %></p>
+          <p><%= `Descripcion: ${element.descripcion} ` %></p>
+          <p><%= `Imagen: ${element.imagen} ` %></p>
+          <a class="btn" href="/products/productDetail/<%= element.id %>">Detalle</a>  
+        </article>
+      <% }); %>
+  </section>
   <%- include('../partials/footer') %> 
       <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
 </body>

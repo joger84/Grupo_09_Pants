@@ -1,46 +1,13 @@
 [
  {
-  "id": 1,
-  "name": "Prueba",
-  "descripcion": "pantalon",
-  "cantidad": "4",
-  "imagen": "default",
-  "categoria": "prueba",
-  "color": "Blue",
-  "talla": "xs",
-  "precio": "600000"
- },
- {
   "id": 2,
-  "name": "Prueba1111",
+  "name": "Pantalon Pescador",
   "descripcion": "pantalon",
-  "cantidad": "5",
+  "cantidad": "10",
   "imagen": "default",
-  "categoria": "prueba",
-  "color": "Blue",
-  "talla": "xs",
-  "precio": "600000"
- },
- {
-  "id": 3,
-  "name": "Ocean",
-  "descripcion": "Pantalon unisex",
-  "cantidad": "3",
-  "imagen": "default",
-  "categoria": "Femenino",
-  "color": "Black",
-  "talla": "m",
-  "precio": "4000"
- },
- {
-  "id": 4,
-  "name": "Palio",
-  "descripcion": "Verano",
-  "cantidad": "6",
-  "imagen": "default",
-  "categoria": "Masculino",
-  "color": "Blue",
-  "talla": "xs",
-  "precio": "5000"
+  "categoria": "Men",
+  "color": "Grey",
+  "talla": "xl",
+  "precio": "90.000"
  }
 ]

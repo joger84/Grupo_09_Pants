@@ -1,11 +1,19 @@
 @import url(normalize.css);
 @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+
+
 *{
     box-sizing: border-box;
     font-family: 'Bakbak One', cursive;
 }
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-body::after {
+body::before {
     content: "";
     background: url(/img/background.jpg);
     background-repeat: no-repeat;
@@ -16,7 +24,7 @@ body::after {
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;   
+    z-index: -1;
 }
 
 h3{
@@ -111,6 +119,7 @@ margin-left: 10px;
     background-color: #59859F;
     opacity: 0.9;
     padding: 20px 0;
+    margin: 40px 0;
 }
 .container{
     display: flex;
@@ -156,8 +165,7 @@ margin-left: 10px;
     color: white;
     height: 190px;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    margin-top: auto;
 }
 .containerFooter{
     width: 100%;
@@ -258,7 +266,8 @@ margin-left: 10px;
 /* Create Products */
 .overflow{
     overflow: auto;
-    margin-top: 50px;
+    margin: 40px 0;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -360,3 +369,51 @@ margin-left: 10px;
 
 }
 
+/* Productos */
+.containerProdcuto{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
+.producto{
+    background: #b8c9d3;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    padding: 20px;
+    text-shadow: 1px 1px 3px black;
+    width: 300px;
+}
+.btn{
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #5386A4;
+    color: white;
+    margin: 10px auto;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Detalle producto */
+
+.btnEliminar{
+    margin: 0 auto;
+}
+
+button.btn{
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #5386A4;
+    color: white;
+    cursor: pointer;
+    margin: 10px auto;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px black;
+}

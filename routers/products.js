@@ -13,10 +13,8 @@ router.post('/createProduct',controller.store)
 
 router.get('/edit/:id', controller.edit)
 
-router.get('/editProduct', controller.edit)
+router.put('/:id', controller.update)
 
-router.put('/products/:id', controller.update)
-
-router.delete('/products/:id', controller.delete)
+router.delete('/:id', controller.delete)
 
 module.exports = router;

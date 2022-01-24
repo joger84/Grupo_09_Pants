@@ -64,8 +64,9 @@ const contollerProducts = {
         return res.redirect('/products');
     },
     edit: (req, res) => {
-        return res.render('./products/editProduct')
         const id = Number(req.params.id);
+        const productEdit = products.find(product => product.id === id);
+        return res.render('./products/editProduct', {product: productEdit});
 
     },
     update: (req, res) => {
@@ -74,7 +75,7 @@ const contollerProducts = {
 		const productsArrayEdited = products.map(oneProduct => {
 			if (oneProduct.id === id) { 
 				return {
-					...oneProduct, 
+				...oneProduct, 
 				name: req.body.name,
                 descripcion: req.body.descripcion,
                 cantidad: req.body.cantidad,
@@ -88,25 +89,18 @@ const contollerProducts = {
 			return oneProduct; 
 		});
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(productsArrayEdited, null, ' '));
+		fs.writeFileSync(productPath, JSON.stringify(productsArrayEdited, null, ' '));
 		
 		return res.redirect('/products');
     },
     delete: (req, res) => {
-        const productId = Number(req.params.id)
-        product.findById(productId, (err, product) => {
-            if (err) {
-                res.status(500).send({
-                    message: 'Error al borrar el producto'
-                })
-            } else {
-                product.remove(err => {
-                    res.status(200).send({
-                        message: 'El producto ha sido eliminado'
-                    })
-                })
-            }
-        })
+       const id = Number(req.params.id);
+
+       const productoEliminar = products.filter(producto => producto.id !== id);
+
+       fs.writeFileSync(productPath, JSON.stringify(productoEliminar, null,' '));
+
+       return res.redirect('/products');
 
     },
 }
