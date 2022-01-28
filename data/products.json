@@ -42,5 +42,16 @@
   "color": "Grey",
   "talla": "xxl",
   "precio": "3000"
+ },
+ {
+  "id": 6,
+  "name": "Mustang",
+  "descripcion": "Pantalon media temporada",
+  "cantidad": "1",
+  "imagen": "1643330474438 imagenPrueba.jpg",
+  "categoria": "Woman",
+  "color": "Blue",
+  "talla": "s",
+  "precio": "6000"
  }
 ]

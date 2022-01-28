@@ -1,1 +1,32 @@
-[]
+[
+ {
+  "id": 1,
+  "fullName": "Sofia",
+  "usuario": "Sofi",
+  "email": "sofia_dinanno@hotmail.com",
+  "clave": "1234",
+  "confirmClave": "1234",
+  "fecha": "1983-07-10",
+  "genero": "mujer"
+ },
+ {
+  "id": 2,
+  "fullName": "Sofia di",
+  "usuario": "Sofi",
+  "email": "sofia_dinanno@hotmail.com",
+  "clave": "1234",
+  "confirmClave": "1234",
+  "fecha": "1983-07-10",
+  "genero": "mujer"
+ },
+ {
+  "id": 3,
+  "fullName": "Sofia",
+  "usuario": "Sofi 123",
+  "email": "sofia_dinanno@hotmail.com",
+  "clave": "123",
+  "confirmClave": "123",
+  "fecha": "1983-07-10",
+  "genero": "mujer"
+ }
+]
