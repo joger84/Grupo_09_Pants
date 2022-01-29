@@ -4,7 +4,7 @@
 <body>
   <%- include('../partials/header') %> 
   <section class="overflow">
-    <form class="formCreate" action="/user/register" method="POST">
+    <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
         <div class="formItem">
             <label>Nombre y apellido:</label>
             <input class="productName" type= "text" name='fullName'>
@@ -22,8 +22,12 @@
             <input type="password" name="clave">
         </div>
         <div class="formItem">
-            <label>Confirmar contrasela:</label>
+            <label>Confirmar contraseña:</label>
             <input type="password" name="confirmClave">
+        </div>
+        <div class="formItem">
+            <label>Avatar</label>
+            <input type="file" name="avatarImage" accept=".jpg" multiple>
         </div>
         <div class="formItem">
             <label>Fecha de nacimiento:</label>

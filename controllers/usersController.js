@@ -27,6 +27,7 @@ const controllerUser = {
                 email: req.body.email,
                 clave: req.body.clave,
                 confirmClave: req.body.confirmClave,
+                imagen: req.file.filename,
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
                 genero: req.body.genero
@@ -39,6 +40,7 @@ const controllerUser = {
                 email: req.body.email,
                 clave: req.body.clave,
                 confirmClave: req.body.confirmClave,
+                imagen: "default",
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
                 genero: req.body.genero
