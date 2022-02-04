@@ -11,6 +11,7 @@ const controllerUser = {
     register: (req,res) => {
         res.render('./users/register')
     },
+ 
     store: (req,res) =>{
         const generateID = () => {
             const lastUser = users[users.length - 1];
@@ -46,11 +47,21 @@ const controllerUser = {
                 genero: req.body.genero
             })
         }
-
+        
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
-
+        
         return res.redirect('/user/login');
-    }
+    },
+
+    profile: (req,res) => {
+        res.render('/users/profileUsers')
+    },
+    
+    logout: (req, res) => {
+		res.clearCookie("userEmail");
+		req.session.destroy();
+		return res.redirect("/");
+	}
 
 }
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') %> 
+<body>
+  <%- include('../partials/header') %>  
+    <form action = "/profileUsers" method="post">
+        <div class="profileUsers">
+            
+         <Section class = "overflow">   
+            <div class="formItem" >
+              <div class="row">
+                <div class="col-md-3">
+                  <h2>Hi <%= user.fullName %> </h2>
+                  <img src="/images/user/upload/<%= user.avatarImage %> ">
+                  <div class="alert alert-success"><%= user.email %> </div>
+                </div>
+                <form action="/user/logout" method="post">
+                  <button class="btn btn-warning">Salir</button>
+                </form>
+              </div>
+            </div>
+        </Section>   
+
+
+
+
+
+
+
+
+        </div>
+    </form>
+  <%- include('../partials/footer') %> 
+  <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
+</body>
+</html>

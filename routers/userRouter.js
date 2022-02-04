@@ -21,5 +21,8 @@ router.get('/login',controller.login);
 router.get('/register',controller.register);
 router.post('/register', upload.single("avatarImage"), controller.store);
 
+router.post('/profileUsers', controller.profile);
+
+router.post('/logout', controller.logout);
 
 module.exports = router;
