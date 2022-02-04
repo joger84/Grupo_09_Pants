@@ -15,11 +15,17 @@ const controllerUser = {
     store: (req,res) =>{
         const generateID = () => {
             const lastUser = users[users.length - 1];
-            // 2. Obtenemos el ID de ese último producto
+            // 2. Obtenemos el ID de ese último usuario
             const lastID = lastUser.id;
             // 3. Retornamos ese último ID incrementado en 1
             return lastID + 1;
         }
+
+       //*************  ---  ALE LO VALIDAS POR FAVOR???  (SOFI)--- *****************
+       //const dataBody = req.body;
+       //delete dataBody.confirmClave
+                    //pasar en el PUSH 'dataBody' en vez de req.body
+        
         if (users.length) {
             users.push({
                 id: generateID(),
@@ -53,8 +59,23 @@ const controllerUser = {
         return res.redirect('/user/login');
     },
 
+    // procesLogin: (req, res) => {
+       // 1. validar que el usuario que quiere loguearse este en la dataBase 
+    
+       // 2. validar que la contraseña sea valida con el user (compara con la bcrypt)
+
+       // 3. guardar al "userLogged" en Session - usa esa variable asi no rompe los codigos que siguen en profile
+        
+       // 4. borrar el password del user que tenemos almacenado en sesion
+
+       // 5. Redireccionamos a users/profileUsers
+    
+    //},
+
     profile: (req,res) => {
-        res.render('/users/profileUsers')
+        res.render('/users/profileUsers', {
+            user: req.session.userLogged
+        })
     },
     
     logout: (req, res) => {
