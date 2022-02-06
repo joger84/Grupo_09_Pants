@@ -11,12 +11,23 @@ const multerDiskStorage = multer.diskStorage({
         cb(null, path.resolve(__dirname,"../public/uploads/"));
     },
     filename: function (req, file, cb){
-        cb(null, Date.now() + " imagenPrueba.jpg");
+        const finalName = `${Date.now()}_img${path.extname(file.originalname)}`
+        cb(null, finalName);
     },
 
 })
-
-const upload = multer({storage: multerDiskStorage});
+const upload = multer({ 
+	storage: multerDiskStorage,
+	fileFilter: (req, file, cb) => {
+		const acceptedExtensions = [".jpg", ".png", ".jpeg", ".gif"];
+		const fileExtension = path.extname(file.originalname).toLowerCase();
+		if (acceptedExtensions.includes(fileExtension)) {
+			cb(null, true);
+		} else {
+			return cb("Only .png, .jpg, .jpeg and .gif format allowed!");
+		}
+	}
+});
 
 router.get('/', controller.browse);
 
@@ -26,11 +37,11 @@ router.get('/productCart', controller.cart);
 
 router.get('/createProduct', controller.create);
 
-router.post("/createProduct", upload.single("productImage"), controller.store);
+router.post("/createProduct", upload.single("image"), controller.store);
 
 router.get('/edit/:id', controller.edit);
 
-router.put('/:id', controller.update);
+router.put('/:id', upload.single("image"),controller.update);
 
 router.delete('/:id', controller.delete);
 

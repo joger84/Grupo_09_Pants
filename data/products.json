@@ -1,57 +1,24 @@
 [
  {
-  "id": 2,
-  "name": "Pantalon Pescador",
+  "id": 1,
+  "name": "pantalon para hombres",
   "descripcion": "pantalon",
-  "cantidad": "10",
-  "imagen": "default",
+  "cantidad": "20",
+  "image": "1644178267638_img.jpg",
   "categoria": "Men",
-  "color": "Grey",
-  "talla": "xl",
-  "precio": "90.000"
+  "color": "Black",
+  "talla": "m",
+  "precio": "150.000"
  },
  {
-  "id": 3,
-  "name": "Siena",
-  "descripcion": "Verano",
-  "cantidad": "1",
-  "imagen": "default",
-  "categoria": "Woman",
-  "color": "Blue",
-  "talla": "xs",
-  "precio": "3000"
- },
- {
-  "id": 4,
-  "name": "Onix",
-  "descripcion": "otoño",
-  "cantidad": "1",
-  "imagen": "default",
-  "categoria": "Men",
-  "color": "Blue",
-  "talla": "xl",
-  "precio": "3000"
- },
- {
-  "id": 5,
-  "name": "Mondeo",
-  "descripcion": "invierno",
-  "cantidad": "1",
-  "imagen": "1643059020750 imagenPrueba.jpg",
-  "categoria": "Men",
-  "color": "Grey",
-  "talla": "xxl",
-  "precio": "3000"
- },
- {
-  "id": 6,
-  "name": "Mustang",
-  "descripcion": "Pantalon media temporada",
-  "cantidad": "1",
-  "imagen": "1643330474438 imagenPrueba.jpg",
+  "id": 2,
+  "name": "pantalon para mujeres",
+  "descripcion": "pantalon",
+  "cantidad": "20",
+  "image": "1644178440513_img.png",
   "categoria": "Woman",
   "color": "Blue",
   "talla": "s",
-  "precio": "6000"
+  "precio": "160.000"
  }
 ]

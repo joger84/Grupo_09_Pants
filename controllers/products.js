@@ -38,7 +38,7 @@ const contollerProducts = {
                 name: req.body.name,
                 descripcion: req.body.descripcion,
                 cantidad: req.body.cantidad,
-                imagen: req.file.filename,
+                image: req.file.filename,
                 categoria: req.body.categoria,
                 color: req.body.colores,
                 talla: req.body.tallas,
@@ -50,7 +50,7 @@ const contollerProducts = {
                 name: req.body.name,
                 descripcion: req.body.descripcion,
                 cantidad: req.body.cantidad,
-                imagen: 'default',
+                image: req.file.filename,
                 categoria: req.body.categoria,
                 color: req.body.colores,
                 talla: req.body.tallas,
@@ -69,28 +69,24 @@ const contollerProducts = {
 
     },
     update: (req, res) => {
+        const id = Number(req.params.id);
 
-		const id = Number(req.params.id);
-		const productsArrayEdited = products.map(oneProduct => {
-			if (oneProduct.id === id) { 
-				return {
-				...oneProduct, 
-				name: req.body.name,
-                descripcion: req.body.descripcion,
-                cantidad: req.body.cantidad,
-                imagen: 'default',
-                categoria: req.body.categoria,
-                color: req.body.colores,
-                talla: req.body.tallas,
-                precio: req.body.precio
+		// Mapeo el array de productos original para editar el producto
+		const finalPdts = products.map(oneProduct => {
+			if (oneProduct.id === Number(req.params.id)) {
+				return { 
+					...oneProduct,
+					...req.body,
+					image: req.file ? req.file.filename : oneProduct.image
 				}
 			}
-			return oneProduct; 
+			return oneProduct;
 		});
+        
 
-		fs.writeFileSync(productPath, JSON.stringify(productsArrayEdited, null, ' '));
+		fs.writeFileSync(productPath, JSON.stringify(finalPdts, null, ' '));
 		
-		return res.redirect('/products');
+		return res.redirect(`/products/productDetail/${id}`);
     },
     delete: (req, res) => {
        const id = Number(req.params.id);
