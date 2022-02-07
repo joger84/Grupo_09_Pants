@@ -4,7 +4,7 @@
 <body>
     <%- include('../partials/header') %>
     <section class="overflow">
-        <form class="formCreate" action="/products/<%= product.id %>?_method=put" method="POST">
+        <form class="formCreate" action="/products/<%= product.id %>?_method=put" method="POST" enctype="multipart/form-data">
             <div class="formItem">
                 <label>Nombre</label>
                 <input class="productName" type= "text" name='name' value="<%= product.name %>">
@@ -19,8 +19,12 @@
             </div>
             <div class="formItem">
                 <label>Imagen</label>
-                <input type="file" name="imagen" accept=".jpg" multiple value="<%= product.imagen %>">
+                <input type="file" name="image" multiple >
             </div>
+            <div class='containerImg'>
+                <img src="/uploads/<%= product.image %>" alt="" width="200px" height="200px">
+            </div>
+            
             <div class="formItem">
                 <label>Categoría</label>
                 <select class="category" name="categoria" id="categoria" style="appearance:menulist-button;" value="<%= product.categoria %>">
@@ -32,7 +36,7 @@
             </div>
             <div class="formItem">
                 <label>Colores</label>
-                <select class="colors" name="colores" id="colores" style="appearance:menulist-button;" value="<%= product.color %>">
+                <select class="colors" name="color" id="colores" style="appearance:menulist-button;" value="<%= product.color %>">
                     <option value="Blue">Blue</option>
                     <option value="Grey">Grey</option>
                     <option value="White">White</option>
@@ -41,7 +45,7 @@
             </div>
             <div class="formItem">
                 <label>Talla</label>
-                <select class="cantButton" name="tallas" id="tall" style="appearance:menulist-button;" value="<%= product.talla %>">
+                <select class="cantButton" name="talla" id="tall" style="appearance:menulist-button;" value="<%= product.talla %>">
                     <option value="xs">xs</option>
                     <option value="s">s</option>
                     <option value="m">m</option>
@@ -52,16 +56,14 @@
             </div>
             <div class="formItem">
                 <label>Precio</label>
-                <input class="price" type="text" name='precio' value="<%= product.precio %>">
+                <input class="price" type="text" name='precio' value="<%= product.precio %>"> $
                 <br>
             </div>
-            <div class="btns">
-                <button class="editButton" type="submit" value="crear" name='crear'>Guardar</button>
+            <div class='btns'>
+                <button class="btn" type="submit" value="crear">Guardar</button>
             </div>
         </form>
     </section>
-
-                           
                         
     <%- include('../partials/footer') %> 
     <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>

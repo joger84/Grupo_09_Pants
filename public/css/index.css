@@ -388,6 +388,17 @@ margin-left: 10px;
     text-shadow: 1px 1px 3px black;
     width: 300px;
 }
+.containerImg{
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.containerImg img{
+    border: 3px solid white; 
+    border-radius: 5px;
+}
 .btn{
     border: 1px solid white;
     border-radius: 5px;
@@ -398,7 +409,9 @@ margin-left: 10px;
     text-align: center;
     text-decoration: none;
 }
-
+.btns{
+    margin: 0 auto;
+}
 /* Detalle producto */
 
 .btnEliminar{

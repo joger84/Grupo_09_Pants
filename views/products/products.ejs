@@ -9,7 +9,9 @@
           <h2><%= `Producto: ${element.name} con el id: ${element.id}` %> </h2>
           <p><%= `Categoría: ${element.categoria} ` %></p>
           <p><%= `Descripcion: ${element.descripcion} ` %></p>
-          <p><%= `Imagen: ${element.imagen} ` %></p>
+          <div class='containerImg'>
+            <img src="/uploads/<%= element.image %>" alt="" width="200px" height="200px">
+          </div>
           <a class="btn" href="/products/productDetail/<%= element.id %>">Detalle</a>  
         </article>
       <% }); %>

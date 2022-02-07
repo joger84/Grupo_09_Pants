@@ -13,7 +13,9 @@
               <p><%= `Color: ${product.color} ` %></p>
               <p><%= `Cantidad: ${product.cantidad} ` %></p>
               <p><%= `Precio: ${product.precio} $ ` %></p>
-              <p><%= `Imagen: ${product.imagen} ` %></p>
+              <div class='containerImg'>
+                <img src="/uploads/<%= product.image %>" alt="" width="200px" height="200px">
+              </div>
               <a href="#" class="btn">Agregar a carrito</a>
               <a href="/products/edit/<%= product.id %>" class="btn">Editar</a>  
               <form class="btnEliminar" action="/products/<%= product.id %>?_method=delete" method="POST">
