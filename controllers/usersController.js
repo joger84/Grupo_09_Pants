@@ -59,18 +59,23 @@ const controllerUser = {
         return res.redirect('/user/login');
     },
 
-    // procesLogin: (req, res) => {
+     loginProcess: (req, res) => {
        // 1. validar que el usuario que quiere loguearse este en la dataBase 
-    
+         const userToLogin= usersDB.find( oneUser => oneUser.email=== req.body.email);
+
        // 2. validar que la contraseña sea valida con el user (compara con la bcrypt)
-
+       if (userToLogin){
+             const passwordCorrect = bcrypt.compareSync(req.body.password, userToLogin.password);
        // 3. guardar al "userLogged" en Session - usa esa variable asi no rompe los codigos que siguen en profile
-        
-       // 4. borrar el password del user que tenemos almacenado en sesion
-
+             if (passwordCorrect){
+       // 4. borrar el password del user que tenemos almacenado en sesion          
+             delete userToLogin.password;
+             req.session.userLogged = userToLogin;
        // 5. Redireccionamos a users/profileUsers
-    
-    //},
+       return res.redirect("/user/profile")      
+       }
+      }
+    },
 
     profile: (req,res) => {
         res.render('/users/profileUsers', {

@@ -28,8 +28,8 @@ const upload = multer({storage: multerDiskStorage});
 // Formulario de Login
 router.get('/login',controller.login);
 
-// Falta proceso de Login (lo hace Jorge controller linea 62)
-//router.post('/login', controller.processLogin);
+//Login process
+router.post('/login', controller.loginProcess);
 
 // Formulario de Register
 router.get('/register',controller.register);
