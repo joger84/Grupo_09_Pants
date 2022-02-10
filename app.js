@@ -21,7 +21,7 @@ app.listen(3000,()=> console.log('Servidor arriba!'))
 app.use(session({
     secret: 'keyboard cat',
     resave: false ,
-    saveUninitialized: ture,
+    saveUninitialized: true
 }));
 
 app.use('/', rutas)

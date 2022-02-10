@@ -37,7 +37,7 @@ router.get('/register',controller.register);
 router.post('/register', upload.single("avatarImage"), controller.store);
 
 // Perfil de Usuario
-router.post('/profileUsers', controller.profile);
+router.post('/profile', controller.profile );
 
 // Logout
 router.post('/logout', controller.logout);

@@ -4,49 +4,21 @@
   "fullName": "Sofia",
   "usuario": "Sofi",
   "email": "sofia_dinanno@hotmail.com",
-  "clave": "1234",
-  "confirmClave": "1234",
+  "clave": "123",
+  "confirmClave": "123",
+  "image": "default",
   "fecha": "1983-07-10",
   "genero": "mujer"
  },
  {
   "id": 2,
-  "fullName": "Sofia di",
-  "usuario": "Sofi",
-  "email": "sofia_dinanno@hotmail.com",
-  "clave": "1234",
-  "confirmClave": "1234",
-  "fecha": "1983-07-10",
-  "genero": "mujer"
- },
- {
-  "id": 3,
-  "fullName": "Sofia",
+  "fullName": "Sofia2",
   "usuario": "Sofi 123",
   "email": "sofia_dinanno@hotmail.com",
   "clave": "123",
   "confirmClave": "123",
-  "fecha": "1983-07-10",
+  "image": "1644447652324 imageAvatar.jpg",
+  "fecha": "",
   "genero": "mujer"
- },
- {
-  "id": 4,
-  "fullName": "LISANDRO ROSSI",
-  "usuario": "tribi",
-  "email": "rossilisandro@hotmail.com",
-  "clave": "123",
-  "confirmClave": "123",
-  "fecha": "1977-09-25",
-  "genero": "hombre"
- },
- {
-  "id": 5,
-  "fullName": "Cosme Fulanito",
-  "usuario": "Homero",
-  "email": "homi@loquesea.com",
-  "clave": "123",
-  "confirmClave": "123",
-  "imagen": "1643471971947 imageAvatar.jpg",
-  "fecha": "1991-05-07"
  }
 ]

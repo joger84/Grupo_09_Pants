@@ -21,7 +21,7 @@ const controllerUser = {
             return lastID + 1;
         }
 
-       //*************  ---  ALE LO VALIDAS POR FAVOR???  (SOFI)--- *****************
+       
        //const dataBody = req.body;
        //delete dataBody.confirmClave
                     //pasar en el PUSH 'dataBody' en vez de req.body
@@ -78,7 +78,7 @@ const controllerUser = {
     },
 
     profile: (req,res) => {
-        res.render('/users/profileUsers', {
+        res.render('profileUsers', {
             user: req.session.userLogged
         })
     },
