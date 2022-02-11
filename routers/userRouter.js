@@ -8,9 +8,7 @@ const multer = require('multer');
 //Middelwares
 const upLoadFiles = require('../middelwares/multerMiddelware');
 const authMiddelware = require("../middelwares/authMiddelware");
-const autoLogin = require("../middelwares/autoLoginMiddelware");
 const guestMiddelware = require('../middelwares/guestMiddelware');
-const loggedUser = require("../middelwares/userLoggedMiddelware");
 const validations = require('../middelwares/valitationRegisterMiddelware');
 
 
@@ -26,18 +24,18 @@ const multerDiskStorage = multer.diskStorage({
 const upload = multer({storage: multerDiskStorage});
 
 // Formulario de Login
-router.get('/login',controller.login);
+router.get('/login', guestMiddelware, controller.login);
 
-//Login process
+//Login process - ver validaciones (pasamos al Middelware??)
 router.post('/login', controller.loginProcess);
 
 // Formulario de Register
-router.get('/register',controller.register);
-// Proceso de Registro
-router.post('/register', upload.single("avatarImage"), controller.store);
+router.get('/register', guestMiddelware, controller.register);
+// Proceso de Registro ver validaciones (pasamos al Middelware??)
+router.post('/register', upLoadFiles.single("avatarImage"), controller.store);
 
 // Perfil de Usuario
-router.post('/profile', controller.profile );
+router.get('/profile', authMiddelware, controller.profile );
 
 // Logout
 router.post('/logout', controller.logout);

@@ -12,7 +12,12 @@ app.use(express.json());
 
 app.use(methodOverride('_method'));
 
+// Motor de app
 app.set('view engine', 'ejs');
+
+//MD userLogged
+//const userLoggedMD = require("./middelwares/userLoggedMiddelware");
+//app.use(userLoggedMD)
 
 app.use(express.static(path.resolve(__dirname,'public')))
 
@@ -24,6 +29,14 @@ app.use(session({
     saveUninitialized: true
 }));
 
+//**************PRUEBA PARA VER EN CONSOLA EL USUARIO LOGUEAGO************/
+/*app.use((req, res, next) =>{
+    console.log("Usuario logueado: " + req.session.userLogged?.fullName);
+    next();
+})*/
+
+
+// Routers
 app.use('/', rutas)
 
 app.use('/user', rutasUser)

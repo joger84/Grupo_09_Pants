@@ -56,7 +56,7 @@ const controllerUser = {
         
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
         
-        return res.redirect('/user/login');
+        return res.redirect('/users/login');
     },
 
      loginProcess: (req, res) => {
@@ -72,15 +72,16 @@ const controllerUser = {
              delete userToLogin.password;
              req.session.userLogged = userToLogin;
        // 5. Redireccionamos a users/profileUsers
-       return res.redirect("/user/profile")      
+       return res.redirect("/users/profile")      
        }
       }
     },
 
     profile: (req,res) => {
-        res.render('profileUsers', {
+       /* res.render('profileUsers', {
             user: req.session.userLogged
-        })
+        })*/
+        res.send('estas en profile')
     },
     
     logout: (req, res) => {

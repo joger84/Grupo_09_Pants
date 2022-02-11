@@ -1,11 +1,5 @@
 // ********Middelware de Carga de Archivos**********
 
-
-
-// **************   FALTAN LAS VINCULACIONES   ****************
-
-
-
 const path = require('path');
 const multer = require('multer');
 
