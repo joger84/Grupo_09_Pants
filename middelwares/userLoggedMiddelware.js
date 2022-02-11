@@ -5,16 +5,16 @@
 // entonces cuando tenemos un Usuario logueado sigue con el flujo normal.
 
 function userLoggedMiddelware (req, res, next){
-    res.local.usuerAlreadyLogged = false;
+    res.local.userAlreadyLogged = false;
 
-    if (req.session.userLogged !== undefined){
-        res.locals.usuerAlreadyLogged = true;
+    if (req.session.userLogged !== undefined){ 
+        res.locals.userAlreadyLogged = true;
         res.locals.users = {
-            name: req.session.userLogged.fullName,
+            usuario: req.session.userLogged.fullName, // tiene que ser = a la DB - esta ok como fullname
             avatarImg: req.session.userLogged.avatar,
         }
     }
     next();
-}
+    }
 
 module.exports = userLoggedMiddelware;

@@ -15,25 +15,26 @@ app.use(methodOverride('_method'));
 // Motor de app
 app.set('view engine', 'ejs');
 
-//MD userLogged
-//const userLoggedMD = require("./middelwares/userLoggedMiddelware");
-//app.use(userLoggedMD)
+//MD userLogged (soy un MD de aplicacion)
+const userLoggedMD = require("./middelwares/userLoggedMiddelware");
+app.use(userLoggedMD)
 
 app.use(express.static(path.resolve(__dirname,'public')))
 
 app.listen(3000,()=> console.log('Servidor arriba!'))
 
+//nos va a permitir poder acceder al req.session desde cualquier lugar de la app (salvo vistas para vistas req.locals)
 app.use(session({
     secret: 'keyboard cat',
     resave: false ,
     saveUninitialized: true
 }));
 
-//**************PRUEBA PARA VER EN CONSOLA EL USUARIO LOGUEAGO************/
-/*app.use((req, res, next) =>{
-    console.log("Usuario logueado: " + req.session.userLogged?.fullName);
-    next();
-})*/
+//**************PRUEBA PARA VER EN CONSOLA EL USUARIO LOGUEADO************/
+//app.use((req, res, next) =>{
+  //  console.log("Usuario logueado: " + req.session.userLogged?.fullName);
+   // next();
+//})
 
 
 // Routers

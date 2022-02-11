@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs")
-
+const bcrypt = require("bcryptjs");
 const usersPath = path.resolve(__dirname, "../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 
@@ -61,27 +61,29 @@ const controllerUser = {
 
      loginProcess: (req, res) => {
        // 1. validar que el usuario que quiere loguearse este en la dataBase 
-         const userToLogin= usersDB.find( oneUser => oneUser.email=== req.body.email);
+         const userToLogin= users.find( oneUser => oneUser.usuario=== req.body.usuario);
 
        // 2. validar que la contraseña sea valida con el user (compara con la bcrypt)
        if (userToLogin){
-             const passwordCorrect = bcrypt.compareSync(req.body.password, userToLogin.password);
+             const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
        // 3. guardar al "userLogged" en Session - usa esa variable asi no rompe los codigos que siguen en profile
              if (passwordCorrect){
        // 4. borrar el password del user que tenemos almacenado en sesion          
-             delete userToLogin.password;
+             delete userToLogin.clave;
              req.session.userLogged = userToLogin;
        // 5. Redireccionamos a users/profileUsers
-       return res.redirect("/users/profile")      
-       }
+            }
+            console.log(userToLogin)
+            return res.redirect("/user/profile" , {userToLogin})      
+            
       }
     },
 
     profile: (req,res) => {
-       /* res.render('profileUsers', {
-            user: req.session.userLogged
-        })*/
-        res.send('estas en profile')
+       res.render('./users/profileUsers', {
+            user: req.session.userLogged  // en la variable user estamos pasando el usuario que se logueo
+        })                                // por eso en la vista pasamos la variable "user" 
+       
     },
     
     logout: (req, res) => {

@@ -10,9 +10,9 @@
             <div class="formItem" >
               <div class="row">
                 <div class="col-md-3">
-                  <h2>Hi <%= user.fullName %> </h2>
-                  <img src="/images/user/upload/<%= user.avatarImage %> ">
-                  <div class="alert alert-success"><%= user.email %> </div>
+                  <h2>Hi <%= users.fullName %> </h2>
+                  <img src="/images/user/upload/<%= users.avatarImage %> ">
+                  <div class="alert alert-success"><%= users.email %> </div>
                 </div>
                 <form action="/user/logout" method="post">
                   <button class="btn btn-warning">Salir</button>

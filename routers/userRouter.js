@@ -5,7 +5,7 @@ const controller = require('../controllers/usersController');
 const {check} = require("express-validator");
 const multer = require('multer');
 
-//Middelwares
+//Middelwares de rutas
 const upLoadFiles = require('../middelwares/multerMiddelware');
 const authMiddelware = require("../middelwares/authMiddelware");
 const guestMiddelware = require('../middelwares/guestMiddelware');
@@ -31,11 +31,11 @@ router.post('/login', controller.loginProcess);
 
 // Formulario de Register
 router.get('/register', guestMiddelware, controller.register);
-// Proceso de Registro ver validaciones (pasamos al Middelware??)
+// Proceso de Registro *************ver validaciones************ ALE una vez que este el MD deberiamos pasarlo aca tambien
 router.post('/register', upLoadFiles.single("avatarImage"), controller.store);
 
 // Perfil de Usuario
-router.get('/profile', authMiddelware, controller.profile );
+router.get('/profile', controller.profile );
 
 // Logout
 router.post('/logout', controller.logout);

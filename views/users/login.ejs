@@ -3,10 +3,10 @@
   <%- include('../partials/head') %> 
 <body>
   <%- include('../partials/header') %>  
-    <form action = "/login" method="post">
+    <form action = "/user/login" method="post">
         <div class="login">
             <br>
-            <input type = "text" name "" placeholder = "Nombre de Usuario">
+            <input type = "text" name ="usuario" placeholder = "Nombre de Usuario">
             <br>
             <br>
             <input type = "password" name = "clave" id = "password" placeholder = "Ingresá tu contraseña">
@@ -14,7 +14,7 @@
             <input type = "radio" name = "recordarme" id = "recordarme">
             <label for ="recordarme">Recordarme</label>
             <br>
-            <a href="/" class = "button"><input type="button" value="Enviar"></a>
+            <button  class = "button"><input type="submit" value="Enviar"></button>
             <a href="/" class = "button"><input type="button" value="Olvidé mi contraseña"></a>
         </div>
     </form>
