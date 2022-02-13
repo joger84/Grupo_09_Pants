@@ -7,47 +7,78 @@
     <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
         <div class="formItem">
             <label>Nombre y apellido:</label>
-            <input class="productName" type= "text" name='fullName'>
+            <input class="productName" type= "text" name='fullname' value="<%=locals.oldDate ? oldDate.fullname : null%>">
+            <% if (locals.errors && errors.fullname) { %>
+                <div class="danger">
+                    <%= errors.fullname.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
             <label>Nombre de usuario:</label>
-            <input class="description" type= "text" name='usuario'>
+            <input class="description" type= "text" name='usuario' value="<%=locals.oldDate ? oldDate.usuario : null%>">
+            <% if (locals.errors && errors.usuario) { %>
+                <div class="danger">
+                    <%= errors.usuario.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
             <label>Email:</label>
-            <input class="cantidad" type="email" name='email'>
+            <input class="cantidad" type="email" name='email' value="<%=locals.oldDate ? oldDate.email : null%>">
+            <% if (locals.errors && errors.email) { %>
+                <div class="danger">
+                    <%= errors.email.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
             <label>Contraseña:</label>
-            <input type="password" name="clave">
-        </div>
-        <div class="formItem">
-            <label>Confirmar contraseña:</label>
-            <input type="password" name="confirmClave">
+            <input type="password" name="clave" value="<%=locals.oldDate ? oldDate.clave : null%>">
+            <% if (locals.errors && errors.clave) { %>
+                <div class="danger">
+                    <%= errors.clave.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
             <label>Avatar</label>
             <input type="file" name="avatarImage" accept=".jpg" multiple>
+            <% if (locals.errors && errors.avatarImage) { %>
+                <div class="danger">
+                    <%= errors.avatarImage.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
             <label>Fecha de nacimiento:</label>
-            <input type="date" name="fecha">
+            <input type="date" name="fecha" value="<%=locals.oldDate ? oldDate.fecha : null%>">
+            <% if (locals.errors && errors.fecha) { %>
+                <div class="danger">
+                    <%= errors.fecha.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
-            <label>Elegi un pais</label>
-            <select name="country" id="country" style="appearance:menulist-button;">
-                <option value="-">-</option>
-                <option value="Arg">Argentina</option>
-                <option value="Bol">Bolivia</option>
-                <option value="Bra">Brasil</option>
-                <option value="Col">Colombia</option>
-                <option value="Chi">Chile</option>
-                <option value="Ecu">Ecuador</option>
-                <option value="Para">Paraguay</option>
-                <option value="Peru">Peru</option>
-                <option value="Uru">Uruguay</option>
-                <option value="Ven">Venezuela</option>
+            <label>Elige un país</label>
+            <select name="paises" class="formSelect">
+                <option value="">Elige un país</option>
+                <% 
+                    let countries = ['Argentina','Bolivia','Brasil','Colombia','Chile','Ecuador','Paraguay','Peru','Uruguay','Venezuela']
+                 %> 
+                <% for( const oneCountry of countries ) { %>
+                    <option 
+                        value="<%= oneCountry %>"
+                        <%= locals.oldDate && oneCountry === oldDate.paises ? 'selected' : null %> 
+                        ><%= oneCountry %> </option>
+                <% } %>
+                
             </select>
+            <% if (locals.errors && errors.paises) { %>
+                <div class="danger">
+                    <%= errors.paises.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="formItem">
             <label>Genero:</label>

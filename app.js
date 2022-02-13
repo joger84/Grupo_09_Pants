@@ -16,8 +16,8 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 //MD userLogged (soy un MD de aplicacion)
-const userLoggedMD = require("./middelwares/userLoggedMiddelware");
-app.use(userLoggedMD)
+// const userLoggedMD = require("./middelwares/userLoggedMiddelware");
+// app.use(userLoggedMD)
 
 app.use(express.static(path.resolve(__dirname,'public')))
 

@@ -3,6 +3,8 @@ const fs = require("fs")
 const bcrypt = require("bcryptjs");
 const usersPath = path.resolve(__dirname, "../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+const {validationResult} = require('express-validator');
+const { render } = require("ejs");
 
 const controllerUser = {
     login: (req,res) => {
@@ -13,6 +15,12 @@ const controllerUser = {
     },
  
     store: (req,res) =>{
+        const resultValidation = validationResult(req);
+        
+        // return res.send(resultValidation.mapped())
+        if(resultValidation.errors.length){
+            return res.render('./users/register', {errors: resultValidation.mapped(),oldDate:req.body})
+        }
         const generateID = () => {
             const lastUser = users[users.length - 1];
             // 2. Obtenemos el ID de ese último usuario
@@ -20,8 +28,6 @@ const controllerUser = {
             // 3. Retornamos ese último ID incrementado en 1
             return lastID + 1;
         }
-
-       
        //const dataBody = req.body;
        //delete dataBody.confirmClave
                     //pasar en el PUSH 'dataBody' en vez de req.body
@@ -33,7 +39,6 @@ const controllerUser = {
                 usuario: req.body.usuario,
                 email: req.body.email,
                 clave: req.body.clave,
-                confirmClave: req.body.confirmClave,
                 image: req.file.filename,
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
@@ -46,7 +51,6 @@ const controllerUser = {
                 usuario: req.body.usuario,
                 email: req.body.email,
                 clave: req.body.clave,
-                confirmClave: req.body.confirmClave,
                 image: "default",
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
