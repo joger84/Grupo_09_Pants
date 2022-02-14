@@ -6,20 +6,23 @@
     <form action = "/user/login" method="post">
         <div class="login">
             <br>
-            <input type = "text" name ="usuario" placeholder = "Nombre de Usuario">
-       <!--  <% if (locals.errors && errors.usuario) { %>
+            <label> <b> Correo Electronico</b></label>
+              <input type = "text" name ="email" >
+              <!--  <% if (locals.email && errors.email) { %>
               <div class="danger">
                <%= errors.usuario.msg %>
               </div>
           <% } %>   -->
             <br>
             <br>
-            <input type = "password" name = "clave" id = "password" placeholder = "Ingresá tu contraseña">
+            <label> <b>Contraseña</b></label>
+            <input type = "password" name = "clave" id = "password">
             <br>
-            <input type = "radio" name = "recordarme" id = "recordarme">
-            <label for ="recordarme">Recordarme</label>
+            <label>
+              <input type="checkbox" class="recordarme" name="remember_user">Recordar mi usuario
+            </label>
             <br>
-            <button  class = "button"><input type="submit" value="Enviar"></button>
+            <button  class = "button"> <input type="submit" value="Enviar"></button>
             <a href="/" class = "button"><input type="button" value="Olvidé mi contraseña"></a>
         </div>
     </form>

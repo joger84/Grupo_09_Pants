@@ -7,13 +7,13 @@ const {validationResult} = require('express-validator');
 const { render } = require("ejs");
 
 const controllerUser = {
-    login: (req,res) => {
-        res.render('./users/login')
-    },
     register: (req,res) => {
         res.render('./users/register')
     },
- 
+    login: (req,res) => {
+       return res.render('./users/login')
+    },
+    
     store: (req,res) =>{
         const resultValidation = validationResult(req);
         
@@ -78,8 +78,11 @@ const controllerUser = {
                  req.session.userLogged = userToLogin;
                  // 5. Redireccionamos a users/profileUsers
                 }
+                if(req.body.remember_user){
+                    res.cookie('mailUser', req.body.email, {maxAge: (1000 * 60) * 5})
+                }
                 return res.redirect("/user/profile")      
-            console.log(userToLogin)
+          
             }
     },
 

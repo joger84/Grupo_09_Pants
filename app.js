@@ -6,6 +6,8 @@ const rutasProducts = require('./routers/products');
 const rutasUser = require('./routers/userRouter');
 const methodOverride = require('method-override')
 const session = require('express-session');
+const cookies = require('cookie-parser');
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -25,6 +27,10 @@ app.use(session({
     resave: false ,
     saveUninitialized: true
 }));
+
+app.use(cookies());
+
+/* aca va el MD para que muestre o no en el nav (login y register)*/
 
 //**************PRUEBA PARA VER EN CONSOLA EL USUARIO LOGUEADO************/
 //app.use((req, res, next) =>{
