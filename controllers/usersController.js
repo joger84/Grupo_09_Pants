@@ -79,7 +79,7 @@ const controllerUser = {
                  // 5. Redireccionamos a users/profileUsers
                 }
                 if(req.body.remember_user){
-                    res.cookie('mailUser', req.body.email, {maxAge: (1000 * 60) * 5})
+                    res.cookie('mailUser', req.body.email, {maxAge: (1000 * 60) * 5}) // seteo de cookie
                 }
                 return res.redirect("/user/profile")      
           
@@ -87,8 +87,8 @@ const controllerUser = {
     },
 
     profile: (req,res) => {
-        res.render('./users/profileUsers', {
-            users: req.session.userLogged  
+        res.render('./users/profile' , {
+            users: req.session.userLogged   //estoy pasando a la vista la variable users
         })                               
     },
     
