@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head') %> 
+  <body>
+    <%- include('../partials/header') %>  
+    <form action = "/user/profileSetUp" method="get">
+        <section>
+          <div class="formItem">
+              <h2> Hi <%=users.usuario%> </h2>
+              <img src="/public/uploads/<%= users.avatarImage %>" >
+              <H3> <%= users.email %></H3>
+          </div>
+
+          <form action="/user/logout" method="post">
+              <button class="submit">Cerrar Sesion</button>
+          </form>
+    
+        </section>
+    </form>
+    
+        <%- include('../partials/footer') %> 
+        <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
+  </body>
+</html>

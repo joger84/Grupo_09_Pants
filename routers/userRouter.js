@@ -33,8 +33,9 @@ router.get('/register', guestMiddelware, controller.register);
 // Proceso de Registro 
 router.post('/register', upload.single("avatarImage"),validations, controller.store);
 
-// Perfil de Usuario
+// profile
 router.get('/profile', authMiddelware, controller.profile);
+
 
 // Logout
 router.post('/logout', controller.logout);
