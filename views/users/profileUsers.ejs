@@ -3,19 +3,17 @@
   <%- include('../partials/head') %> 
 <body>
   <%- include('../partials/header') %>  
-    <form action = "/profile" method="get">
+  
         <div class="profileUsers">
             
          <Section class = "overflow">   
             <div class="formItem" >
-              <div class="row">
-                <div class="col-md-3">
-                  <h2>Hi <%= users.fullName %> </h2>
+                 <h2>Hi <%= users.fullName %> </h2>
                   <img src="/images/user/upload/<%= users.avatarImage %> ">
-                  <div class="alert alert-success"><%= users.email %> </div>
+                  <div class="formItem"><%= users.email %> </div>
                 </div>
                 <form action="/user/logout" method="post">
-                  <button class="btn btn-warning">Salir</button>
+                  <button class="submit">Cerrar sesion</button>
                 </form>
               </div>
             </div>

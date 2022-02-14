@@ -15,10 +15,6 @@ app.use(methodOverride('_method'));
 // Motor de app
 app.set('view engine', 'ejs');
 
-//MD userLogged (soy un MD de aplicacion)
-// const userLoggedMD = require("./middelwares/userLoggedMiddelware");
-// app.use(userLoggedMD)
-
 app.use(express.static(path.resolve(__dirname,'public')))
 
 app.listen(3000,()=> console.log('Servidor arriba!'))

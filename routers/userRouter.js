@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const controller = require('../controllers/usersController');
-const {body} = require("express-validator");
+/*const {body} = require("express-validator");*/
 const multer = require('multer');
 
 //Middelwares de rutas
@@ -25,16 +25,16 @@ const upload = multer({multerDiskStorage});
 // Formulario de Login
 router.get('/login', guestMiddelware, controller.login);
 
-//Login process - ver validaciones (pasamos al Middelware??)
+//Login process 
 router.post('/login', controller.loginProcess);
 
 // Formulario de Register
 router.get('/register', guestMiddelware, controller.register);
-// Proceso de Registro *************ver validaciones************ 
+// Proceso de Registro 
 router.post('/register', upload.single("avatarImage"),validations, controller.store);
 
 // Perfil de Usuario
-router.get('/profile', controller.profile );
+router.get('/profile', authMiddelware, controller.profile);
 
 // Logout
 router.post('/logout', controller.logout);

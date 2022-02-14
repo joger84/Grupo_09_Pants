@@ -67,27 +67,26 @@ const controllerUser = {
        // 1. validar que el usuario que quiere loguearse este en la dataBase 
          const userToLogin= users.find( oneUser => oneUser.usuario=== req.body.usuario);
 
-       // 2. validar que la contraseña sea valida con el user (compara con la bcrypt)
+       // 2. validar que la contraseña sea la misma que la guardada
        if (userToLogin){
              const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
        // 3. guardar al "userLogged" en Session - usa esa variable asi no rompe los codigos que siguen en profile
              if (passwordCorrect){
-       // 4. borrar el password del user que tenemos almacenado en sesion          
-             delete userToLogin.clave;
-             req.session.userLogged = userToLogin;
-       // 5. Redireccionamos a users/profileUsers
-            }
+                 
+                 // 4. borrar el password del user que tenemos almacenado en sesion          
+                 delete userToLogin.clave;
+                 req.session.userLogged = userToLogin;
+                 // 5. Redireccionamos a users/profileUsers
+                }
+                return res.redirect("/user/profile")      
             console.log(userToLogin)
-            return res.redirect("/user/profile" , {userToLogin})      
-            
-      }
+            }
     },
 
     profile: (req,res) => {
-       res.render('./users/profileUsers', {
-            user: req.session.userLogged  // en la variable user estamos pasando el usuario que se logueo
-        })                                // por eso en la vista pasamos la variable "user" 
-       
+        res.render('./users/profileUsers', {
+            users: req.session.userLogged  
+        })                               
     },
     
     logout: (req, res) => {

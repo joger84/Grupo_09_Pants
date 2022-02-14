@@ -1,6 +1,7 @@
+/*** MIDDELWARE PARA QUE SI NO ESTAS LOGUEADO E INGRESAS A PROFILE TE RE DIRECCIONO A LOGIN */
+
 function authMiddelware (req, res, next){
     if (req.session.userLogged ===undefined){
-        console.log('no ingresaste')
         return res.redirect("/user/login");
     }
 
