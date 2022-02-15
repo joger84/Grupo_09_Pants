@@ -55,3 +55,24 @@ Por ahora nada que agregar
 
 5. Dejar de hacer:
 Por ahora nada que agregar
+
+SPRINT 5:
+1. Comenzar a hacer:   
+Reuniones previas 1/2 dias antes de la entrega del Sprint.
+Mayor fluidez en la comunicacion en Slack.
+Comentar las incomodidades con todo el equipo previo a que se convierta en un problema para las entregas pactadas.
+
+2. Hacer más:
+Asumir los compromisos planteados en las reuniones con el equipo. Mejorar la comunicación inmediata.
+
+3. Continuar haciendo:
+Reuniones semanales grupales.
+Compromiso con el trabajo.
+Trabajo colaborativo.
+Estimar tiempo dedicado al sprint como punto de partida (grupal e individual).
+
+4. Hacer menos:
+Por ahora nada que agregar 
+
+5. Dejar de hacer:
+Por ahora nada que agregar

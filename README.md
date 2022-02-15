@@ -21,11 +21,6 @@ Somos una empresa dedica a la fabricacion y venta de pantalones Jeans, de modo o
   Conocimientos: Html, Css, JavaScript, Pug / Jade , Sass, Mysql, C#, Python. 
   Hobbies: Cocinar, escuchar música, los video Juegos.
   
-• Nombre: Martin Rey.                                                            
-  Edad: 21 años.                                                                                
-  Estudios: marketing UCES, en curso.                             
-  Hobbies: mirar series, juntarse con amigos, jugar al futbol.
-  
 • Nombre: Jorge Echeverría.
   Edad: 34 años.
   Actividad:Transportista.
