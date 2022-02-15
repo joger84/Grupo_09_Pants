@@ -38,7 +38,7 @@ const controllerUser = {
                 fullName: req.body.fullName,
                 usuario: req.body.usuario,
                 email: req.body.email,
-                clave: req.body.clave,
+                clave: bcrypt.hashSync(req.body.clave, 10),
                 image: req.file.filename,
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
@@ -50,7 +50,7 @@ const controllerUser = {
                 fullName: req.body.fullName,
                 usuario: req.body.usuario,
                 email: req.body.email,
-                clave: req.body.clave,
+                clave: bcrypt.hashSync(req.body.clave, 10),
                 image: "default",
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
@@ -60,13 +60,13 @@ const controllerUser = {
         
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
         
-        return res.redirect('/users/login');
+        return res.redirect('/user/login');
     },
 
      loginProcess: (req, res) => {
        // 1. validar que el usuario que quiere loguearse este en la dataBase 
-         const userToLogin= users.find( oneUser => oneUser.usuario=== req.body.usuario);
-
+         const userToLogin= users.find( oneUser => oneUser.email=== req.body.email);
+        console.log(userToLogin)
        // 2. validar que la contraseña sea la misma que la guardada
        if (userToLogin){
              const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
@@ -87,6 +87,7 @@ const controllerUser = {
     },
 
     profile: (req,res) => {
+        console.log(req.session)
         res.render('./users/profile' , {
             users: req.session.userLogged   //estoy pasando a la vista la variable users
         })                               

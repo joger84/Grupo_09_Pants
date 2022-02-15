@@ -3,19 +3,20 @@
   <%- include('../partials/head') %> 
   <body>
     <%- include('../partials/header') %>  
-    <form action = "/user/profileSetUp" method="get">
-        <section>
+    <form action = "/user/profile" method="get">
+        <div class= "container">
+          
           <div class="formItem">
               <h2> Hi <%=users.usuario%> </h2>
               <img src="/public/uploads/<%= users.avatarImage %>" >
-              <H3> <%= users.email %></H3>
+              <H2> <%= users.email %></H2>
           </div>
 
           <form action="/user/logout" method="post">
               <button class="submit">Cerrar Sesion</button>
           </form>
     
-        </section>
+        </div>
     </form>
     
         <%- include('../partials/footer') %> 

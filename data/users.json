@@ -1,24 +1,19 @@
 [
  {
   "id": 1,
-  "fullName": "Sofia",
   "usuario": "Sofi",
   "email": "sofia_dinanno@hotmail.com",
-  "clave": "123",
-  "confirmClave": "123",
+  "clave": "$2a$10$pVFiYXz4q/5P/IgZuZoW2uN6Y1/oZW7WLFfMPD1i7YA10GA5cxOHe",
   "image": "default",
   "fecha": "1983-07-10",
   "genero": "mujer"
  },
  {
   "id": 2,
-  "fullName": "Sofia2",
-  "usuario": "Sofi 123",
+  "usuario": "Sofi 2",
   "email": "sofia_dinanno@hotmail.com",
-  "clave": "123",
-  "confirmClave": "123",
-  "image": "1644447652324 imageAvatar.jpg",
-  "fecha": "",
+  "clave": "$2a$10$FltafMmlp9yOGt.GUWB2beBJW9QdR0SHkdgsckARPS5irAhE6Gueq",
+  "fecha": "1983-10-07",
   "genero": "mujer"
  }
 ]
