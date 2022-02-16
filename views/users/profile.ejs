@@ -4,21 +4,24 @@
   <body>
     <%- include('../partials/header') %>  
     <form action = "/user/profile" method="get">
-        <div class= "container">
+        <section class="containerProfile">
+          <article class= "profile">
           
-          <div class="formItem">
-              <h2> Hi <%=users.usuario%> </h2>
-              <img src="/public/uploads/<%= users.avatarImage %>" >
-              <H2> <%= users.email %></H2>
-          </div>
+                <div class="formItem">
+                  <h2> Hi <%=users.usuario%> </h2>
+                  <div class= "containerUserImg">  
+                  <img src="/public/uploads/<%= users.avatarImage %>" >
+                </div>
+                    <p> <%= users.email %></p>
+                </div>
 
-          <form action="/user/logout" method="post">
-              <button class="submit">Cerrar Sesion</button>
-          </form>
-    
-        </div>
+                <form action="/user/logout" method="post">
+                    <button class= btnCloseSesion>Cerrar Sesion</button>
+                </form>
+
+            </article> 
+        </section>
     </form>
-    
         <%- include('../partials/footer') %> 
         <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
   </body>
