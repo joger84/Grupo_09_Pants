@@ -23,7 +23,7 @@ router.get('/register', guestMiddelware, controller.register);
 router.post('/register', upLoadFiles.single("avatarImage"),validations, controller.store);
 
 // profile
-router.get('/profile', controller.profile);
+router.get('/profile', authMiddelware, controller.profile);
 
 
 // Logout
