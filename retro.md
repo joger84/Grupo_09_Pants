@@ -58,7 +58,7 @@ Por ahora nada que agregar
 
 SPRINT 5:
 1. Comenzar a hacer:   
-Reuniones previas 1/2 dias antes de la entrega del Sprint.
+Reuniones previas 1/2 dias antes de la entrega del Sprint para cpmprobar que no exisatan conflictos.
 Mayor fluidez en la comunicacion en Slack.
 Comentar las incomodidades con todo el equipo previo a que se convierta en un problema para las entregas pactadas.
 

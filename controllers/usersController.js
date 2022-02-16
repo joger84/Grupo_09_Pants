@@ -28,9 +28,21 @@ const controllerUser = {
             // 3. Retornamos ese último ID incrementado en 1
             return lastID + 1;
         }
-       //const dataBody = req.body;
+       //const dataBody = req.body;        
        //delete dataBody.confirmClave
-                    //pasar en el PUSH 'dataBody' en vez de req.body
+       //pasar en el PUSH 'dataBody' en vez de req.body
+        
+        let userRegister = users.find( oneUser => oneUser.email=== req.body.email);
+        if (userRegister){
+            return res.render('./users/register', {
+                errors: {
+                    email:{
+                        msg: 'Email ya registrado'
+                    }
+                },
+               oldDate:req.body
+            });
+        }
         
         if (users.length) {
             users.push({
@@ -46,12 +58,12 @@ const controllerUser = {
             })
         } else {
             users.push({
-                id: 1,
+                id: 1,                    // Revisar    
                 fullName: req.body.fullName,
                 usuario: req.body.usuario,
                 email: req.body.email,
                 clave: bcrypt.hashSync(req.body.clave, 10),
-                image: "default",
+                image: req.file.filename,
                 fecha: req.body.fecha,
                 direccion: req.body.direccion,
                 genero: req.body.genero
@@ -70,7 +82,7 @@ const controllerUser = {
        // 2. validar que la contraseña sea la misma que la guardada
        if (userToLogin){
              const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
-       // 3. guardar al "userLogged" en Session - usa esa variable asi no rompe los codigos que siguen en profile
+       // 3. guardar al "userLogged" en Session - 
              if (passwordCorrect){
                  
                  // 4. borrar el password del user que tenemos almacenado en sesion          
@@ -79,13 +91,13 @@ const controllerUser = {
                  // 5. Redireccionamos a users/profileUsers
                 }
                 if(req.body.remember_user){
-                    res.cookie('mailUser', req.body.email, {maxAge: (1000 * 60) * 5}) // seteo de cookie
+                    res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 5}) // seteo de cookie
                 }
                 return res.redirect("/user/profile")      
           
             }
     },
-
+    
     profile: (req,res) => {
         console.log(req.session)
         res.render('./users/profile' , {
@@ -94,10 +106,10 @@ const controllerUser = {
     },
     
     logout: (req, res) => {
-		res.clearCookie("userEmail");
-		req.session.destroy();
-		return res.redirect("/");
-	}
+        res.clearCookie("userEmail");
+        req.session.destroy();
+        return res.redirect("/");
+    }
 
 }
 

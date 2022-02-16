@@ -3,25 +3,25 @@
   <%- include('../partials/head') %> 
   <body>
     <%- include('../partials/header') %>  
-    <form action = "/user/profile" method="get">
+    
         <section class="containerProfile">
           <article class= "profile">
           
                 <div class="formItem">
                   <h2> Hi <%=users.usuario%> </h2>
                   <div class= "containerUserImg">  
-                  <img src="/public/uploads/<%= users.avatarImage %>" >
+                  <img src="/users/<%= users.image %>" width="200px" height="200px" >
                 </div>
                     <p> <%= users.email %></p>
                 </div>
 
                 <form action="/user/logout" method="post">
-                    <button class= btnCloseSesion>Cerrar Sesion</button>
+                    <button class="btnCloseSesion">Cerrar Sesion</button>
                 </form>
 
             </article> 
         </section>
-    </form>
+   
         <%- include('../partials/footer') %> 
         <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
   </body>
