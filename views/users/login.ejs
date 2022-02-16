@@ -3,25 +3,37 @@
   <%- include('../partials/head') %> 
 <body>
   <%- include('../partials/header') %>  
-    <form action = "/user/login" method="post">
+  <section class="overflow">
+    <form class='formLogin' action="/user/login" method="post">
         <div class="login">
             <br>
-            <label> <b> Correo Electronico</b></label>
-              <input type = "text" name ="email" >
+            <label> Correo Electronico</label>
+              <input class='cantidad' type = "text" name ="email" value="<%=locals.oldDate ? oldDate.email : null%>" >
+              <% if (locals.errors && errors.email) { %>
+                <div class="danger">
+                    <%= errors.email.msg %>
+                </div>
+              <% } %>
             <br>
             <br>
-            <label> <b>Contraseña</b></label>
-            <input type = "password" name = "clave" id = "password">
+            <label> Contraseña</label>
+            <input class='cantidad' type = "password" name = "clave" id = "password">
+            <% if (locals.errors && errors.clave) { %>
+              <div class="danger">
+                  <%= errors.clave.msg %>
+              </div>
+            <% } %>
             <br>
             <label>
-              <input type="checkbox" class="recordarme" name="remember_user">Recordar mi usuario
+              <input type="checkbox" class="recordarme" name="remember_user"> Recordar mi usuario
             </label>
             <br>
-            <button  class = "button"> <input type="submit" value="Enviar"></button>
-            <a href="/" class = "button"><input type="button" value="Olvidé mi contraseña"></a>
+            <button class="btn" type="submit"> Ingresar</button>
+            <a href="/" class="btn">Olvidé mi contraseña</a>
         </div>
     </form>
-  <%- include('../partials/footer') %> 
+  </section>  
+    <%- include('../partials/footer') %> 
   <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>   
 </body>
 </html>

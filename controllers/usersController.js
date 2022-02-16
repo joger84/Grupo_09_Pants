@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const usersPath = path.resolve(__dirname, "../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 const {validationResult} = require('express-validator');
-const { render } = require("ejs");
+
 
 const controllerUser = {
     register: (req,res) => {
@@ -16,8 +16,6 @@ const controllerUser = {
     
     store: (req,res) =>{
         const resultValidation = validationResult(req);
-        
-        // return res.send(resultValidation.mapped())
         if(resultValidation.errors.length){
             return res.render('./users/register', {errors: resultValidation.mapped(),oldDate:req.body})
         }
@@ -76,7 +74,12 @@ const controllerUser = {
     },
 
      loginProcess: (req, res) => {
-       // 1. validar que el usuario que quiere loguearse este en la dataBase 
+       const validacionLogin = validationResult(req)
+       if(validacionLogin.errors.length){
+        return res.render('./users/login', {errors: validacionLogin.mapped(),oldDate:req.body})
+    }
+       
+        // 1. validar que el usuario que quiere loguearse este en la dataBase 
          const userToLogin= users.find( oneUser => oneUser.email=== req.body.email);
         console.log(userToLogin)
        // 2. validar que la contraseña sea la misma que la guardada
