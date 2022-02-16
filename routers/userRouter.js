@@ -9,13 +9,7 @@ const upLoadFiles = require('../middelwares/multerMiddelware');
 const authMiddelware = require("../middelwares/authMiddelware");
 const guestMiddelware = require('../middelwares/guestMiddelware');
 const validations = require('../middelwares/valitationRegisterMiddelware');
-
-const validatorLogin = [
-    body('email')
-        .notEmpty().withMessage('Ingresa un correo electronico').bail()
-        .isEmail().withMessage('Debes de escribir un formato de correo valido'),
-    body('clave').notEmpty().withMessage('Ingresa una contraseña'),
-] 
+const validatorLogin = require('../middelwares/validationLoginMiddelware');
 
 // Formulario de Login
 router.get('/login', guestMiddelware, controller.login);

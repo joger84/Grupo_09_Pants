@@ -72,19 +72,20 @@ const controllerUser = {
         
         return res.redirect('/user/login');
     },
-
-     loginProcess: (req, res) => {
+    
+    loginProcess: (req, res) => {
        const validacionLogin = validationResult(req)
        if(validacionLogin.errors.length){
-        return res.render('./users/login', {errors: validacionLogin.mapped(),oldDate:req.body})
-    }
-       
+           return res.render('./users/login', {errors: validacionLogin.mapped(),oldDate:req.body})
+        }
+        
         // 1. validar que el usuario que quiere loguearse este en la dataBase 
-         const userToLogin= users.find( oneUser => oneUser.email=== req.body.email);
+        const userToLogin= users.find( oneUser => oneUser.email=== req.body.email);
         console.log(userToLogin)
-       // 2. validar que la contraseña sea la misma que la guardada
-       if (userToLogin){
-             const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
+           
+        // 2. validar que la contraseña sea la misma que la guardada
+        if (userToLogin){
+            const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
        // 3. guardar al "userLogged" en Session - 
              if (passwordCorrect){
                  
