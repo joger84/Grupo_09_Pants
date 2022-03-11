@@ -2,12 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const productPath = path.resolve(__dirname, "../data/products.json");
 const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
+const {Product} = require("../src/database/models/Product")
 
 const contollerProducts = {
 
     browse: (req, res) => {
-        return res.render('./products/products', {
+      /*  return res.render('./products/products', {
             products
+        })*/
+      
+        Product.findAll({})
+        .then(function (products) {
+            console.log(products)
         })
     },
     detail: (req, res) => {
