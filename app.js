@@ -7,6 +7,7 @@ const rutasUser = require('./routers/userRouter');
 const methodOverride = require('method-override')
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const userLoggedMiddleware = require('./middelwares/userLoggedMiddleware');
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -30,7 +31,10 @@ app.use(session({
 
 app.use(cookies());
 
-/* aca va el MD para que muestre o no en el nav (login y register)*/
+/* aca va el MD para que muestre o no en el nav (login y register), va despues del session si lo ponemos antes no funciona porque no llego a leer la linea de session*/
+
+app.use(userLoggedMiddleware);
+
 
 //**************PRUEBA PARA VER EN CONSOLA EL USUARIO LOGUEADO************/
 //app.use((req, res, next) =>{
