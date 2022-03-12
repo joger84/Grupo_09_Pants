@@ -1,20 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 const productPath = path.resolve(__dirname, "../data/products.json");
-const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
-const {Product} = require("../src/database/models/Product")
+// const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
+const {Product} = require("../src/database/models")
 
 const contollerProducts = {
 
-    browse: (req, res) => {
+    browse: async(req, res) => {
       /*  return res.render('./products/products', {
             products
         })*/
-      
-        Product.findAll({})
-        .then(function (products) {
-            console.log(products)
-        })
+      try {
+          const respuesta = await Product.findAll()
+          console.log(respuesta)
+          
+      } catch (error) {
+          console.log(error)
+      }
     },
     detail: (req, res) => {
         const id = Number(req.params.id);
