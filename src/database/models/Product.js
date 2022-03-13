@@ -1,17 +1,29 @@
 module.exports = function (sequelize, DataTypes) {
     let Product = sequelize.define('Product', {
-        size:DataTypes.STRING,
         model:DataTypes.STRING,
         description:DataTypes.TEXT,
         quantity:DataTypes.INTEGER,
-        color:DataTypes.STRING,
-        genre:DataTypes.STRING,
         price:DataTypes.INTEGER,
         discount:DataTypes.DECIMAL,
         image:DataTypes.STRING,
         deletedAt:DataTypes.DATE
         
-    },{timestamps:false});
+    },{});
+
+    Product.associate = function (models) {
+		Product.belongsToMany(models.Color, {
+			as: "colors",
+			through: "colors_products",
+			foreignKey: "productId",
+			otherKey: "colorId"
+		});
+		Product.belongsToMany(models.Size, {
+			as: "size",
+			through: "size_products",
+			foreignKey: "productId",
+			otherKey: "sizeId"
+		});
+	}
     
     return Product;
 }

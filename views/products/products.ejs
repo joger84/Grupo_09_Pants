@@ -6,9 +6,11 @@
     <section class="containerProdcuto"> 
       <%products.forEach(element => { %>
         <article class="producto">
-          <h2><%= `Producto: ${element.name} con el id: ${element.id}` %> </h2>
-          <p><%= `Categoría: ${element.categoria} ` %></p>
-          <p><%= `Descripcion: ${element.descripcion} ` %></p>
+          <h2><%= `Producto: ${element.model}` %> </h2>
+          <p><%= `Descripcion: ${element.description} ` %></p>
+          <p><%= `Cantidad: ${element.quantity} ` %>Uni</p>
+          <p><%= `Precio: ${element.price} ` %>$</p>
+          <p><%= `Descuento: ${element.discount} ` %>$</p>
           <div class='containerImg'>
             <img src="/uploads/<%= element.image %>" alt="" width="200px" height="200px">
           </div>

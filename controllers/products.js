@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const productPath = path.resolve(__dirname, "../data/products.json");
 // const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
-const {Product} = require("../src/database/models")
+const {Product,Color,Size} = require("../src/database/models")
 
 const contollerProducts = {
 
@@ -11,8 +11,9 @@ const contollerProducts = {
             products
         })*/
       try {
-          const respuesta = await Product.findAll()
-          console.log(respuesta)
+          const products = await Product.findAll()
+          return res.render('./products/products',{products});
+        //   return res.json(products);
           
       } catch (error) {
           console.log(error)
@@ -28,8 +29,15 @@ const contollerProducts = {
     cart: (req, res) => {
         return res.render('./products/productCart')
     },
-    create: (req, res) => {
-        return res.render('./products/createProduct')
+    create: async(req, res) => {
+        try {
+            const sizes = await Size.findAll({})
+            const colors = await Color.findAll({})
+            return res.render('./products/createProduct', {colors,sizes})
+        } catch (error) {
+            console.log(error)
+        }
+        
     },
     store: (req, res) => {
         const generateID = () => {
