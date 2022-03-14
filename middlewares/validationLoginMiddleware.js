@@ -1,4 +1,4 @@
-// *********Middelware de Validaciones LOGIN**************
+// *********Middleware de Validaciones LOGIN**************
 const path = require('path');
 const {body} = require("express-validator");
 

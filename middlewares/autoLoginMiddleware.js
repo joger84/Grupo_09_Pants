@@ -4,7 +4,7 @@ const fs = require("fs")
 const usersPath = path.resolve(__dirname, "../data/users.json");
 const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 
-function autoLoginMiddelware (req, res, next){
+function autoLoginMiddleware (req, res, next){
     const emailInCookie = req.cookies.userEmail; 
 
     if (emailInCookie !== undefined){ 
@@ -16,4 +16,4 @@ next();
 
 }
 
-module.exports = autoLoginMiddelware;
+module.exports = autoLoginMiddleware;

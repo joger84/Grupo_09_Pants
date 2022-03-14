@@ -1,4 +1,4 @@
-// ********Middelware de Carga de Archivos**********
+// ********Middleware de Carga de Archivos**********
 
 const path = require('path');
 const multer = require('multer');

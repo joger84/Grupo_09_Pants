@@ -1,4 +1,4 @@
-// *********Middelware de Validaciones REGISTER**************
+// *********Middleware de Validaciones REGISTER**************
 const path = require('path');
 const {body} = require("express-validator");
 

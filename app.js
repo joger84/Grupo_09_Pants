@@ -7,7 +7,7 @@ const rutasUser = require('./routers/userRouter');
 const methodOverride = require('method-override')
 const session = require('express-session');
 const cookies = require('cookie-parser');
-const userLoggedMiddleware = require('./middelwares/userLoggedMiddleware');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
 app.use(express.urlencoded({ extended: false }));
