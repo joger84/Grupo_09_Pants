@@ -13,19 +13,19 @@ module.exports = function (sequelize, DataTypes) {
     Product.associate = function (models) {
 		Product.belongsToMany(models.Color, {
 			as: "colors",
-			through: "colors_products",
+			through: "color_product",
 			foreignKey: "productId",
 			otherKey: "colorId"
 		});
 		Product.belongsToMany(models.Size, {
 			as: "sizes",
-			through: "size_products",
+			through: "size_product",
 			foreignKey: "productId",
 			otherKey: "sizeId"
 		});
 		Product.belongsToMany(models.Genre, {
 			as: "genres",
-			through: "genre_products",
+			through: "genre_product",
 			foreignKey: "productId",
 			otherKey: "genreId"
 		});

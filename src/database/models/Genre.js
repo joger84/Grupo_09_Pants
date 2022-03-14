@@ -6,7 +6,7 @@ module.exports = function(sequelize,DataTypes){
     Genre.associate = function (models){
         Genre.belongsToMany(models.Product, {
 			as: "products",
-			through: "genre_products",
+			through: "genre_product",
 			foreignKey: "genreId",
 			otherKey: "productId"
 		});

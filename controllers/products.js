@@ -11,9 +11,10 @@ const contollerProducts = {
             products
         })*/
       try {
-          const products = await Product.findAll()
-          return res.render('./products/products',{products});
-        //   return res.json(products);
+          const products = await Product.findAll({include: ['colors','sizes','genres']})
+          console.log(products)
+        //   return res.render('./products/products',{products});
+          return res.json(products);
         
           
       } catch (error) {
