@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const productPath = path.resolve(__dirname, "../data/products.json");
 // const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
-const {Product,Color,Size} = require("../src/database/models")
+const {Product,Color,Size,Genre} = require("../src/database/models")
 
 const contollerProducts = {
 
@@ -14,6 +14,7 @@ const contollerProducts = {
           const products = await Product.findAll()
           return res.render('./products/products',{products});
         //   return res.json(products);
+        
           
       } catch (error) {
           console.log(error)
@@ -31,52 +32,70 @@ const contollerProducts = {
     },
     create: async(req, res) => {
         try {
-            const sizes = await Size.findAll({})
             const colors = await Color.findAll({})
-            return res.render('./products/createProduct', {colors,sizes})
+            const sizes = await Size.findAll({})
+            const genres = await Genre.findAll({})
+            return res.render('./products/createProduct', {colors,sizes,genres})
         } catch (error) {
             console.log(error)
         }
         
     },
-    store: (req, res) => {
-        const generateID = () => {
-            const lastProduct = products[products.length - 1];
-            // 2. Obtenemos el ID de ese último producto
-            const lastID = lastProduct.id;
-            // 3. Retornamos ese último ID incrementado en 1
-            return lastID + 1;
+    store: async(req, res) => {
+        const postObj = {
+            ...req.body,
+            image:req.file.filename
         }
-
-        if (products.length) {
-            products.push({
-                id: generateID(),
-                name: req.body.name,
-                descripcion: req.body.descripcion,
-                cantidad: req.body.cantidad,
-                image: req.file.filename,
-                categoria: req.body.categoria,
-                color: req.body.colores,
-                talla: req.body.tallas,
-                precio: req.body.precio
-            })
-        } else {
-            products.push({
-                id: 1,
-                name: req.body.name,
-                descripcion: req.body.descripcion,
-                cantidad: req.body.cantidad,
-                image: req.file.filename,
-                categoria: req.body.categoria,
-                color: req.body.colores,
-                talla: req.body.tallas,
-                precio: req.body.precio
-            })
+        // return res.json(postObj)
+        
+        try {
+            const productStored = await Product.create(postObj) 
+            productStored.addColors(postObj.colors)
+            productStored.addGenres(postObj.genres)
+            productStored.addSizes(postObj.sizes)
+            return res.redirect('/products');
+            
+        } catch (error) {
+            console.log(error)
         }
+        
+        // const generateID = () => {
+        //     const lastProduct = products[products.length - 1];
+        //     // 2. Obtenemos el ID de ese último producto
+        //     const lastID = lastProduct.id;
+        //     // 3. Retornamos ese último ID incrementado en 1
+        //     return lastID + 1;
+        // }
 
-        fs.writeFileSync(productPath, JSON.stringify(products, null, ' '));
+        // if (products.length) {
+        //     products.push({
+        //         id: generateID(),
+        //         name: req.body.name,
+        //         descripcion: req.body.descripcion,
+        //         cantidad: req.body.cantidad,
+        //         image: req.file.filename,
+        //         categoria: req.body.categoria,
+        //         color: req.body.colores,
+        //         talla: req.body.tallas,
+        //         precio: req.body.precio
+        //     })
+        // } else {
+        //     products.push({
+        //         id: 1,
+        //         name: req.body.name,
+        //         descripcion: req.body.descripcion,
+        //         cantidad: req.body.cantidad,
+        //         image: req.file.filename,
+        //         categoria: req.body.categoria,
+        //         color: req.body.colores,
+        //         talla: req.body.tallas,
+        //         precio: req.body.precio
+        //     })
+        // }
 
-        return res.redirect('/products');
+        // fs.writeFileSync(productPath, JSON.stringify(products, null, ' '));
+
+        
     },
     edit: (req, res) => {
         const id = Number(req.params.id);

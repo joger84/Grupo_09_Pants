@@ -18,10 +18,16 @@ module.exports = function (sequelize, DataTypes) {
 			otherKey: "colorId"
 		});
 		Product.belongsToMany(models.Size, {
-			as: "size",
+			as: "sizes",
 			through: "size_products",
 			foreignKey: "productId",
 			otherKey: "sizeId"
+		});
+		Product.belongsToMany(models.Genre, {
+			as: "genres",
+			through: "genre_products",
+			foreignKey: "productId",
+			otherKey: "genreId"
 		});
 	}
     
