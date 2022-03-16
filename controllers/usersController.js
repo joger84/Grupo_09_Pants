@@ -2,8 +2,9 @@ const path = require("path");
 const fs = require("fs")
 const bcrypt = require("bcryptjs");
 const usersPath = path.resolve(__dirname, "../data/users.json");
-const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+//const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 const {validationResult} = require('express-validator');
+const {User, Genre} = require("../src/database/models")
 
 
 const controllerUser = {
@@ -11,10 +12,57 @@ const controllerUser = {
         res.render('./users/register')
     },
     login: (req,res) => {
-       return res.render('./users/login')
+        res.render('./users/login') //eliminamos return, debería funcionar igual
     },
+
+    create: async(req, res) => {
+        try {
+            //const fullname = await fullname.findAll({})
+            //const usuario = await User.findAll({})
+            //const email = await email.findAll({})
+            //const clave = await password.findAll({})
+            const genero = await Genre.findAll({})
+            //const fechanac = await dateBirth.findAll({})
+            //const paises = await Country.findAll({})
+            //const direccion = await address.findAll({})
+            //const role = await role.findAll({})
+            //const avatar = await avatarImage.findAll({})
+
+
+            return res.render('./user/register', {Genre})
+        } catch (error) {
+            console.log(error)
+        }
+        
+    },
+    store: async(req, res) => {
+        const postUser = {
+            ...req.body,
+            image:req.file.filename
+        }
+        return res.json(postUser)
+        
+        try {
+            const UserStored = await User.create(postUser) 
+            UserStored.addfullname(postUser.fullname)
+            UserStored.adduser(postUser.user)
+            UserStored.addeMail(postUser.eMail)
+            UserStored.addpassword(postUser.password)
+            UserStored.addgenre(postUser.genre)
+            UserStored.adddateBirth(postUser.dateBirth)
+            UserStored.addcountry(postUser.country)
+            UserStored.addaddress(postUser.address)
+            UserStored.addrole(postUser.role)
+            return res.redirect('/login');
+            
+        } catch (error) {
+            console.log(error)
+        }
+
+    },
+        
     
-    store: (req,res) =>{
+    /*store: (req,res) =>{
         const resultValidation = validationResult(req);
         if(resultValidation.errors.length){
             return res.render('./users/register', {errors: resultValidation.mapped(),oldDate:req.body})
@@ -71,7 +119,7 @@ const controllerUser = {
         fs.writeFileSync(usersPath, JSON.stringify(users, null, ' '));
         
         return res.redirect('/user/login');
-    },
+    },*/
     
     loginProcess: (req, res) => {
        const validacionLogin = validationResult(req)
