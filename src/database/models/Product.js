@@ -29,7 +29,14 @@ module.exports = function (sequelize, DataTypes) {
 			foreignKey: "productId",
 			otherKey: "genreId"
 		});
+		Product.associate = function (models) {
+			Product.belongsToMany(models.User, {
+				as: "products",
+				through: "user_product",
+				foreignKey: "productId",
+				otherKey: "userId"
+			});
+		}
 	}
-    
     return Product;
 }

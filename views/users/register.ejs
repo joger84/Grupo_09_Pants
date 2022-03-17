@@ -7,7 +7,7 @@
     <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
         <div class="formItem">
             <label>Nombre y apellido:</label>
-            <input class="productName" type= "text" name='fullname' value="<%=locals.oldDate ? oldDate.fullname : null%>">
+            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullname : null%>">
             <% if (locals.errors && errors.fullname) { %>
                 <div class="danger">
                     <%= errors.fullname.msg %>
@@ -16,7 +16,7 @@
         </div>
         <div class="formItem">
             <label>Nombre de usuario:</label>
-            <input class="description" type= "text" name='usuario' value="<%=locals.oldDate ? oldDate.usuario : null%>">
+            <input class="description" type= "text" name='user' value="<%=locals.oldDate ? oldDate.usuario : null%>">
             <% if (locals.errors && errors.usuario) { %>
                 <div class="danger">
                     <%= errors.usuario.msg %>
@@ -25,7 +25,7 @@
         </div>
         <div class="formItem">
             <label>Email:</label>
-            <input class="cantidad" type="email" name='email' value="<%=locals.oldDate ? oldDate.email : null%>">
+            <input class="cantidad" type="email" name='eMail' value="<%=locals.oldDate ? oldDate.email : null%>">
             <% if (locals.errors && errors.email) { %>
                 <div class="danger">
                     <%= errors.email.msg %>

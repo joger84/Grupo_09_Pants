@@ -40,11 +40,11 @@ const controllerUser = {
             ...req.body,
             image:req.file.filename
         }
-        return res.json(postUser)
+       console.log(postUser)
         
         try {
             const UserStored = await User.create(postUser) 
-            UserStored.addfullname(postUser.fullname)
+            /*UserStored.addfullname(postUser.fullname)
             UserStored.adduser(postUser.user)
             UserStored.addeMail(postUser.eMail)
             UserStored.addpassword(postUser.password)
@@ -52,7 +52,7 @@ const controllerUser = {
             UserStored.adddateBirth(postUser.dateBirth)
             UserStored.addcountry(postUser.country)
             UserStored.addaddress(postUser.address)
-            UserStored.addrole(postUser.role)
+            UserStored.addrole(postUser.role)*/
             return res.redirect('/login');
             
         } catch (error) {
