@@ -44,15 +44,6 @@ const controllerUser = {
         
         try {
             const UserStored = await User.create(postUser) 
-            /*UserStored.addfullname(postUser.fullname)
-            UserStored.adduser(postUser.user)
-            UserStored.addeMail(postUser.eMail)
-            UserStored.addpassword(postUser.password)
-            UserStored.addgenre(postUser.genre)
-            UserStored.adddateBirth(postUser.dateBirth)
-            UserStored.addcountry(postUser.country)
-            UserStored.addaddress(postUser.address)
-            UserStored.addrole(postUser.role)*/
             return res.redirect('/login');
             
         } catch (error) {
@@ -60,6 +51,30 @@ const controllerUser = {
         }
 
     },
+    update: (req, res)=> {
+        const user = await user.findOne(req.params.eMail,)
+        
+
+    },
+
+    
+    
+    
+    
+    
+    
+    
+    /*const product = await Product.finByPk(req.params.id, {
+        include: ["sizes"]
+    })
+    
+    product.removeSizes(product.sizes);
+    product.addSizes(req.body.sizes);
+    
+    product.name = req.body.name ? req.body.name : product.name;
+    product.price = req.body.price ? req.body.price : product.price;
+    
+    product.save();*/
         
     
     /*store: (req,res) =>{
