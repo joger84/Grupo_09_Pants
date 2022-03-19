@@ -25,7 +25,8 @@ router.post('/register', upLoadFiles.single("avatarImage"),validations, controll
 // profile
 router.get('/profile', authMiddleware, controller.profile);
 //proceso de modificacion de profile 
-router.get('/editProfile', controller.editProfile)
+router.get('/editProfile/:id', controller.editProfile);
+router.post('/editProfile/:id', controller.update); //validar si no conviene hacer con metodo patch o update
 
 // Logout
 router.post('/logout', controller.logout);

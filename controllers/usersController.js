@@ -4,7 +4,8 @@ const bcrypt = require("bcryptjs");
 const usersPath = path.resolve(__dirname, "../data/users.json");
 //const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 const {validationResult} = require('express-validator');
-const {User, Genre} = require("../src/database/models")
+const {User, Genre} = require("../src/database/models");
+const db = require("../src/database/models");
 
 
 const controllerUser = {
@@ -46,12 +47,35 @@ const controllerUser = {
 
     },
     //Ruta por GET proceso de modificacion de profile
-    editProfile: (req,res) => {
-        res.render('./users/editProfile')
+    editProfile: function(req,res) {
+        db.User.findBbyPk(req.params.id)
+            .then(function(userEdit){
+              res.render('./users/editProfile', {userEdit:userEdit});
+
+            })
     },
 
     //Ruta por POST proceso de modificacion de profile 
-    
+    update: function(req,res){
+       db.User.update({
+        fullName:req.body.fullName,
+        user:req.body.user,
+        eMail:req.body.eMail,
+        password:req.body.password,
+        genre:req.body.genre,
+        dateBirth:req.body.dateBirth,
+        country:req.body.country,
+        address:req.body.address,
+
+       }, {
+           where: {
+               id: req.params.id
+           }
+       })
+       // redirecciono a la pagina donde estaba el usuario con su id
+       // ver si no es conveniente cambiar todo para que sea por eMail
+       res.redirect("./users/editProfile" + req.params.id)
+    },
     
     
     

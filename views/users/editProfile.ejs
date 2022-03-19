@@ -4,14 +4,14 @@
 <body>
   <%- include('../partials/header') %> 
   <section class="overflow">
-    <form class="formCreate" action="/user/editProfile" method="GET" enctype="multipart/form-data">
+    <form class="formCreate" action="/user/editProfile/<%=userEdit.id%>" method="GET" enctype="multipart/form-data">
         <div class="formItem">
         <h2>Edicion de Profile</h2>
         </div>    
         
         <div class="formItem">
             <label>Nombre y apellido:</label>
-            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullname : null%>">
+            <input class="productName" type= "text" name='fullName' value="<%=userEdit.fullName%>">
             <% if (locals.errors && errors.fullname) { %>
                 <div class="danger">
                     <%= errors.fullname.msg %>
@@ -20,7 +20,7 @@
         </div>
         <div class="formItem">
             <label>Nombre de usuario:</label>
-            <input class="description" type= "text" name='user' value="<%=locals.oldDate ? oldDate.usuario : null%>">
+            <input class="description" type= "text" name='user' value="<%=userEdit.user%>">
             <% if (locals.errors && errors.usuario) { %>
                 <div class="danger">
                     <%= errors.usuario.msg %>
@@ -29,7 +29,7 @@
         </div>
         <div class="formItem">
             <label>Email:</label>
-            <input class="cantidad" type="email" name='eMail' value="<%=locals.oldDate ? oldDate.email : null%>">
+            <input class="cantidad" type="email" name='eMail' value="<%=userEdit.eMail%>">
             <% if (locals.errors && errors.email) { %>
                 <div class="danger">
                     <%= errors.email.msg %>
@@ -38,7 +38,7 @@
         </div>
         <div class="formItem">
             <label>Contraseña:</label>
-            <input type="password" name="clave" value="<%=locals.oldDate ? oldDate.clave : null%>">
+            <input type="password" name="clave" value="<%=userEdit.clave%>">
             <% if (locals.errors && errors.clave) { %>
                 <div class="danger">
                     <%= errors.clave.msg %>
@@ -56,7 +56,7 @@
         </div>
         <div class="formItem">
             <label>Fecha de nacimiento:</label>
-            <input type="date" name="fecha" value="<%=locals.oldDate ? oldDate.fecha : null%>">
+            <input type="date" name="fecha" value="<%=userEdit.fecha%>">
             <% if (locals.errors && errors.fecha) { %>
                 <div class="danger">
                     <%= errors.fecha.msg %>
@@ -66,14 +66,14 @@
         <div class="formItem">
             <label>Elige un país</label>
             <select name="paises" class="formSelect">
-                <option value="">Elige un país</option>
+                <option value="paises">Elige un país</option>
                 <% 
                     let countries = ['Argentina','Bolivia','Brasil','Colombia','Chile','Ecuador','Paraguay','Peru','Uruguay','Venezuela']
                  %> 
                 <% for( const oneCountry of countries ) { %>
                     <option 
-                        value="<%= oneCountry %>"
-                        <%= locals.oldDate && oneCountry === oldDate.paises ? 'selected' : null %> 
+                        value="<%=userEdit.paises%>"
+                        
                         ><%= oneCountry %> </option>
                 <% } %>
                 
@@ -87,7 +87,7 @@
 
         <div class="formItem">
             <label>Direccion:</label>
-            <input class="address" type= "text" name='address' value="<%=locals.oldDate ? oldDate.address : null%>">
+            <input class="address" type= "text" name='address' value="<%=userEdit.address%>">
             <% if (locals.errors && errors.address) { %>
                 <div class="danger">
                     <%= errors.address.msg %>
