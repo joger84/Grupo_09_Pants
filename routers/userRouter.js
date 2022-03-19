@@ -24,7 +24,8 @@ router.post('/register', upLoadFiles.single("avatarImage"),validations, controll
 
 // profile
 router.get('/profile', authMiddleware, controller.profile);
-
+//proceso de modificacion de profile 
+router.get('/editProfile', controller.editProfile)
 
 // Logout
 router.post('/logout', controller.logout);

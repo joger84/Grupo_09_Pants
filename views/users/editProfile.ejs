@@ -4,7 +4,11 @@
 <body>
   <%- include('../partials/header') %> 
   <section class="overflow">
-    <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
+    <form class="formCreate" action="/user/editProfile" method="GET" enctype="multipart/form-data">
+        <div class="formItem">
+        <h2>Edicion de Profile</h2>
+        </div>    
+        
         <div class="formItem">
             <label>Nombre y apellido:</label>
             <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullname : null%>">
@@ -99,10 +103,11 @@
                     
         </div>
         <div class="btns">
-            <button class="editButton" type="submit" value="crear" name='crear'>Crear</button>
+            <button class="editButton" type="submit" value="editar" name='editar'>Editar</button>
             <button class="botonDelete" type="reset" value="borrar" name='borrar'>Borrar</button>
             
         </div>
+           
     </form>
   </section>
   <%- include('../partials/footer') %> 

@@ -8,33 +8,27 @@ const {User, Genre} = require("../src/database/models")
 
 
 const controllerUser = {
+    // Ruta por GET para mostrar vista 
     register: (req,res) => {
         res.render('./users/register')
     },
+    // Ruta por GET para mostrar vista
     login: (req,res) => {
-        res.render('./users/login') //eliminamos return, debería funcionar igual
+      return  res.render('./users/login') //eliminamos return, debería funcionar igual
     },
 
     create: async(req, res) => {
         try {
-            //const fullname = await fullname.findAll({})
-            //const usuario = await User.findAll({})
-            //const email = await email.findAll({})
-            //const clave = await password.findAll({})
             const genero = await Genre.findAll({})
-            //const fechanac = await dateBirth.findAll({})
-            //const paises = await Country.findAll({})
-            //const direccion = await address.findAll({})
-            //const role = await role.findAll({})
-            //const avatar = await avatarImage.findAll({})
-
-
-            return res.render('./user/register', {Genre})
+      
+   
+        return res.render('./user/register', {Genre})
         } catch (error) {
             console.log(error)
         }
         
     },
+    // Ruta por POST proceso de Registro
     store: async(req, res) => {
         const postUser = {
             ...req.body,
@@ -51,13 +45,12 @@ const controllerUser = {
         }
 
     },
-    update: (req, res)=> {
-        const user = await user.findOne(req.params.eMail,)
-        
-
+    //Ruta por GET proceso de modificacion de profile
+    editProfile: (req,res) => {
+        res.render('./users/editProfile')
     },
 
-    
+    //Ruta por POST proceso de modificacion de profile 
     
     
     
@@ -136,6 +129,9 @@ const controllerUser = {
         return res.redirect('/user/login');
     },*/
     
+
+
+    // Ruta por POST proceso de login
     loginProcess: (req, res) => {
        const validacionLogin = validationResult(req)
        if(validacionLogin.errors.length){
@@ -157,7 +153,7 @@ const controllerUser = {
                  req.session.userLogged = userToLogin;
                  // 5. Redireccionamos a users/profileUsers
                 }
-                if(req.body.remember_user){
+                if(req.body.remember_User){
                     res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 5}) // seteo de cookie
                 }
                 return res.redirect("/user/profile")      
@@ -165,13 +161,14 @@ const controllerUser = {
             }
     },
     
+    // Ruta por GET para mostrar vista
     profile: (req,res) => {
         console.log(req.session)
         res.render('./users/profile' , {
             users: req.session.userLogged   //estoy pasando a la vista la variable users
         })                               
     },
-    
+    // Ruta por POST proceso de logout
     logout: (req, res) => {
         res.clearCookie("userEmail");
         req.session.destroy();

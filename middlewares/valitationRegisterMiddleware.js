@@ -14,6 +14,7 @@ module.exports = [
     body('clave').notEmpty().withMessage('Ingresa una contraseña'),
     body('fecha').notEmpty().withMessage('Ingresa tu fecha de nacimiento'),
     body('paises').notEmpty().withMessage('Ingresa un país'),
+    body('address').notEmpty().withMessage('Ingresa tu direccion'),
     body('avatarImage').custom((value,{req}) =>{
         let file = req.file;
         let acceptedExtensions = ['.jpg','.png','.gif']

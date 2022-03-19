@@ -37,6 +37,7 @@ module.exports = function (sequelize, DataTypes) {
 				otherKey: "userId"
 			});
 		}
+		// falta asociacion con tabla shop
 	}
     return Product;
 }
