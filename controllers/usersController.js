@@ -76,6 +76,17 @@ const controllerUser = {
        // ver si no es conveniente cambiar todo para que sea por eMail
        res.redirect("./users/editProfile" + req.params.id)
     },
+    delete: {
+
+    },
+    destroy: async function (req, res) {
+            await db.User.destroy({
+                where : {
+                    id: req.params.id
+                }
+            })
+            res.redirect('./users/login')
+    },
     
     
     
