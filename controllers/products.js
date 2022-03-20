@@ -12,18 +12,18 @@ const contollerProducts = {
         })*/
       try {
           const products = await Product.findAll({include: ['colors','sizes','genres']})
-          console.log(products)
-        //   return res.render('./products/products',{products});
-          return res.json(products);
+          return res.render('./products/products',{products});
+        //   return res.json(products);
         
           
       } catch (error) {
           console.log(error)
       }
     },
-    detail: (req, res) => {
-        const id = Number(req.params.id);
-        const product = products.find((oneProduct) => oneProduct.id === id)
+    detail: async(req, res) => {
+        const product = await Product.findByPk(req.params.id,{include: ['colors','sizes','genres']});
+        // console.log(product)
+        // return res.json(product)
         return res.render('./products/productDetail', {
             product
         })
@@ -60,79 +60,60 @@ const contollerProducts = {
             console.log(error)
         }
         
-        // const generateID = () => {
-        //     const lastProduct = products[products.length - 1];
-        //     // 2. Obtenemos el ID de ese último producto
-        //     const lastID = lastProduct.id;
-        //     // 3. Retornamos ese último ID incrementado en 1
-        //     return lastID + 1;
-        // }
-
-        // if (products.length) {
-        //     products.push({
-        //         id: generateID(),
-        //         name: req.body.name,
-        //         descripcion: req.body.descripcion,
-        //         cantidad: req.body.cantidad,
-        //         image: req.file.filename,
-        //         categoria: req.body.categoria,
-        //         color: req.body.colores,
-        //         talla: req.body.tallas,
-        //         precio: req.body.precio
-        //     })
-        // } else {
-        //     products.push({
-        //         id: 1,
-        //         name: req.body.name,
-        //         descripcion: req.body.descripcion,
-        //         cantidad: req.body.cantidad,
-        //         image: req.file.filename,
-        //         categoria: req.body.categoria,
-        //         color: req.body.colores,
-        //         talla: req.body.tallas,
-        //         precio: req.body.precio
-        //     })
-        // }
-
-        // fs.writeFileSync(productPath, JSON.stringify(products, null, ' '));
-
-        
     },
-    edit: (req, res) => {
-        const id = Number(req.params.id);
-        const productEdit = products.find(product => product.id === id);
-        return res.render('./products/editProduct', {product: productEdit});
+    edit: async(req, res) => {
+        
+        const productEdit = await Product.findByPk(req.params.id,{include: ['colors','sizes','genres']});
+        // return res.json(productEdit)
+		const colors = await Color.findAll({});
+		const sizes = await Size.findAll({});
+		const genres = await Genre.findAll({});
+        return res.render('./products/editProduct', {productEdit,colors,sizes,genres});
 
     },
-    update: (req, res) => {
-        const id = Number(req.params.id);
-
-		// Mapeo el array de productos original para editar el producto
-		const finalPdts = products.map(oneProduct => {
-			if (oneProduct.id === Number(req.params.id)) {
-				return { 
-					...oneProduct,
-					...req.body,
-					image: req.file ? req.file.filename : oneProduct.image
-				}
-			}
-			return oneProduct;
-		});
+    update: async(req, res) => {
+        const id = req.params.id
+        const productUpdate = await Product.findByPk(id,{include: ['colors','sizes','genres']});
         
+        productUpdate.model = req.body.model ? req.body.model : productUpdate.model;
+        productUpdate.description = req.body.description ? req.body.description : productUpdate.description;
+        productUpdate.quantity = req.body.quantity ? req.body.quantity : productUpdate.quantity;
+        productUpdate.price = req.body.price ? req.body.price : productUpdate.price;
+        productUpdate.discount = req.body.discount ? req.body.discount : productUpdate.discount;
+        productUpdate.image = req.file ? req.file.filename : productUpdate.image;
+        
+        if(req.body.colors){
+            productUpdate.removeColors(productUpdate.colors)
+            productUpdate.addColors(req.body.colors)
+        }
+        if(req.body.genres){
+            productUpdate.removeGenres(productUpdate.genres)
+            productUpdate.addGenres(req.body.genres)
+        }
+        if(req.body.sizes){
+            productUpdate.removeSizes(productUpdate.sizes)
+            productUpdate.addSizes(req.body.sizes)
+        }
+        productUpdate.save();
+       
+        // return res.json(productUpdate)
 
-		fs.writeFileSync(productPath, JSON.stringify(finalPdts, null, ' '));
+        return res.redirect(`/products/productDetail/${id}`);
 		
-		return res.redirect(`/products/productDetail/${id}`);
     },
-    delete: (req, res) => {
-       const id = Number(req.params.id);
-
-       const productoEliminar = products.filter(producto => producto.id !== id);
-
-       fs.writeFileSync(productPath, JSON.stringify(productoEliminar, null,' '));
+    delete: async(req, res) => {
+        const productId = req.params.id;
+        try {
+            const productToDelete = await Product.findByPk(productId, { include: ['colors','sizes','genres']});
+            productToDelete.removeColors(productToDelete.colors)
+            productToDelete.removeGenres(productToDelete.genres)
+            productToDelete.removeSizes(productToDelete.sizes)
+            productToDelete.destroy();
+        } catch (error) {
+            console.log(error)
+        }
 
        return res.redirect('/products');
-
     },
 }
 

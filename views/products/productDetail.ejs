@@ -6,13 +6,26 @@
     <main>
         <section class="containerProdcuto"> 
             <article class="producto">
-              <h2><%= `Producto: ${product.name} con el id: ${product.id}` %> </h2>
-              <p><%= `Descripcion: ${product.descripcion} ` %></p>
-              <p><%= `Categoría: ${product.categoria} ` %></p>
-              <p><%= `Talla: ${product.talla} ` %></p>
-              <p><%= `Color: ${product.color} ` %></p>
-              <p><%= `Cantidad: ${product.cantidad} ` %></p>
-              <p><%= `Precio: ${product.precio} $ ` %></p>
+              <h2><%= `Producto: ${product.model}` %> </h2>
+              <p><%= `Descripcion: ${product.description} ` %></p>
+              <% if (product.sizes.length > 0) { %>
+                <% product.sizes.forEach(size => { %>
+                  <p><%= `Talla: ${size.name}`%></p>
+                <% }) %>
+              <% } %>
+              <% if (product.genres.length > 0) { %>
+                <% product.genres.forEach(genre => { %>
+                  <p><%= `Genero: ${genre.name}`%></p>
+                <% }) %>
+              <% } %>
+              <% if (product.colors.length > 0) { %>
+                <% product.colors.forEach(color => { %>
+                  <p><%= `Color: ${color.name}`%></p>
+                <% }) %>
+              <% } %>
+              <p><%= `Cantidad: ${product.quantity} ` %></p>
+              <p><%= `Precio: ${product.price} $ ` %></p>
+              <p><%= `Descuento: ${product.discount} $ ` %></p>
               <div class='containerImg'>
                 <img src="/uploads/<%= product.image %>" alt="" width="200px" height="200px">
               </div>

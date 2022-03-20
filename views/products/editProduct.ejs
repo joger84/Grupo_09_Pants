@@ -4,59 +4,68 @@
 <body>
     <%- include('../partials/header') %>
     <section class="overflow">
-        <form class="formCreate" action="/products/<%= product.id %>?_method=put" method="POST" enctype="multipart/form-data">
+        <form class="formCreate" action="/products/edit/<%= productEdit.id %>?_method=put" method="POST" enctype="multipart/form-data">
             <div class="formItem">
                 <label>Nombre</label>
-                <input class="productName" type= "text" name='name' value="<%= product.name %>">
+                <input class="productName" type= "text" name='model' value="<%= productEdit.model %>">
             </div>
             <div class="formItem">
                 <label>Descripción</label>
-                <input class="description" type= "text" name='descripcion' value="<%= product.descripcion %>">
+                <input class="description" type= "text" name='description' value="<%= productEdit.description %>">
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
-                <input class="cantidad" type="number" name='cantidad' value="<%= product.cantidad %>">
+                <input class="cantidad" type="number" name='quantity' value="<%= productEdit.quantity %>">
             </div>
             <div class="formItem">
                 <label>Imagen</label>
                 <input type="file" name="image" multiple >
             </div>
             <div class='containerImg'>
-                <img src="/uploads/<%= product.image %>" alt="" width="200px" height="200px">
+                <img src="/uploads/<%= productEdit.image %>" alt="" width="200px" height="200px">
             </div>
             
             <div class="formItem">
-                <label>Categoría</label>
-                <select class="category" name="categoria" id="categoria" style="appearance:menulist-button;" value="<%= product.categoria %>">
-                    <option value="-">-</option>
-                    <option value="Woman">Woman</option>
-                    <option value="Men">Men</option>
-                    <option value="Kids">Kids</option>
+                <label>Genero</label>
+                <select class="category" name="genres" id="categoria" style="appearance:menulist-button;">
+                    <option value="">Selecciona el genero</option>
+                    <% genres.forEach(onGenre=> { %>
+                        <option value="<%= onGenre.id %>">
+                        <%= onGenre.name %>
+                        </option>
+                    <% }) %>
                 </select>
             </div>
             <div class="formItem">
                 <label>Colores</label>
-                <select class="colors" name="color" id="colores" style="appearance:menulist-button;" value="<%= product.color %>">
-                    <option value="Blue">Blue</option>
-                    <option value="Grey">Grey</option>
-                    <option value="White">White</option>
-                    <option value="Black">Black</option>
+                <select class="colors" name="colors" id="colores" style="appearance:menulist-button;" >
+                    <option value="">Selecciona el color</option>
+                    <% colors.forEach(onColor=> { %>
+                        <option value="<%= onColor.id %>">
+                        <%= onColor.name %>
+                        </option>
+                    <% }) %>
                 </select>
             </div>
             <div class="formItem">
                 <label>Talla</label>
-                <select class="cantButton" name="talla" id="tall" style="appearance:menulist-button;" value="<%= product.talla %>">
-                    <option value="xs">xs</option>
-                    <option value="s">s</option>
-                    <option value="m">m</option>
-                    <option value="l">l</option>
-                    <option value="xl">xl</option>
-                    <option value="xxl">xxl</option>
+                <select class="cantButton" name="sizes" id="tall" style="appearance:menulist-button;">
+                    <option value="">Selecciona la talla</option>
+                    <% sizes.forEach(onSize=> { %>
+                        <option value="<%= onSize.id %>">
+                        <%= onSize.name %>
+                        </option>
+                    <% }) %>
                 </select>
             </div>
             <div class="formItem">
                 <label>Precio</label>
-                <input class="price" type="text" name='precio' value="<%= product.precio %>"> $
+                <input class="price" type="text" name='price' value="<%= productEdit.price %>"> $
+                <br>
+            </div>
+            <div class="formItem">
+                <label>Precio</label>
+                <input class="price" type="text" name='discount' value="<%= productEdit.discount %>"> $
                 <br>
             </div>
             <div class='btns'>

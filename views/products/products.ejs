@@ -9,9 +9,11 @@
           <h2><%= `Producto: ${element.model}` %> </h2>
           <p><%= `Descripcion: ${element.description} ` %></p>
           <p><%= `Cantidad: ${element.quantity} ` %>Uni</p>
-          <p><%= `talla: ${element.sizes.name}`%></p>
-          <p><%= `genero: ${element.genres.name}`%></p>
-          <p><%= `color: ${element.colors.name}`%></p>
+          <% if (element.sizes.length > 0) { %>
+						<% element.sizes.forEach(size => { %>
+							<p><%= `Talla: ${size.name}`%></p>
+						<% }) %>
+					<% } %>
           <p><%= `Precio: ${element.price} ` %>$</p>
           <p><%= `Descuento: ${element.discount} ` %>$</p>
           <div class='containerImg'>

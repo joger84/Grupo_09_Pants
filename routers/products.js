@@ -41,7 +41,7 @@ router.post("/createProduct", upload.single("image"), controller.store);
 
 router.get('/edit/:id', controller.edit);
 
-router.put('/:id', upload.single("image"),controller.update);
+router.put('/edit/:id', upload.single("image"),controller.update);
 
 router.delete('/:id', controller.delete);
 
