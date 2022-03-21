@@ -27,8 +27,7 @@ router.get('/profile', authMiddleware, controller.profile);
 //proceso de modificacion de profile 
 router.get('/editProfile/:id', controller.editProfile);
 router.post('/editProfile/:id', controller.update); //validar si no conviene hacer con metodo patch o update
-router.delete('/editProfile/:id', controller.destroy)
-//router.delete('/editProfile/:id', controller.destroy);
+
 // Logout
 router.post('/logout', controller.logout);
 
