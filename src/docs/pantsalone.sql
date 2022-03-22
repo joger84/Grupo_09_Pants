@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 19, 2022 at 12:09 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-03-2022 a las 21:47:43
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pantsalone`
+-- Base de datos: `pantsalone`
 --
 CREATE DATABASE IF NOT EXISTS `pantsalone` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `pantsalone`;
@@ -26,7 +26,7 @@ USE `pantsalone`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `colors`
+-- Estructura de tabla para la tabla `colors`
 --
 
 CREATE TABLE `colors` (
@@ -35,7 +35,7 @@ CREATE TABLE `colors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `colors`
+-- Volcado de datos para la tabla `colors`
 --
 
 INSERT INTO `colors` (`id`, `name`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `colors` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `color_product`
+-- Estructura de tabla para la tabla `color_product`
 --
 
 CREATE TABLE `color_product` (
@@ -60,7 +60,7 @@ CREATE TABLE `color_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `color_product`
+-- Volcado de datos para la tabla `color_product`
 --
 
 INSERT INTO `color_product` (`id`, `colorId`, `productId`, `createdAt`, `updatedAt`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `color_product` (`id`, `colorId`, `productId`, `createdAt`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genres`
+-- Estructura de tabla para la tabla `genres`
 --
 
 CREATE TABLE `genres` (
@@ -79,7 +79,7 @@ CREATE TABLE `genres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `genres`
+-- Volcado de datos para la tabla `genres`
 --
 
 INSERT INTO `genres` (`id`, `name`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `genres` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genre_product`
+-- Estructura de tabla para la tabla `genre_product`
 --
 
 CREATE TABLE `genre_product` (
@@ -102,7 +102,7 @@ CREATE TABLE `genre_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `genre_product`
+-- Volcado de datos para la tabla `genre_product`
 --
 
 INSERT INTO `genre_product` (`id`, `genreId`, `productId`, `createdAt`, `updatedAt`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `genre_product` (`id`, `genreId`, `productId`, `createdAt`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Estructura de tabla para la tabla `products`
 --
 
 CREATE TABLE `products` (
@@ -129,7 +129,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `products`
+-- Volcado de datos para la tabla `products`
 --
 
 INSERT INTO `products` (`id`, `model`, `description`, `quantity`, `price`, `discount`, `image`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `products` (`id`, `model`, `description`, `quantity`, `price`, `disc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_shop`
+-- Estructura de tabla para la tabla `product_shop`
 --
 
 CREATE TABLE `product_shop` (
@@ -160,7 +160,7 @@ CREATE TABLE `product_shop` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shops`
+-- Estructura de tabla para la tabla `shops`
 --
 
 CREATE TABLE `shops` (
@@ -173,7 +173,7 @@ CREATE TABLE `shops` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sizes`
+-- Estructura de tabla para la tabla `sizes`
 --
 
 CREATE TABLE `sizes` (
@@ -182,7 +182,7 @@ CREATE TABLE `sizes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sizes`
+-- Volcado de datos para la tabla `sizes`
 --
 
 INSERT INTO `sizes` (`id`, `name`) VALUES
@@ -196,7 +196,7 @@ INSERT INTO `sizes` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `size_product`
+-- Estructura de tabla para la tabla `size_product`
 --
 
 CREATE TABLE `size_product` (
@@ -208,7 +208,7 @@ CREATE TABLE `size_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `size_product`
+-- Volcado de datos para la tabla `size_product`
 --
 
 INSERT INTO `size_product` (`id`, `productId`, `sizeId`, `createdAt`, `updatedAt`) VALUES
@@ -217,7 +217,7 @@ INSERT INTO `size_product` (`id`, `productId`, `sizeId`, `createdAt`, `updatedAt
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -232,7 +232,7 @@ CREATE TABLE `users` (
   `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `role` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cratedAt` timestamp NULL DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
   `deletedAt` date NOT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -240,7 +240,7 @@ CREATE TABLE `users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_shop`
+-- Estructura de tabla para la tabla `user_shop`
 --
 
 CREATE TABLE `user_shop` (
@@ -250,17 +250,17 @@ CREATE TABLE `user_shop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `colors`
+-- Indices de la tabla `colors`
 --
 ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `color_product`
+-- Indices de la tabla `color_product`
 --
 ALTER TABLE `color_product`
   ADD PRIMARY KEY (`id`),
@@ -268,13 +268,13 @@ ALTER TABLE `color_product`
   ADD KEY `id_products` (`productId`);
 
 --
--- Indexes for table `genres`
+-- Indices de la tabla `genres`
 --
 ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `genre_product`
+-- Indices de la tabla `genre_product`
 --
 ALTER TABLE `genre_product`
   ADD PRIMARY KEY (`id`),
@@ -282,13 +282,13 @@ ALTER TABLE `genre_product`
   ADD KEY `id_products` (`productId`);
 
 --
--- Indexes for table `products`
+-- Indices de la tabla `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_shop`
+-- Indices de la tabla `product_shop`
 --
 ALTER TABLE `product_shop`
   ADD PRIMARY KEY (`id`),
@@ -296,7 +296,7 @@ ALTER TABLE `product_shop`
   ADD KEY `id_shop` (`shopId`);
 
 --
--- Indexes for table `shops`
+-- Indices de la tabla `shops`
 --
 ALTER TABLE `shops`
   ADD PRIMARY KEY (`id`),
@@ -304,13 +304,13 @@ ALTER TABLE `shops`
   ADD KEY `id_user` (`userId`);
 
 --
--- Indexes for table `sizes`
+-- Indices de la tabla `sizes`
 --
 ALTER TABLE `sizes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `size_product`
+-- Indices de la tabla `size_product`
 --
 ALTER TABLE `size_product`
   ADD PRIMARY KEY (`id`),
@@ -318,13 +318,13 @@ ALTER TABLE `size_product`
   ADD KEY `id_size` (`sizeId`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_shop`
+-- Indices de la tabla `user_shop`
 --
 ALTER TABLE `user_shop`
   ADD PRIMARY KEY (`id`),
@@ -332,109 +332,109 @@ ALTER TABLE `user_shop`
   ADD KEY `shopId` (`shopId`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `colors`
+-- AUTO_INCREMENT de la tabla `colors`
 --
 ALTER TABLE `colors`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `color_product`
+-- AUTO_INCREMENT de la tabla `color_product`
 --
 ALTER TABLE `color_product`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `genres`
+-- AUTO_INCREMENT de la tabla `genres`
 --
 ALTER TABLE `genres`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `genre_product`
+-- AUTO_INCREMENT de la tabla `genre_product`
 --
 ALTER TABLE `genre_product`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `product_shop`
+-- AUTO_INCREMENT de la tabla `product_shop`
 --
 ALTER TABLE `product_shop`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `shops`
+-- AUTO_INCREMENT de la tabla `shops`
 --
 ALTER TABLE `shops`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sizes`
+-- AUTO_INCREMENT de la tabla `sizes`
 --
 ALTER TABLE `sizes`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `size_product`
+-- AUTO_INCREMENT de la tabla `size_product`
 --
 ALTER TABLE `size_product`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user_shop`
+-- AUTO_INCREMENT de la tabla `user_shop`
 --
 ALTER TABLE `user_shop`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `color_product`
+-- Filtros para la tabla `color_product`
 --
 ALTER TABLE `color_product`
   ADD CONSTRAINT `color_product_ibfk_1` FOREIGN KEY (`colorId`) REFERENCES `colors` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `color_product_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `genre_product`
+-- Filtros para la tabla `genre_product`
 --
 ALTER TABLE `genre_product`
   ADD CONSTRAINT `genre_product_ibfk_1` FOREIGN KEY (`genreId`) REFERENCES `genres` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `genre_product_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `product_shop`
+-- Filtros para la tabla `product_shop`
 --
 ALTER TABLE `product_shop`
   ADD CONSTRAINT `product_shop_ibfk_2` FOREIGN KEY (`productsId`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `product_shop_ibfk_3` FOREIGN KEY (`shopId`) REFERENCES `shops` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `size_product`
+-- Filtros para la tabla `size_product`
 --
 ALTER TABLE `size_product`
   ADD CONSTRAINT `size_product_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `size_product_ibfk_3` FOREIGN KEY (`sizeId`) REFERENCES `sizes` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `user_shop`
+-- Filtros para la tabla `user_shop`
 --
 ALTER TABLE `user_shop`
   ADD CONSTRAINT `user_shop_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
