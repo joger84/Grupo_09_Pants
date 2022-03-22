@@ -76,3 +76,24 @@ Por ahora nada que agregar
 
 5. Dejar de hacer:
 Por ahora nada que agregar
+
+SPRINT 6:
+1. Comenzar a hacer:   
+Comentar con el grupo el trabajo realizado individual, para ir practicando la exposicion final, y asi todos tener la misma idea general del trabajo mas alla de como lo exponga cada uno con sus palabras.
+
+2. Hacer más:
+Comentar las dificultades que nos encontramos en el proceso de resolver un ejercicio y como lo solucionamos.
+Compartir las diferentes ideas o puntos de vista de como creemos que podemos resolver un punto, para asi ampliar la vision de como resolver un ejercicio.
+
+3. Continuar haciendo:
+Reuniones semanales grupales.
+Compromiso con el trabajo.
+Trabajo colaborativo.
+Estimar tiempo dedicado al sprint como punto de partida (grupal e individual).
+Reuniones previas 1/2 dias antes de la entrega del Sprint para comprobar que no exisatan conflictos.
+
+4. Hacer menos:
+Por ahora nada que agregar 
+
+5. Dejar de hacer:
+Por ahora nada que agregar
