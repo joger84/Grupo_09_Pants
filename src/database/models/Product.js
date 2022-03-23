@@ -6,9 +6,8 @@ module.exports = function (sequelize, DataTypes) {
         price:DataTypes.INTEGER,
         discount:DataTypes.DECIMAL,
         image:DataTypes.STRING,
-        deletedAt:DataTypes.DATE
-        
-    },{});
+    },
+    {paranoid: true});
 
     Product.associate = function (models) {
 		Product.belongsToMany(models.Color, {

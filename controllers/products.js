@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const productPath = path.resolve(__dirname, "../data/products.json");
 // const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
+const { Op } = require("sequelize");
 const {Product,Color,Size,Genre} = require("../src/database/models")
 
 const contollerProducts = {
@@ -105,9 +106,9 @@ const contollerProducts = {
         const productId = req.params.id;
         try {
             const productToDelete = await Product.findByPk(productId, { include: ['colors','sizes','genres']});
-            productToDelete.removeColors(productToDelete.colors)
-            productToDelete.removeGenres(productToDelete.genres)
-            productToDelete.removeSizes(productToDelete.sizes)
+            // productToDelete.removeColors(productToDelete.colors)
+            // productToDelete.removeGenres(productToDelete.genres)
+            // productToDelete.removeSizes(productToDelete.sizes)
             productToDelete.destroy();
         } catch (error) {
             console.log(error)
@@ -115,9 +116,18 @@ const contollerProducts = {
 
        return res.redirect('/products');
     },
+    searchResults: async (req, res) => {
+		const description = req.query.description;
+		const products = await Product.findAll({
+            where: {
+				description: {
+					[Op.like]: `%${description}%`
+				} 
+			}
+		});
+		return res.json(products);
+        
+	}
 }
-
-
-
 
 module.exports = contollerProducts;
