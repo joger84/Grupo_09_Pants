@@ -8,17 +8,18 @@
           <article class= "profile">
           
                 <div class="formItem">
-                  <h2> Hi <%=users.usuario%> </h2>
+                  <h2> Hi <%= locals.users.fullName %> </h2>
                   <div class= "containerUserImg">  
                   <img src="/users/<%= users.image %>" width="200px" height="200px" >
                 </div>
-                    <p> <%= users.email %></p>
+                    <p> <%= locals.users.email %></p>
                 </div>
 
                 <form action="/user/logout" method="post">
                     <button class="btnCloseSesion">Cerrar Sesion</button>
                 </form>
-          
+                <button type="submit" class=" Editar" >Editar</button>
+                <a href="/views/users/editProfile.ejs" class="button">Edita</a>
                 
             </article> 
         </section>

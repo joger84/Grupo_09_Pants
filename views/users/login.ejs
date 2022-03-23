@@ -8,7 +8,7 @@
         <div class="login">
             <br>
             <label> Correo Electronico</label>
-              <input class='cantidad' type = "text" name ="eMail" value="<%=locals.oldDate ? oldDate.email : null%>" >
+              <input class='cantidad' type = "text" name ="eMail" value="<%=locals.oldDate ? oldDate.email : null%>" autofocus >
               <% if (locals.errors && errors.eMail) { %>
                 <div class="danger">
                     <%= errors.eMail.msg %>
@@ -31,7 +31,7 @@
             <br>
             <button class="btn" type="submit"> Ingresar</button>
             <a href="/" class="btn">Olvidé mi contraseña</a>
-        </div>
+          </div>
     </form>
   </section>  
     <%- include('../partials/footer') %> 

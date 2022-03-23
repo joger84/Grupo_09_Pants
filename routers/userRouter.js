@@ -15,7 +15,7 @@ const validatorLogin = require('../middlewares/validationLoginMiddleware');
 router.get('/login', guestMiddleware, controller.login);
 
 //Login process 
-router.post('/login',validatorLogin, controller.loginProcess);
+router.post('/login',validatorLogin, controller.loginProcess); 
 
 // Formulario de Register
 router.get('/register', guestMiddleware, controller.register);

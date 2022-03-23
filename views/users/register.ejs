@@ -7,7 +7,7 @@
     <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
         <div class="formItem">
             <label>Nombre y apellido:</label>
-            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullname : null%>">
+            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullname : null%>" autofocus>
             <% if (locals.errors && errors.fullname) { %>
                 <div class="danger">
                     <%= errors.fullname.msg %>

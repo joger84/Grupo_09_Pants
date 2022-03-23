@@ -15,7 +15,7 @@ const controllerUser = {
     },
     // Ruta por GET para mostrar vista
     login: (req,res) => {
-      return  res.render('./users/login') //eliminamos return, debería funcionar igual
+      return  res.render('./users/login') 
     },
 
     create: async(req, res) => {
@@ -58,8 +58,8 @@ const controllerUser = {
     },
 
     //Ruta por POST proceso de modificacion de profile 
-    update: function(req,res){
-      User.update({
+    update: function (req,res){
+        User.update({
         fullName:req.body.fullName,
         user:req.body.user,
         eMail:req.body.eMail,
@@ -80,10 +80,8 @@ const controllerUser = {
     },
 
     
+    //*****************CODIGO UTILIZADO PARA CUANDO TRABAJABAMOS CON DB JSON ***********
     
-    
-    
-        
     
     /*store: (req,res) =>{
         const resultValidation = validationResult(req);
