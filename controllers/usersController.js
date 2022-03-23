@@ -5,7 +5,7 @@ const usersPath = path.resolve(__dirname, "../data/users.json");
 //const users = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
 const {validationResult} = require('express-validator');
 const {User, Genre} = require("../src/database/models");
-const db = require("../src/database/models");
+/*const db = require("../src/database/models");*/
 
 
 const controllerUser = {
@@ -33,7 +33,9 @@ const controllerUser = {
     store: async(req, res) => {
         const postUser = {
             ...req.body,
-            image:req.file.filename
+            image:req.file.filename,
+            
+
         }
        console.log(postUser)
         
@@ -48,7 +50,7 @@ const controllerUser = {
     },
     //Ruta por GET proceso de modificacion de profile
     editProfile: function(req,res) {
-        db.User.findBbyPk(req.params.id)
+        User.findBbyPk(req.params.id)
             .then(function(userEdit){
               res.render('./users/editProfile', {userEdit:userEdit});
 
@@ -57,7 +59,7 @@ const controllerUser = {
 
     //Ruta por POST proceso de modificacion de profile 
     update: function(req,res){
-       db.User.update({
+      User.update({
         fullName:req.body.fullName,
         user:req.body.user,
         eMail:req.body.eMail,
@@ -81,18 +83,6 @@ const controllerUser = {
     
     
     
-    
-    /*const product = await Product.finByPk(req.params.id, {
-        include: ["sizes"]
-    })
-    
-    product.removeSizes(product.sizes);
-    product.addSizes(req.body.sizes);
-    
-    product.name = req.body.name ? req.body.name : product.name;
-    product.price = req.body.price ? req.body.price : product.price;
-    
-    product.save();*/
         
     
     /*store: (req,res) =>{
@@ -157,29 +147,34 @@ const controllerUser = {
 
 
     // Ruta por POST proceso de login
-    loginProcess: (req, res) => {
+    loginProcess: async (req, res) => {
        const validacionLogin = validationResult(req)
        if(validacionLogin.errors.length){
            return res.render('./users/login', {errors: validacionLogin.mapped(),oldDate:req.body})
         }
         
         // 1. validar que el usuario que quiere loguearse este en la dataBase 
-        const userToLogin= users.find( oneUser => oneUser.email=== req.body.email);
+
+        const userToLogin= await User.findOne({
+            where: {
+                eMail: req.body.eMail
+            }
+        });
         console.log(userToLogin)
            
         // 2. validar que la contraseña sea la misma que la guardada
         if (userToLogin){
-            const passwordCorrect = bcrypt.compareSync(req.body.clave, userToLogin.clave);
+            const passwordCorrect = bcrypt.compareSync(req.body.password, userToLogin.password);
        // 3. guardar al "userLogged" en Session - 
              if (passwordCorrect){
                  
                  // 4. borrar el password del user que tenemos almacenado en sesion          
-                 delete userToLogin.clave;
+                 delete userToLogin.password;
                  req.session.userLogged = userToLogin;
                  // 5. Redireccionamos a users/profileUsers
                 }
                 if(req.body.remember_User){
-                    res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 5}) // seteo de cookie
+                    res.cookie('userEmail', req.body.eMail, {maxAge: (1000 * 60) * 5}) // seteo de cookie
                 }
                 return res.redirect("/user/profile")      
           

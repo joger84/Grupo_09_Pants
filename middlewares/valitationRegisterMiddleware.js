@@ -6,14 +6,14 @@ const {body} = require("express-validator");
  
 
 module.exports = [
-    body('fullname').notEmpty().withMessage('Ingresa tu nombre completo'),
-    body('usuario').notEmpty().withMessage('Ingresa un usuario'),
-    body('email')
+    body('fullName').notEmpty().withMessage('Ingresa tu nombre completo'),
+    body('user').notEmpty().withMessage('Ingresa un usuario'),
+    body('eMail')
         .notEmpty().withMessage('Ingresa un correo electronico').bail()
         .isEmail().withMessage('Debes de escribir un formato de correo valido'),
-    body('clave').notEmpty().withMessage('Ingresa una contraseña'),
-    body('fecha').notEmpty().withMessage('Ingresa tu fecha de nacimiento'),
-    body('paises').notEmpty().withMessage('Ingresa un país'),
+    body('password').notEmpty().withMessage('Ingresa una contraseña'),
+    body('dateBirth').notEmpty().withMessage('Ingresa tu fecha de nacimiento'),
+    body('country').notEmpty().withMessage('Ingresa un país'),
     body('address').notEmpty().withMessage('Ingresa tu direccion'),
     body('avatarImage').custom((value,{req}) =>{
         let file = req.file;

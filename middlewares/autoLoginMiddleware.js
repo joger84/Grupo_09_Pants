@@ -8,7 +8,7 @@ function autoLoginMiddleware (req, res, next){
     const emailInCookie = req.cookies.userEmail; 
 
     if (emailInCookie !== undefined){ 
-        const userToLogin = users.find(oneUser => oneUser.email === emailInCookie);
+        const userToLogin = User.find(oneUser => oneUser.eMail === emailInCookie);
         delete userToLogin.password;
         req.sesion.userLogged = userToLogin;
     }

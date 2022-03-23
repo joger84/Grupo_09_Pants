@@ -34,10 +34,10 @@
         </div>
         <div class="formItem">
             <label>Contraseña:</label>
-            <input type="password" name="clave" value="<%=locals.oldDate ? oldDate.clave : null%>">
-            <% if (locals.errors && errors.clave) { %>
+            <input type="password" name="password" value="<%=locals.oldDate ? oldDate.clave : null%>">
+            <% if (locals.errors && errors.password) { %>
                 <div class="danger">
-                    <%= errors.clave.msg %>
+                    <%= errors.password.msg %>
                 </div>
             <% } %>
         </div>
@@ -52,7 +52,7 @@
         </div>
         <div class="formItem">
             <label>Fecha de nacimiento:</label>
-            <input type="date" name="fecha" value="<%=locals.oldDate ? oldDate.fecha : null%>">
+            <input type="date" name="dateBirth" value="<%=locals.oldDate ? oldDate.fecha : null%>">
             <% if (locals.errors && errors.fecha) { %>
                 <div class="danger">
                     <%= errors.fecha.msg %>
@@ -61,7 +61,7 @@
         </div>
         <div class="formItem">
             <label>Elige un país</label>
-            <select name="paises" class="formSelect">
+            <select name="country" class="formSelect">
                 <option value="">Elige un país</option>
                 <% 
                     let countries = ['Argentina','Bolivia','Brasil','Colombia','Chile','Ecuador','Paraguay','Peru','Uruguay','Venezuela']
@@ -93,9 +93,9 @@
 
         <div class="formItem">
             <label>Genero:</label>
-            <input type="radio" name="genero" value="mujer"> Mujer
-            <input type="radio" name="genero" value="hombre"> Hombre
-            <input type="radio" name="genero" value="niño"> Niño
+            <input type="radio" name="genre" value="mujer"> Mujer
+            <input type="radio" name="genre" value="hombre"> Hombre
+            <input type="radio" name="genre" value="niño"> Niño
                     
         </div>
         <div class="btns">
