@@ -39,6 +39,8 @@ router.get('/createProduct', controller.create);
 
 router.post("/createProduct", upload.single("image"), controller.store);
 
+router.get("/search-results", controller.searchResults);
+
 router.get('/edit/:id', controller.edit);
 
 router.put('/edit/:id', upload.single("image"),controller.update);
