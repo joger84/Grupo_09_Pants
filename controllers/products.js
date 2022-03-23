@@ -125,7 +125,8 @@ const contollerProducts = {
 				} 
 			}
 		});
-		return res.json(products);
+		// return res.json(products);
+        return res.render('./products/search-results', {products});
         
 	}
 }
