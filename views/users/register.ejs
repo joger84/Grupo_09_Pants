@@ -7,34 +7,34 @@
     <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
         <div class="formItem">
             <label>Nombre y apellido:</label>
-            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullname : null%>" autofocus>
-            <% if (locals.errors && errors.fullname) { %>
+            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullName : null%>" autofocus>
+            <% if (locals.errors && errors.fullName) { %>
                 <div class="danger">
-                    <%= errors.fullname.msg %>
+                    <%= errors.fullName.msg %>
                 </div>
             <% } %>
         </div>
         <div class="formItem">
             <label>Nombre de usuario:</label>
-            <input class="description" type= "text" name='user' value="<%=locals.oldDate ? oldDate.usuario : null%>">
-            <% if (locals.errors && errors.usuario) { %>
+            <input class="description" type= "text" name='user' value="<%=locals.oldDate ? oldDate.user : null%>">
+            <% if (locals.errors && errors.user) { %>
                 <div class="danger">
-                    <%= errors.usuario.msg %>
+                    <%= errors.user.msg %>
                 </div>
             <% } %>
         </div>
         <div class="formItem">
             <label>Email:</label>
-            <input class="cantidad" type="email" name='eMail' value="<%=locals.oldDate ? oldDate.email : null%>">
-            <% if (locals.errors && errors.email) { %>
+            <input class="cantidad" type="email" name='eMail' value="<%=locals.oldDate ? oldDate.eMail : null%>">
+            <% if (locals.errors && errors.eMail) { %>
                 <div class="danger">
-                    <%= errors.email.msg %>
+                    <%= errors.eMail.msg %>
                 </div>
             <% } %>
         </div>
         <div class="formItem">
             <label>Contraseña:</label>
-            <input type="password" name="password" value="<%=locals.oldDate ? oldDate.clave : null%>">
+            <input type="password" name="password" value="<%=locals.oldDate ? oldDate.password : null%>">
             <% if (locals.errors && errors.password) { %>
                 <div class="danger">
                     <%= errors.password.msg %>
@@ -52,10 +52,10 @@
         </div>
         <div class="formItem">
             <label>Fecha de nacimiento:</label>
-            <input type="date" name="dateBirth" value="<%=locals.oldDate ? oldDate.fecha : null%>">
-            <% if (locals.errors && errors.fecha) { %>
+            <input type="date" name="dateBirth" value="<%=locals.oldDate ? oldDate.dateBirth : null%>">
+            <% if (locals.errors && errors.dateBirth) { %>
                 <div class="danger">
-                    <%= errors.fecha.msg %>
+                    <%= errors.dateBirth.msg %>
                 </div>
             <% } %>
         </div>
@@ -69,14 +69,14 @@
                 <% for( const oneCountry of countries ) { %>
                     <option 
                         value="<%= oneCountry %>"
-                        <%= locals.oldDate && oneCountry === oldDate.paises ? 'selected' : null %> 
+                        <%= locals.oldDate && oneCountry === oldDate.country ? 'selected' : null %> 
                         ><%= oneCountry %> </option>
                 <% } %>
                 
             </select>
-            <% if (locals.errors && errors.paises) { %>
+            <% if (locals.errors && errors.country) { %>
                 <div class="danger">
-                    <%= errors.paises.msg %>
+                    <%= errors.country.msg %>
                 </div>
             <% } %>
         </div>
