@@ -34,7 +34,7 @@ const controllerUser = {
         const postUser = {
             ...req.body,
             password: bcrypt.hashSync(req.body.password, 10),
-            image:req.file.filename,
+            //image:req.file.filename,
             
 
         }

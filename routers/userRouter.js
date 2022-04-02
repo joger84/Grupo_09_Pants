@@ -20,13 +20,13 @@ router.post('/login',validatorLogin, controller.loginProcess);
 // Formulario de Register
 router.get('/register', guestMiddleware, controller.register);
 // Proceso de Registro 
-router.post('/register', validations, upLoadFiles.single("avatarImage"),controller.store);
+router.post('/register', /*validations,*/ upLoadFiles.single("avatarImage"),controller.store);
 
 // profile
 router.get('/profile', authMiddleware, controller.profile);
 //proceso de modificacion de profile 
 router.get('/editProfile/:id', controller.editProfile);
-router.post('/editProfile/:id',validations, upLoadFiles.single("avatarImage"), controller.update); //validar si no conviene hacer con metodo patch o update
+router.post('/editProfile/:id',/*validations,*/ upLoadFiles.single("avatarImage"), controller.update); //validar si no conviene hacer con metodo patch o update
 
 // Logout
 router.post('/logout', controller.logout);
