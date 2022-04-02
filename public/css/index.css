@@ -304,7 +304,7 @@ label{
     align-self: center;
     height: 30px;
 }
-.productName{
+.productName, .fullName{
     align-items: center;
     justify-content: center;
     border-radius: 5px;

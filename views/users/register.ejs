@@ -7,7 +7,14 @@
     <form class="formCreate" action="/user/register" method="POST" enctype="multipart/form-data">
         <div class="formItem">
             <label>Nombre y apellido:</label>
-            <input class="productName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullName : null%>" autofocus>
+            <input class="fullName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullName : null%>" autofocus>
+            <div class = "arrayErrors">
+                <ul>
+                 
+                </ul>
+
+            </div>
+            
             <% if (locals.errors && errors.fullName) { %>
                 <div class="danger">
                     <%= errors.fullName.msg %>
@@ -107,6 +114,6 @@
   </section>
   <%- include('../partials/footer') %> 
   <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
-  <script src="/public/users/jsFront/validations.js"></script>
+  <script src="/users/jsFront/validations.js"></script>
 </body>
 </html>
