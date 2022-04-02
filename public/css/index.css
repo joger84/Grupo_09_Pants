@@ -346,6 +346,10 @@ label{
     border: none;
     height: 30px;  
 }
+.errors{
+    list-style: none;
+    color: red
+  }
 
 /* Login */
 
@@ -364,7 +368,6 @@ label{
 }
 .button {
     margin:15px;
-
 }
 
 .button :hover {

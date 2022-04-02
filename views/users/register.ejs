@@ -8,11 +8,9 @@
         <div class="formItem">
             <label>Nombre y apellido:</label>
             <input class="fullName" type= "text" name='fullName' value="<%=locals.oldDate ? oldDate.fullName : null%>" autofocus>
-            <div class = "arrayErrors">
+            <div class = "arrayErrors errors">
                 <ul>
-                 
                 </ul>
-
             </div>
             
             <% if (locals.errors && errors.fullName) { %>

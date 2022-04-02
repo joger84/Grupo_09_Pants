@@ -4,10 +4,13 @@
 <body>
     <%- include('../partials/header') %>
     <section class="overflow">
-        <form class="formCreate" action="/products/edit/<%= productEdit.id %>?_method=put" method="POST" enctype="multipart/form-data">
+        <form class="formEdit" action="/products/edit/<%= productEdit.id %>?_method=put" method="POST" enctype="multipart/form-data">
             <div class="formItem">
                 <label>Nombre</label>
                 <input class="productName" type= "text" name='model' value="<%= productEdit.model %>">
+                <div class="productsEditArrayErrors errors">
+                    <ul></ul>
+                </div>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
@@ -76,5 +79,6 @@
                         
     <%- include('../partials/footer') %> 
     <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
+    <script src="/public/products/validationModif.js"></script>
 </body>
 </html>

@@ -6,8 +6,11 @@
     <section class="overflow">
         <form class="formCreate" action="/products/createProduct" method="POST" enctype="multipart/form-data">
             <div class="formItem">
-                <label>Modelo </label>
-                <input class="productName" type= "text" name='model'>
+                <label>Modelo</label>
+                <input class="productName" type= "text" name='model' autofocus>
+                <div class="productsArrayErrors errors">
+                    <ul></ul>
+                </div>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
@@ -68,5 +71,6 @@
                         
     <%- include('../partials/footer') %> 
     <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
+    <script src="/products/validationCreate.js"></script>
 </body>
 </html>
