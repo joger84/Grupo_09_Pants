@@ -39,9 +39,9 @@ window.addEventListener("load", function (){
                         e.preventDefault();
                         let productsArrayErrors = document.querySelectorAll(".productsArrayErrors");
                         let errorPrueba=[...productsArrayErrors]
-                        console.log(errorPrueba)
-                        for(let i=0; i< errorPrueba.length; i++){
-                            errorPrueba.innerHTML= errors[i]
+                        // console.log(errorPrueba)
+                        for(let i=0; i< errors.length; i++){
+                            errorPrueba[i].innerHTML= errors[i]
                         }
                     }
            console.log(errors) 
