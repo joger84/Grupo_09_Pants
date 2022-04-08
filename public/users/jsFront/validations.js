@@ -1,4 +1,4 @@
-window.addEventListener("load", function (){
+/*window.addEventListener("load", function (){
     let form = document.querySelector(".formCreate");
     console.log ("conectar")
     form.addEventListener("submit", function(e){
@@ -17,7 +17,52 @@ window.addEventListener("load", function (){
             }
     })
     }
-)
+)*/
+const form = document.querySelector(".formCreate");
 
+const fullNameField = document.querySelector("[name=fullName]");
+const userField = document.querySelector("[name=user]");
+const emailField = document.querySelector("[name=eMail]");
+const passwordField = document.querySelector("[name=password]");
+
+const validateEmptyField = (e) => {
+	const field = e.target;
+	const spanTagError = field.nextElementSibling;
+	if (field.value.trim() === "") {
+		field.classList.add("is-invalid");
+		spanTagError.innerHTML = `El campo ${field.name} es obligatorio`;
+        spanTagError.classList.add("invalid-feedback");
+        field.classList.remove("is-valid");
+	} else {
+		field.classList.remove("is-invalid");
+		field.classList.add("is-valid");
+		spanTagError.innerHTML = "";
+		spanTagError.classList.remove("invalid-feedback");
+	}
+}
+
+fullNameField.addEventListener("blur", validateEmptyField);
+userField.addEventListener("blur", validateEmptyField);
+emailField.addEventListener("blur", validateEmptyField);
+passwordField.addEventListener("blur", validateEmptyField);
+
+ form.addEventListener("submit", e=>{
+     e.preventDefault();
+    const expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+    const fullNameValue = fullNameField.value.length
+    const spanTagError = field.nextElementSibling;
+      console.log(fullNameValue);
+      if(fullNameValue <2){
+          spanTagError.innerText = `El Nombre debe tener más de 2 caracteres`;
+          spanTagError.classList.add("invalid-feedback");
+          field.classList.add("is-invalid");
+        }
+        if(expReg.test(emailField.value)){
+            console.log(emailField.value);
+            field.classList.add("is-invalid");
+            spanTagError.classList.add("invalid-feedback");
+            field.classList.remove("is-valid");
+        }
+    })
 
 
