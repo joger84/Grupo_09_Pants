@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.resolve(__dirname,'public')))
 
-app.listen(3000,()=> console.log('Servidor arriba!'))
+app.listen(3000,()=> console.log('Servidor en puerto 3000!'))
 
 //nos va a permitir poder acceder al req.session desde cualquier lugar de la app (salvo vistas para vistas req.locals)
 app.use(session({
