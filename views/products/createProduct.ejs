@@ -11,7 +11,6 @@
                 <div class="errors">
                     <p class="productsArrayErrors"></p>
                 </div>
-                <p class="errorProductName"></p>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
@@ -23,10 +22,16 @@
             <div class="formItem">
                 <label>Cantidad</label>
                 <input class="cantidad" type="number" name='quantity'>
+                <div class="errors">
+                    <p class="productsArrayErrors"></p>
+                </div>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
-                <input type="file" name="image" multiple>
+                <input class='image' type="file" name="image" multiple>
+                <div class="errors">
+                    <p class="productsArrayErrors"></p>
+                </div>
             </div>
             <div class="formItem">
                 <label>Género</label>
@@ -36,6 +41,7 @@
                         <option value=<%= oneGenre.id %>><%= oneGenre.name %> </option>
                     <% }) %>
                 </select>
+                
             </div>
             <div class="formItem">
                 <label>Colores</label>
@@ -45,6 +51,7 @@
                         <option value=<%= oneColor.id %>><%= oneColor.name %> </option>
                     <% }) %>
                 </select>
+                
             </div>
             <div class="formItem">
                 <label>Talla</label>
@@ -54,12 +61,17 @@
                         <option value=<%= oneSize.id %>><%= oneSize.name %> </option>
                     <% }) %>
                 </select>
+                
             </div>
             <div class="formItem">
                 <label>Precio</label>
                 <input class="price" type="text" name='price'> $
-                <br>
+                <div class="errors">
+                    <p class="productsArrayErrors"></p>
+                </div>
+                
             </div>
+            
             <div class="formItem">
                 <label>Descuento</label>
                 <input class="price" type="text" name='discount'> $
