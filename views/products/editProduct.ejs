@@ -8,26 +8,27 @@
             <div class="formItem">
                 <label>Nombre</label>
                 <input class="productName" type= "text" name='model' value="<%= productEdit.model %>">
-                <div class="productsEditArrayErrors errors">
-                    <ul></ul>
-                </div>
+                <span></span>                
             </div>
             <div class="formItem">
                 <label>Descripción</label>
                 <input class="description" type= "text" name='description' value="<%= productEdit.description %>">
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
                 <input class="cantidad" type="number" name='quantity' value="<%= productEdit.quantity %>">
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
-                <input type="file" name="image" multiple >
+                <input type="file" name="image" multiple id="image" >
+                <span></span>
             </div>
             <div class='containerImg'>
                 <img src="/uploads/<%= productEdit.image %>" alt="" width="200px" height="200px">
+                <span></span>
             </div>
-            
             <div class="formItem">
                 <label>Genero</label>
                 <select class="category" name="genres" id="categoria" style="appearance:menulist-button;">
@@ -38,6 +39,7 @@
                         </option>
                     <% }) %>
                 </select>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Colores</label>
@@ -49,6 +51,7 @@
                         </option>
                     <% }) %>
                 </select>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Talla</label>
@@ -60,10 +63,12 @@
                         </option>
                     <% }) %>
                 </select>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Precio</label>
                 <input class="price" type="text" name='price' value="<%= productEdit.price %>"> $
+                <span></span>
                 <br>
             </div>
             <div class="formItem">
@@ -79,6 +84,6 @@
                         
     <%- include('../partials/footer') %> 
     <script src="https://kit.fontawesome.com/21b565b396.js" crossorigin="anonymous"></script>
-    <script src="/public/products/validationModif.js"></script>
+    <script src="/products/validationEdit.js" type="text/javaScript"></script>
 </body>
 </html>
