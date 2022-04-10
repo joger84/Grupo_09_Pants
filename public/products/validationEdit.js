@@ -76,6 +76,25 @@ productDescriptionField.addEventListener('input', (e)=>{
 
 productQuantityField.addEventListener('blur', validationEmptyField);
 productimgField.addEventListener('blur', validationEmptyField);
+productimgField.addEventListener('blur', (e) =>{
+  const acceptedExtensions = [".jpg", ".png", ".jpeg", ".gif"];
+  const field = e.target;
+  const image = field.value;
+  const productspanTagError = field.nextElementSibling;
+  if (image !== acceptedExtensions){
+      field.classList.add("is-invalid")
+      productspanTagError.innerText = `Debes cargar una extension valida .jpg, .png, .jpeg, .gif`;
+      productspanTagError.classList.add("invalid-feedback");
+  } else {
+      field.classList.remove("is-invalid")
+      field.classList.add("is-valid")
+      productspanTagError.innerText = "";
+      productspanTagError.classList.remove("invalid-feedback");
+  };
+
+});
+
+
 productcategoriaField.addEventListener('blur', validationEmptyField);
 productColorField.addEventListener('blur', validationEmptyField);
 productSizeField.addEventListener('blur', validationEmptyField);
