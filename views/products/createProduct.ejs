@@ -8,30 +8,22 @@
             <div class="formItem">
                 <label>Modelo</label>
                 <input class="productName" type= "text" name='model' autofocus>
-                <div class="errors">
-                    <p class="productsArrayErrors"></p>
-                </div>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
                 <input class="description" type= "text" name='description'>
-                <div class="errors">
-                    <p class="productsArrayErrors"></p>
-                </div>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
                 <input class="cantidad" type="number" name='quantity'>
-                <div class="errors">
-                    <p class="productsArrayErrors"></p>
-                </div>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
-                <input class='image' type="file" name="image" multiple>
-                <div class="errors">
-                    <p class="productsArrayErrors"></p>
-                </div>
+                <input class='image' type="file" name="image" id="image" multiple>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Género</label>
@@ -41,7 +33,7 @@
                         <option value=<%= oneGenre.id %>><%= oneGenre.name %> </option>
                     <% }) %>
                 </select>
-                
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Colores</label>
@@ -51,7 +43,7 @@
                         <option value=<%= oneColor.id %>><%= oneColor.name %> </option>
                     <% }) %>
                 </select>
-                
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Talla</label>
@@ -61,14 +53,12 @@
                         <option value=<%= oneSize.id %>><%= oneSize.name %> </option>
                     <% }) %>
                 </select>
-                
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Precio</label>
                 <input class="price" type="text" name='price'> $
-                <div class="errors">
-                    <p class="productsArrayErrors"></p>
-                </div>
+                <span></span>
                 
             </div>
             
