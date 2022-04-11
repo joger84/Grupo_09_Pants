@@ -19,7 +19,7 @@
     }
 )*/
 const form = document.querySelector(".formCreate");
-
+console.log("Estas en Form Register")
 const fullNameField = document.querySelector("[name=fullName]");
 const userField = document.querySelector("[name=user]");
 const emailField = document.querySelector("[name=eMail]");
@@ -46,7 +46,7 @@ userField.addEventListener("blur", validateEmptyField);
 emailField.addEventListener("blur", validateEmptyField);
 passwordField.addEventListener("blur", validateEmptyField);
 
- form.addEventListener("submit", e=>{
+ form.addEventListener("submit", (e)=>{
      e.preventDefault();
     const expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     const fullNameValue = fullNameField.value.length
