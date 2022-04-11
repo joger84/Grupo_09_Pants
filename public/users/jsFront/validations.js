@@ -10,7 +10,7 @@ window.addEventListener('load', function(e){
     const imgField = document.querySelector('[name=avatarImage]');
     console.log(fullNameField, userField, emailField, passwordField, imgField)
     
-    errorRegisterArray=0;
+    errorArray=0;
     
     const validateEmptyField = (e) => {
         const field = e.target;
@@ -41,7 +41,7 @@ window.addEventListener('load', function(e){
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
 
-            errorRegisterArray++
+            errorArray++
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
@@ -62,8 +62,8 @@ window.addEventListener('load', function(e){
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
 
-            errorRegisterArray++
-        } else {
+            errorArray++
+        }else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
@@ -73,23 +73,30 @@ window.addEventListener('load', function(e){
     emailField.addEventListener("blur", validateEmptyField);
     emailField.addEventListener("input", (e)=>{
         const field = e.target;
+        const expReg = /[.*+\-?^${}()|[\]\\]/
         const email = field.value;
         const spanTagError = field.nextElementSibling;
-          console.log();
-          if (email.length<2){
+        console.log();
+        if (email.length<2){
             field.classList.add("is-invalid")
-            spanTagError.innerText = `El campo debe contener al menos 5 digitos`;
+            spanTagError.innerText = `Debe ingresar una dirección de correo electrónico`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-
-            errorRegisterArray++
-        } else {
+            
+            errorArray++
+        }if(email.match(expReg)){
+            field.classList.add("is-invalid");
+            spanTagError.innerText = `Ingrese una dirección válida`;
+            spanTagError.classList.add("invalid-feedback");
+            field.classList.remove("is-valid");
+            
+        }else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
             spanTagError.classList.remove("invalid-feedback");
         };
-        })
+    })
     passwordField.addEventListener("blur", validateEmptyField);
     passwordField.addEventListener("input", (e)=>{
         const field = e.target;
@@ -98,11 +105,11 @@ window.addEventListener('load', function(e){
           console.log();
           if (password.length<8){
             field.classList.add("is-invalid")
-            spanTagError.innerText = `El campo debe contener al menos 5 digitos`;
+            spanTagError.innerText = `El campo debe contener al menos 8 caracteres`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
 
-            errorRegisterArray++
+            errorArray++
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
@@ -130,7 +137,7 @@ window.addEventListener('load', function(e){
   };
 
 });
-console.log(errorRegisterArray)
+console.log(errorArray)
         form.addEventListener("submit", function(e){
             if (errorRegisterArray>0) {
                 e.preventDefault();
