@@ -54,6 +54,7 @@
             <label>Avatar</label>
             <input type="file" name="avatarImage" multiple>
             <% if (locals.errors && errors.avatarImage) { %>
+                <span></span>
                 <div class="danger">
                     <%= errors.avatarImage.msg %>
                 </div>
