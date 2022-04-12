@@ -53,8 +53,8 @@
         <div class="formItem">
             <label>Avatar</label>
             <input type="file" name="avatarImage" multiple>
+            <span></span>
             <% if (locals.errors && errors.avatarImage) { %>
-                <span></span>
                 <div class="danger">
                     <%= errors.avatarImage.msg %>
                 </div>
