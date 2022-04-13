@@ -10,17 +10,17 @@ window.addEventListener('load', function(e){
     const imgField = document.querySelector('[name=avatarImage]');
     console.log(fullNameField, userField, emailField, passwordField, imgField)
     
-    errorArray=0;
+    let errorArray=0;
     
     const validateEmptyField = (e) => {
         const field = e.target;
         const spanTagError = field.nextElementSibling;
         if (field.value.trim() === "") {
             field.classList.add("is-invalid");
-            spanTagError.innerHTML = `El campo ${field.name} es obligatorio`;
+            spanTagError.innerHTML = `El campo ${field.id} es obligatorio`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-            errorArray++
+            errorArray=errorArray+1
             
         } else {
             field.classList.remove("is-invalid");
@@ -41,7 +41,7 @@ window.addEventListener('load', function(e){
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
 
-            errorArray++
+            errorArray=errorArray+1
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
@@ -62,7 +62,7 @@ window.addEventListener('load', function(e){
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
 
-            errorArray++
+            errorArray=errorArray+1
         }else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
@@ -83,13 +83,13 @@ window.addEventListener('load', function(e){
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
             
-            errorArray++;
+            errorArray=errorArray+1
         }if(email.match(expReg)){
             field.classList.add("is-invalid");
             spanTagError.innerText = `Ingrese una dirección válida`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-            errorArray++;
+            errorArray=errorArray+1
             
         }else {
             field.classList.remove("is-invalid")
@@ -109,7 +109,7 @@ window.addEventListener('load', function(e){
             spanTagError.innerText = `El campo debe contener al menos 8 caracteres`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-            errorArray++;
+            errorArray=errorArray+1
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
@@ -129,7 +129,7 @@ window.addEventListener('load', function(e){
       spanTagError.innerHTML = "Debes cargar una extension valida .jpg, .png, .jpeg, .gif";
       spanTagError.classList.add("invalid-feedback");
       field.classList.remove("is-valid")
-      errorArray++;
+      errorArray=errorArray+1
   } else {
       field.classList.remove("is-invalid")
       field.classList.add("is-valid")
@@ -138,12 +138,12 @@ window.addEventListener('load', function(e){
   };
 
 });
-console.log(errorArray)
-form.addEventListener("submit", function(e){
+/*form.addEventListener("submit", function(e){
     if (errorArray>0) {
         e.preventDefault();
+        console.log(errorArray)
     }
-})
+})*/
 
 
     

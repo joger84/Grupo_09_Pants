@@ -21,9 +21,9 @@ const controllerUser = {
     create: async(req, res) => {
         try {
             const genero = await Genre.findAll({})
-      
-   
-        return res.render('./user/register', {Genre})
+            
+            
+            return res.render('./user/register', {Genre})
         } catch (error) {
             console.log(error)
         }
@@ -31,6 +31,10 @@ const controllerUser = {
     },
     // Ruta por POST proceso de Registro
     store: async(req, res) => {
+        const resultValidation = validationResult(req);
+        if(resultValidation.errors.length){
+            return res.render('./users/register', {errors: resultValidation.mapped(),oldDate:req.body})
+        }
         const postUser = {
             ...req.body,
             password: bcrypt.hashSync(req.body.password, 10),
@@ -142,10 +146,6 @@ module.exports = controllerUser;
 
 
 /*store: (req,res) =>{
-    const resultValidation = validationResult(req);
-    if(resultValidation.errors.length){
-        return res.render('./users/register', {errors: resultValidation.mapped(),oldDate:req.body})
-    }
     const generateID = () => {
         const lastUser = users[users.length - 1];
         // 2. Obtenemos el ID de ese último usuario
