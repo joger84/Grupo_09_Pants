@@ -7,65 +7,65 @@
         <form class="formCreate" action="/products/createProduct" method="POST" enctype="multipart/form-data">
             <div class="formItem">
                 <label>Modelo</label>
-                <input class="productName" type= "text" name='model' autofocus>
-                <span></span>
+                <input class="createProduct" type= "text" name='model' autofocus>
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
-                <input class="description" type= "text" name='description'>
-                <span></span>
+                <input class="createProduct" type= "text" name='description'>
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
-                <input class="cantidad" type="number" name='quantity'>
-                <span></span>
+                <input class="createProduct" type="number" name='quantity'>
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
-                <input class='image' type="file" name="image" id="image" multiple>
-                <span></span>
+                <input class='createProduct' type="file" name="image" id="image" multiple >
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Género</label>
-                <select class="category" name="genres" id="categoria" style="appearance:menulist-button;">
-                    <option value="-">-</option>
+                <select class="createProduct" name="genres" id="categoria" style="appearance:menulist-button;">
+                    <option value="">Selecciona tu género</option>
                     <% genres.forEach(oneGenre => { %>
                         <option value=<%= oneGenre.id %>><%= oneGenre.name %> </option>
                     <% }) %>
                 </select>
-                <span></span>
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Colores</label>
-                <select class="colors" name="colors" id="colores" style="appearance:menulist-button;">
-                    <option value=''>Selecciona el color:</option>
+                <select class="createProduct" name="colors" id="colores" style="appearance:menulist-button;">
+                    <option value=''>Selecciona el color</option>
                     <% colors.forEach(oneColor => { %>
                         <option value=<%= oneColor.id %>><%= oneColor.name %> </option>
                     <% }) %>
                 </select>
-                <span></span>
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Talla</label>
-                <select class="cantButton" name="sizes" id="tall" style="appearance:menulist-button;">
-                    <option value=''>Selecciona la talla:</option>
+                <select class="createProduct" name="sizes" id="tall" style="appearance:menulist-button;">
+                    <option value=''>Selecciona la talla</option>
                     <% sizes.forEach(oneSize => { %>
                         <option value=<%= oneSize.id %>><%= oneSize.name %> </option>
                     <% }) %>
                 </select>
-                <span></span>
+                <p></p>
             </div>
             <div class="formItem">
                 <label>Precio</label>
-                <input class="price" type="text" name='price'> $
-                <span></span>
+                <input class="createProduct" type="text" name='price'> $
+                <p></p>
                 
             </div>
             
             <div class="formItem">
                 <label>Descuento</label>
-                <input class="price" type="text" name='discount'> $
-                <br>
+                <input class="createProduct" type="text" name='discount'> $
+                
             </div>
             <div class="btns">
                 <button class="btn" type="submit" >Crear</button>
