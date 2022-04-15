@@ -6,8 +6,8 @@ const {body} = require("express-validator");
 
 
 module.exports = [
-    body('model').notEmpty().withMessage('Ingresa un nombre de Modelo').bail()
-    .isLength({min:5}).withMessage('El nompre del modelo debe contener mas de 5 caracteres'),
+    body('model').notEmpty().withMessage('Ingresa un nombre del modelo').bail()
+    .isLength({min:5}).withMessage('El nombre del modelo debe contener mas de 5 caracteres'),
     
     body('description').notEmpty().withMessage('Ingresa una descripcion del producto').bail()
     .isLength({min:20}).withMessage('EL campo de descripcion debe contener mas de 20 caracteres'),

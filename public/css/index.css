@@ -173,7 +173,7 @@ margin-left: 10px;
     opacity: 0.9;
     letter-spacing: 1.5px;
     color: white;
-    height: 190px;
+    /* height: 190px; */
     width: 100%;
     margin-top: auto;
 }
@@ -314,7 +314,7 @@ label{
     align-self: center;
     height: 30px;
 }
-.productName, .fullName{
+.createProduct, .fullName{
     align-items: center;
     justify-content: center;
     border-radius: 5px;
@@ -327,6 +327,12 @@ label{
     border-radius: 5px;
     border: none;
     height: 30px;
+}
+.msjRed{
+    text-align: center;
+    color: red;
+    text-shadow: 0 2px black;
+    margin: 5px 0;
 }
 #file-upload-button{
     align-items: center;
