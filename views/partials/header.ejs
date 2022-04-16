@@ -7,29 +7,29 @@
                 <a class="" href="/"><img class="img-header" src="/img/logo.png" alt=""></a>
             </div>    
             <div class="nav-link" id="navbarSupportedContent">
-                <ul class="navbar-nav">
+                <ul class="navbar-ul">
                   <li class="nav-item">
-                    <a class="nav-link" href="/products">Productos</a>
+                    <a class="nav-items-links" href="/products">Productos</a>
                   </li>
                   <% if (locals.isUserLogged) { %>
                   <li class="nav-item">
-                    <a class="nav-link" href="/user/profile">Profile</a>
+                    <a class="nav-items-links" href="/user/profile">Profile</a>
                   </li>
                   <% } else { %>
                   <li class="nav-item">
-                    <a class="nav-link" href="/user/register">Registro</a>
+                    <a class="nav-items-links" href="/user/register">Registro</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/user/login">Login</a>
+                    <a class="nav-items-links" href="/user/login">Login</a>
                   </li>
                   <% } %>
                   <li class="nav-item">
-                    <a class="nav-link" href="/products/productCart"><i class="fas fa-shopping-cart icon-car"></i></a>
+                    <a class="nav-items-links" href="/products/productCart"><i class="fas fa-shopping-cart icon-car"></i></a>
                   </li>
                 </ul>
             </div>
             <form class="form-busqueda" action="/products/search-results?description=" method="get">
-                <input class="form-control" type="search" placeholder="Buscar..." name="description">
+                <input class="form-control-busqueda" type="search" placeholder="Buscar..." name="description">
                 <button class="btn-buscar" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="burger-menu">
