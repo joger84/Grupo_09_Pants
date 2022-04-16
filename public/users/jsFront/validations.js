@@ -1,6 +1,7 @@
 window.addEventListener('load', function(e){
 
-    const form = document.querySelector(".formCreate");
+    
+
     console.log("Estas en Form Register")
 
     const fullNameField = document.querySelector("[name=fullName]");
@@ -11,9 +12,10 @@ window.addEventListener('load', function(e){
     console.log(fullNameField, userField, emailField, passwordField, imgField)
     
     let errorArray=0;
-    
+//Aviso de campos vacíos
     const validateEmptyField = (e) => {
         const field = e.target;
+        console.log(field);
         const spanTagError = field.nextElementSibling;
         if (field.value.trim() === "") {
             field.classList.add("is-invalid");
@@ -21,82 +23,82 @@ window.addEventListener('load', function(e){
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
             errorArray=errorArray+1
-            
+                        
         } else {
             field.classList.remove("is-invalid");
             field.classList.add("is-valid");
             spanTagError.innerHTML = "";
-            spanTagError.classList.remove("invalid-feedback");
+            spanTagError.classList.remove("invalid-feedback"); 
         }
     }
-    //pasamos la f(x) validationEmptyField para que ninguno de los campos pueda estar vacio
     fullNameField.addEventListener("blur", validateEmptyField);
+
+//Aviso de campos incompletos
     fullNameField.addEventListener('input', (e)=>{
         const field = e.target;
         const fullName = field.value;
         const spanTagError = field.nextElementSibling;
-        if (fullName.length<2){
+        if (fullName.length>0 && fullName.length<2){
             field.classList.add("is-invalid")
             spanTagError.innerText = `El campo debe contener al menos 2 digitos`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-
+            fullNameField.removeEventListener("blur", validateEmptyField); // anula el EventListener
             errorArray=errorArray+1
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
             spanTagError.classList.remove("invalid-feedback");
+            fullNameField.addEventListener("blur", validateEmptyField);
         };
     });
 
     userField.addEventListener("blur", validateEmptyField);
+
     userField.addEventListener("input", (e)=>{
         const field = e.target;
         const userName = field.value;
         const spanTagError = field.nextElementSibling;
           
-          if (userName.length<2){
+          if (userName.length>0 && userName.length<2){
             field.classList.add("is-invalid")
-            spanTagError.innerText = `El campo debe contener al menos 5 digitos`;
+            spanTagError.innerText = `El campo debe contener al menos 2 digitos`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-
+            userField.removeEventListener("blur", validateEmptyField);
             errorArray=errorArray+1
         }else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
             spanTagError.classList.remove("invalid-feedback");
+            userField.addEventListener("blur", validateEmptyField);
+
         };
     });
     emailField.addEventListener("blur", validateEmptyField);
     emailField.addEventListener("input", (e)=>{
+        let expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
         const field = e.target;
-        const expReg = /[.*+\-?^${}()|[\]\\]/
         const email = field.value;
         const spanTagError = field.nextElementSibling;
         
-        if (email.length<2){
-            field.classList.add("is-invalid")
-            spanTagError.innerText = `Debe ingresar una dirección de correo electrónico`;
-            spanTagError.classList.add("invalid-feedback");
-            field.classList.remove("is-valid");
-            
-            errorArray=errorArray+1
-        }if(email.match(expReg)){
-            field.classList.add("is-invalid");
-            spanTagError.innerText = `Ingrese una dirección válida`;
-            spanTagError.classList.add("invalid-feedback");
-            field.classList.remove("is-valid");
-            errorArray=errorArray+1
-            
-        }else {
-            field.classList.remove("is-invalid")
-            field.classList.add("is-valid")
-            spanTagError.innerText = "";
-            spanTagError.classList.remove("invalid-feedback");
-        };
+            if (email.length>0 && email.length<2 || !expresion.exec(email)){
+                field.classList.add("is-invalid")
+                spanTagError.innerText = `Debe ingresar una dirección de correo electrónico`;
+                spanTagError.classList.add("invalid-feedback");
+                field.classList.remove("is-valid");
+                emailField.removeEventListener("blur", validateEmptyField);
+                
+                errorArray=errorArray+1
+            }else {
+                field.classList.remove("is-invalid")
+                field.classList.add("is-valid")
+                spanTagError.innerText = "";
+                spanTagError.classList.remove("invalid-feedback");
+                emailField.addEventListener("blur", validateEmptyField);
+            };
     })
     passwordField.addEventListener("blur", validateEmptyField);
     passwordField.addEventListener("input", (e)=>{
@@ -104,47 +106,48 @@ window.addEventListener('load', function(e){
         const password = field.value;
         const spanTagError = field.nextElementSibling;
           
-          if (password.length<8){
+          if (password.length>0 && password.length<8){
             field.classList.add("is-invalid")
             spanTagError.innerText = `El campo debe contener al menos 8 caracteres`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
+            passwordField.removeEventListener("blur", validateEmptyField);
             errorArray=errorArray+1
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
             spanTagError.classList.remove("invalid-feedback");
+            passwordField.addEventListener("blur", validateEmptyField);
         };
         })
+     //validar extension para que sea una imagen
+     imgField.addEventListener('change', (e) => {
+        const field = e.target;
+        const img = field.value;
+        const spanTagError = field.nextElementSibling;
+        // console.log(productCreateimgField.value='')
+        let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
         
-     /*imgField.addEventListener('blur', validateEmptyField);*/
-     imgField.addEventListener('blur', (e) =>{
-    const acceptedExtensions = [".jpg", ".png", ".jpeg", ".gif"];
-    const field = e.target;
-    const image = field.value;
-    const spanTagError = field.nextElementSibling;
-    if (image !== acceptedExtensions){
+    if(!allowedExtensions.exec(img)){
         field.classList.add("is-invalid")
-      spanTagError.innerHTML = "Debes cargar una extension valida .jpg, .png, .jpeg, .gif";
-      spanTagError.classList.add("invalid-feedback");
-      field.classList.remove("is-valid")
-      errorArray=errorArray+1
-  } else {
-      field.classList.remove("is-invalid")
-      field.classList.add("is-valid")
-      spanTagError.innerText = "";
-      spanTagError.classList.remove("invalid-feedback");
-  };
+        spanTagError.innerHTML = "Debes cargar una extension valida .jpg, .png, .jpeg, .gif";
+        spanTagError.classList.add("invalid-feedback");
+        field.classList.remove("is-valid")
+        errorArray=errorArray+1
+    } else {
+        field.classList.remove("is-invalid")
+        field.classList.add("is-valid")
+        spanTagError.innerText = "";
+        spanTagError.classList.remove("invalid-feedback");
+    };
+    });
 
 });
-/*form.addEventListener("submit", function(e){
+/*const formUser = document.querySelector(".formCreate");
+formUser.addEventListener("submit", function(e){
     if (errorArray>0) {
         e.preventDefault();
         console.log(errorArray)
     }
-})*/
-
-
-    
-})
+});*/

@@ -45,6 +45,16 @@ h3{
     opacity: 0.9;
     /* border: solid 1px red; */
 }
+.navbarheaderfooter {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(27, 48, 107);
+    opacity: 0.9;
+    /* border: solid 1px red; */
+}
 .container-img{
     width: 150px;
 }
