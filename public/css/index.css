@@ -324,6 +324,12 @@ label{
     text-shadow: 0 2px black;
     margin: 5px 0;
 }
+.danger{
+    text-align: center;
+    color: red;
+    text-shadow: 0 2px black;
+    margin: 5px 0;
+}
 #file-upload-button{
     align-items: center;
     justify-content: center;
@@ -443,10 +449,6 @@ button.btn{
     text-align: center;
     text-decoration: none;
     text-shadow: 1px 1px 3px black;
-}
-
-.danger{
-    color: red;
 }
 
 /*profille*/

@@ -37,13 +37,13 @@ router.get('/productCart', controller.cart);
 
 router.get('/createProduct', controller.create);
 
-router.post("/createProduct", validationProductCreateandEdit, upload.single("image"), controller.store);
+router.post("/createProduct",upload.single("image"), validationProductCreateandEdit,controller.store);
 
 router.get("/search-results", controller.searchResults);
 
 router.get('/edit/:id', controller.edit);
 
-router.put('/edit/:id', validationProductCreateandEdit,  upload.single("image"),controller.update);
+router.put('/edit/:id', upload.single("image"), validationProductCreateandEdit,controller.update);
 
 router.delete('/:id', controller.delete);
 

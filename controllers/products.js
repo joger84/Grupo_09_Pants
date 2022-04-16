@@ -4,6 +4,8 @@ const productPath = path.resolve(__dirname, "../data/products.json");
 // const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
 const { Op } = require("sequelize");
 const {Product,Color,Size,Genre} = require("../src/database/models")
+const {validationResult} = require('express-validator');
+const { send } = require('process');
 
 const contollerProducts = {
 
@@ -44,23 +46,40 @@ const contollerProducts = {
         
     },
     store: async(req, res) => {
-        const postObj = {
-            ...req.body,
-            image:req.file.filename
-        }
-        // return res.json(postObj)
+        let postObj = {}
+        const productValidation = validationResult(req);
+        const colors = await Color.findAll({})
+        const sizes = await Size.findAll({})
+        const genres = await Genre.findAll({})
         
+        if(req.file === undefined){
+            postObj = {
+                ...req.body,
+                image: 'default.png'
+            }
+        }else{
+            postObj = {
+                ...req.body,
+                image: req.file.filename
+            }
+        }
+        
+        if(productValidation.errors.length){
+            // console.log(postObj)
+            return res.render('./products/createProduct', {errors: productValidation.mapped(),colors,sizes,genres,oldDate:req.body})
+        }
+        
+        // return res.json(postObj)
+
         try {
             const productStored = await Product.create(postObj) 
             productStored.addColors(postObj.colors)
             productStored.addGenres(postObj.genres)
             productStored.addSizes(postObj.sizes)
             return res.redirect('/products');
-            
         } catch (error) {
             console.log(error)
         }
-        
     },
     edit: async(req, res) => {
         
