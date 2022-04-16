@@ -21,9 +21,12 @@
             if(formItem.value.trim() === ''){
                 formItem.nextElementSibling.innerHTML = 'campo obligatorio'
                 formItem.nextElementSibling.classList.add('msjRed')
+                
             }else{
                 formItem.nextElementSibling.innerHTML = ''
                 formItem.nextElementSibling.classList.remove('msjRed')
+                formItem.classList.remove('is-invalid')
+                
             } 
         })
         //seleccionamos el primer input
@@ -32,9 +35,11 @@
             if(firtsImput.value.length < 5){
                 firtsImput.nextElementSibling.innerHTML = 'el campo debe terner mas de 5 caracteres'
                 firtsImput.nextElementSibling.classList.add('msjRed')
+                firtsImput.classList.add('is-invalid')
             }else{
                 firtsImput.nextElementSibling.innerHTML = ''
                 firtsImput.nextElementSibling.classList.remove('msjRed')
+                firtsImput.classList.add('is-valid')
             }
         })
         //seleccionamos el segundo input
@@ -43,9 +48,11 @@
             if(secondImput.value.length < 20){
                 secondImput.nextElementSibling.innerHTML = 'el campo debe terner mas de 20 caracteres'
                 secondImput.nextElementSibling.classList.add('msjRed')
+                secondImput.classList.add('is-invalid')
             }else{
                 secondImput.nextElementSibling.innerHTML = ''
                 secondImput.nextElementSibling.classList.remove('msjRed')
+                secondImput.classList.add('is-valid')
             }
         })
     }

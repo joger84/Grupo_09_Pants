@@ -7,58 +7,125 @@
         <form class="formCreate" action="/products/createProduct" method="POST" enctype="multipart/form-data">
             <div class="formItem">
                 <label>Modelo</label>
-                <input class="createProduct" type= "text" name='model' autofocus>
-                <p></p>
+                <input class="createProduct" type= "text" name='model' value="<%=locals.oldDate ? oldDate.model : null%>">
+                <% if (locals.errors && errors.model) { %>
+                    <p class="danger">
+                        <%= errors.model.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
-                <input class="createProduct" type= "text" name='description'>
-                <p></p>
+                <input class="createProduct" type= "text" name='description' value="<%=locals.oldDate ? oldDate.description : null%>">
+                <% if (locals.errors && errors.description) { %>
+                    <p class="danger">
+                        <%= errors.description.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
-                <input class="createProduct" type="number" name='quantity'>
-                <p></p>
+                <input class="createProduct" type="number" name='quantity' value="<%=locals.oldDate ? oldDate.quantity : null%>">
+                <% if (locals.errors && errors.quantity) { %>
+                    <p class="danger">
+                        <%= errors.quantity.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
                 <input class='createProduct' type="file" name="image" id="image" multiple >
-                <p></p>
+                <% if (locals.errors && errors.image) { %>
+                    <p class="danger">
+                        <%= errors.image.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
             </div>
             <div class="formItem">
                 <label>Género</label>
-                <select class="createProduct" name="genres" id="categoria" style="appearance:menulist-button;">
-                    <option value="">Selecciona tu género</option>
-                    <% genres.forEach(oneGenre => { %>
-                        <option value=<%= oneGenre.id %>><%= oneGenre.name %> </option>
-                    <% }) %>
-                </select>
+                <% if (locals.errors && errors.genres) { %>
+                    <select class="createProduct" name="genres" id="categoria" style="appearance:menulist-button;">
+                        <option value="">Selecciona tu género</option>
+                        <% genres.forEach(oneGenre => { %>
+                            <option value=<%= oneGenre.id %>><%= oneGenre.name %> </option>
+                        <% }) %>
+                    </select>
+                    <p class="danger">
+                        <%= errors.genres.msg %>
+                    </p>
+                <% } else { %>
+                    <select class="createProduct" name="genres" id="categoria" style="appearance:menulist-button;">
+                        <option value="">Selecciona tu género</option>
+                        <% genres.forEach(oneGenre => { %>
+                            <option value=<%= oneGenre.id %>><%= oneGenre.name %> </option>
+                        <% }) %>
+                    </select>
+                <% } %>
                 <p></p>
+                
             </div>
             <div class="formItem">
                 <label>Colores</label>
-                <select class="createProduct" name="colors" id="colores" style="appearance:menulist-button;">
-                    <option value=''>Selecciona el color</option>
-                    <% colors.forEach(oneColor => { %>
-                        <option value=<%= oneColor.id %>><%= oneColor.name %> </option>
-                    <% }) %>
-                </select>
+                <% if (locals.errors && errors.colors) { %>
+                    <select class="createProduct" name="colors" id="colores" style="appearance:menulist-button;">
+                        <option value=''>Selecciona el color</option>
+                        <% colors.forEach(oneColor => { %>
+                            <option value=<%= oneColor.id %>><%= oneColor.name %> </option>
+                        <% }) %>
+                    </select>
+                    <div class="danger">
+                        <%= errors.colors.msg %>
+                    </div>
+                <% } else { %>
+                    <select class="createProduct" name="colors" id="colores" style="appearance:menulist-button;">
+                        <option value=''>Selecciona el color</option>
+                        <% colors.forEach(oneColor => { %>
+                            <option value=<%= oneColor.id %>><%= oneColor.name %> </option>
+                        <% }) %>
+                    </select>
+                <% } %>
                 <p></p>
             </div>
             <div class="formItem">
                 <label>Talla</label>
-                <select class="createProduct" name="sizes" id="tall" style="appearance:menulist-button;">
-                    <option value=''>Selecciona la talla</option>
-                    <% sizes.forEach(oneSize => { %>
-                        <option value=<%= oneSize.id %>><%= oneSize.name %> </option>
-                    <% }) %>
-                </select>
+                <% if (locals.errors && errors.sizes) { %>
+                    <select class="createProduct" name="sizes" id="tall" style="appearance:menulist-button;">
+                        <option value=''>Selecciona la talla</option>
+                        <% sizes.forEach(oneSize => { %>
+                            <option value=<%= oneSize.id %>><%= oneSize.name %> </option>
+                        <% }) %>
+                    </select>
+                    <div class="danger">
+                        <%= errors.sizes.msg %>
+                    </div>
+                <% } else { %>
+                    <select class="createProduct" name="sizes" id="tall" style="appearance:menulist-button;">
+                        <option value=''>Selecciona la talla</option>
+                        <% sizes.forEach(oneSize => { %>
+                            <option value=<%= oneSize.id %>><%= oneSize.name %> </option>
+                        <% }) %>
+                    </select>
+                <% } %>
                 <p></p>
             </div>
             <div class="formItem">
                 <label>Precio</label>
-                <input class="createProduct" type="text" name='price'> $
-                <p></p>
+                <input class="createProduct" type="text" name='price' value="<%=locals.oldDate ? oldDate.price : null%>"> $
+                <% if (locals.errors && errors.price) { %>
+                    <p class="danger">
+                        <%= errors.price.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 
             </div>
             

@@ -1,6 +1,6 @@
 window.addEventListener('load', function(e){
 
-    const form = document.querySelector(".formCreate");
+    
 
     console.log("Estas en Form Register")
 
@@ -18,7 +18,6 @@ window.addEventListener('load', function(e){
         console.log(field);
         const spanTagError = field.nextElementSibling;
         if (field.value.trim() === "") {
-            console.log(1);
             field.classList.add("is-invalid");
             spanTagError.innerHTML = `El campo ${field.id} es obligatorio`;
             spanTagError.classList.add("invalid-feedback");
@@ -145,9 +144,10 @@ window.addEventListener('load', function(e){
     });
 
 });
-form.addEventListener("submit", function(e){
+/*const formUser = document.querySelector(".formCreate");
+formUser.addEventListener("submit", function(e){
     if (errorArray>0) {
         e.preventDefault();
         console.log(errorArray)
     }
-});
+});*/
