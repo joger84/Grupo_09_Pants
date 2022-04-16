@@ -1,6 +1,7 @@
 window.addEventListener('load', function(e){
 
     const form = document.querySelector(".formCreate");
+
     console.log("Estas en Form Register")
 
     const fullNameField = document.querySelector("[name=fullName]");
@@ -11,63 +12,70 @@ window.addEventListener('load', function(e){
     console.log(fullNameField, userField, emailField, passwordField, imgField)
     
     let errorArray=0;
-    
+//Aviso de campos vacíos
     const validateEmptyField = (e) => {
         const field = e.target;
+        console.log(field);
         const spanTagError = field.nextElementSibling;
         if (field.value.trim() === "") {
+            console.log(1);
             field.classList.add("is-invalid");
             spanTagError.innerHTML = `El campo ${field.id} es obligatorio`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
             errorArray=errorArray+1
-            
+                        
         } else {
             field.classList.remove("is-invalid");
             field.classList.add("is-valid");
             spanTagError.innerHTML = "";
-            spanTagError.classList.remove("invalid-feedback");
+            spanTagError.classList.remove("invalid-feedback"); 
         }
     }
-    //pasamos la f(x) validationEmptyField para que ninguno de los campos pueda estar vacio
     fullNameField.addEventListener("blur", validateEmptyField);
+
+//Aviso de campos incompletos
     fullNameField.addEventListener('input', (e)=>{
         const field = e.target;
         const fullName = field.value;
         const spanTagError = field.nextElementSibling;
-        if (fullName.length<2){
+        if (fullName.length>0 &&fullName.length<2){
             field.classList.add("is-invalid")
             spanTagError.innerText = `El campo debe contener al menos 2 digitos`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-
+            fullNameField.removeEventListener("blur", validateEmptyField); // anula el EventListener
             errorArray=errorArray+1
         } else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
             spanTagError.classList.remove("invalid-feedback");
+            fullNameField.addEventListener("blur", validateEmptyField);
         };
     });
 
     userField.addEventListener("blur", validateEmptyField);
+
     userField.addEventListener("input", (e)=>{
         const field = e.target;
         const userName = field.value;
         const spanTagError = field.nextElementSibling;
           
-          if (userName.length<2){
+          if (userName.length>0 &&userName.length<5){
             field.classList.add("is-invalid")
             spanTagError.innerText = `El campo debe contener al menos 5 digitos`;
             spanTagError.classList.add("invalid-feedback");
             field.classList.remove("is-valid");
-
+            userField.removeEventListener("blur", validateEmptyField);
             errorArray=errorArray+1
         }else {
             field.classList.remove("is-invalid")
             field.classList.add("is-valid")
             spanTagError.innerText = "";
             spanTagError.classList.remove("invalid-feedback");
+            userNameField.addEventListener("blur", validateEmptyField);
+
         };
     });
     emailField.addEventListener("blur", validateEmptyField);
@@ -138,12 +146,12 @@ window.addEventListener('load', function(e){
   };
 
 });
-/*form.addEventListener("submit", function(e){
+form.addEventListener("submit", function(e){
     if (errorArray>0) {
         e.preventDefault();
         console.log(errorArray)
     }
-})*/
+})
 
 
     
