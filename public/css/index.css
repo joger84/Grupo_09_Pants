@@ -42,7 +42,7 @@ h3{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background: linear-gradient(to bottom right,#0084ff 0%, #3954f1 50%, #3d6599 100%);
+    background: url(/img/fondojean.jpg);
     opacity: 0.9;
     
 }
@@ -247,6 +247,9 @@ margin-left: 10px;
     .carrucel{
         display: none;
     }
+    #navbarSupportedContent{
+        display: none;
+    } /*esconde el menu del header a paritr de 679 px*/
 }
 
 @media (max-width: 400px){
