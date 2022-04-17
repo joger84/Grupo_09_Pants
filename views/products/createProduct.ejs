@@ -6,6 +6,7 @@
     <section class="overflow">
         <form class="formCreate" action="/products/createProduct" method="POST" enctype="multipart/form-data">
             <div class="formItem">
+                <h2>Vas a crear un producto: </h2>
                 <label>Modelo</label>
                 <input class="createProduct" type= "text" name='model' value="<%=locals.oldDate ? oldDate.model : null%>">
                 <% if (locals.errors && errors.model) { %>

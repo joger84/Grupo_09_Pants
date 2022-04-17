@@ -6,23 +6,24 @@
     <section class="overflow">
         <form class="formEdit" action="/products/edit/<%= productEdit.id %>?_method=put" method="POST" enctype="multipart/form-data">
             <div class="formItem">
-                <label>Nombre</label>
-                <input class="productName" type= "text" name='model' value="<%= productEdit.model %>">
-                <span></span>                
+                <h2>Deseas modificar el producto: </h2>
+                <label>Modelo</label>
+                <input class="productEdit" id="Modelo" type= "text" name='model' value="<%= productEdit.model %>" autofocus>
+                <span></span>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
-                <input class="description" type= "text" name='description' value="<%= productEdit.description %>">
+                <input class="productEdit" id="Descripcion" type= "text" name='description' value="<%= productEdit.description %>">
                 <span></span>
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
-                <input class="cantidad" type="number" name='quantity' value="<%= productEdit.quantity %>">
+                <input class="productEdit" id="Cantidad" type="number" name='quantity' value="<%= productEdit.quantity %>">
                 <span></span>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
-                <input type="file" name="image" multiple id="image" >
+                <input class ="productEdit" type="file" name="image" multiple id="image" >
                 <span></span>
             </div>
             <div class='containerImg'>
@@ -31,7 +32,7 @@
             </div>
             <div class="formItem">
                 <label>Genero</label>
-                <select class="category" name="genres" id="categoria" style="appearance:menulist-button;">
+                <select class="productEdit" name="genres" id="categoria" style="appearance:menulist-button;">
                     <option value="">Selecciona el genero</option>
                     <% genres.forEach(onGenre=> { %>
                         <option value="<%= onGenre.id %>">
@@ -43,7 +44,7 @@
             </div>
             <div class="formItem">
                 <label>Colores</label>
-                <select class="colors" name="colors" id="colores" style="appearance:menulist-button;" >
+                <select class="productEdit" name="colors" id="colores" style="appearance:menulist-button;" >
                     <option value="">Selecciona el color</option>
                     <% colors.forEach(onColor=> { %>
                         <option value="<%= onColor.id %>">
@@ -55,7 +56,7 @@
             </div>
             <div class="formItem">
                 <label>Talla</label>
-                <select class="cantButton" name="sizes" id="tall" style="appearance:menulist-button;">
+                <select class="productEdit" name="sizes" id="Talle" style="appearance:menulist-button;">
                     <option value="">Selecciona la talla</option>
                     <% sizes.forEach(onSize=> { %>
                         <option value="<%= onSize.id %>">
@@ -67,13 +68,13 @@
             </div>
             <div class="formItem">
                 <label>Precio</label>
-                <input class="price" type="text" name='price' value="<%= productEdit.price %>"> $
+                <input class="productEdit" id="Precio" type="text" name='price' value="<%= productEdit.price %>"> $
                 <span></span>
                 <br>
             </div>
             <div class="formItem">
-                <label>Precio</label>
-                <input class="price" type="text" name='discount' value="<%= productEdit.discount %>"> $
+                <label>Descuento</label>
+                <input class="productEdit" type="text" name='discount' value="<%= productEdit.discount %>"> $
                 <br>
             </div>
             <div class='btns'>

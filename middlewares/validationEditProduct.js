@@ -1,4 +1,4 @@
-// *********Middleware de Validaciones PRODUCT Create **************
+// *********Middleware de Validaciones PRODUCT EDIT**************
 const path = require('path');
 const {body} = require("express-validator");
 

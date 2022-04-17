@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const validationProductCreateandEdit = require('../middlewares/validationProduct');
+const validationProductCreate = require('../middlewares/validationProduct');
+const validationEditProduct = require('../middlewares/validationEditProduct');
 const multer = require('multer');
 
 const controller = require('../controllers/products');
@@ -37,13 +38,13 @@ router.get('/productCart', controller.cart);
 
 router.get('/createProduct', controller.create);
 
-router.post("/createProduct",upload.single("image"), validationProductCreateandEdit,controller.store);
+router.post("/createProduct",upload.single("image"), validationProductCreate,controller.store);
 
 router.get("/search-results", controller.searchResults);
 
 router.get('/edit/:id', controller.edit);
 
-router.put('/edit/:id', upload.single("image"), validationProductCreateandEdit,controller.update);
+router.put('/edit/:id', upload.single("image"), validationEditProduct,controller.update);
 
 router.delete('/:id', controller.delete);
 
