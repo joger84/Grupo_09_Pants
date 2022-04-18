@@ -123,8 +123,9 @@ const controllerUser = {
     // Ruta por GET para mostrar vista
     profile: (req,res) => {
         console.log(req.session)
-        res.render('./users/profile' , {
+        return res.render('./users/profile' , {
             users: req.session.userLogged   //estoy pasando a la vista la variable users
+            
         })                               
     },
     // Ruta por POST proceso de logout
