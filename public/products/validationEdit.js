@@ -22,11 +22,14 @@ for (let i=0; i < inputsForm.length; i++){
             if (itmeForm.value.trim() === ""){
                 //itmeForm.classList.add("is-invalid")
                 itmeForm.nextElementSibling.innerHTML = `El campo ${itmeForm.id} es obligatorio`;
-                itmeForm.nextElementSibling.classList.add("msjRed")
+                itmeForm.nextElementSibling.classList.add("invalid-feedback")
+                itmeForm.classList.add('is-invalid')
+                itmeForm.classList.remove('is-valid')
             } else {
                 itmeForm.nextElementSibling.innerHTML = ""
-                itmeForm.nextElementSibling.classList.remove("msjRed")
+                itmeForm.nextElementSibling.classList.remove("invalid-feedback")
                 itmeForm.classList.remove("is-invalid")
+                itmeForm.classList.add("is-valid")
                 
             }
         
@@ -36,13 +39,18 @@ for (let i=0; i < inputsForm.length; i++){
     productModelField.addEventListener('input', (e) => {
         if (productModelField.value.length < 5){
             productModelField.nextElementSibling.innerHTML = 'El campo debe contener al menos 5 digitos'
-            productModelField.nextElementSibling.classList.add("msjRed")
+            productModelField.nextElementSibling.classList.add("invalid-feedback")
             productModelField.classList.add('is-invalid')
+            productModelField.classList.remove('is-valid')
+            
             
         } else {
             productModelField.nextElementSibling.innerHTML = ""
-            productModelField.nextElementSibling.classList.remove("msjRed")
+            productModelField.nextElementSibling.classList.remove("invalid-feedback")
             productModelField.classList.add('is-valid')
+            productModelField.classList.remove('is-invalid')
+            productModelField.classList.add('is-valid')
+            
         }
     })
     //Selecciono el input Descripcion
@@ -50,12 +58,12 @@ for (let i=0; i < inputsForm.length; i++){
     productDescriptionField.addEventListener('input', (e) => {
         if (productDescriptionField.value.length < 20){
             productDescriptionField.nextElementSibling.innerHTML = 'El campo debe contener al menos 20 digitos'
-            productDescriptionField.nextElementSibling.classList.add("msjRed")
+            productDescriptionField.nextElementSibling.classList.add("invalid-feedback")
             productDescriptionField.classList.add('is-invalid')
             
         } else {
             productDescriptionField.nextElementSibling.innerHTML = ""
-            productDescriptionField.nextElementSibling.classList.remove("msjRed")
+            productDescriptionField.nextElementSibling.classList.remove("invalid-feedback")
             productDescriptionField.classList.add('is-valid')
         }
     })
