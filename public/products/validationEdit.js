@@ -24,10 +24,10 @@ for (let i=0; i < inputsForm.length; i++){
                 itmeForm.nextElementSibling.innerHTML = `El campo ${itmeForm.id} es obligatorio`;
                 itmeForm.nextElementSibling.classList.add("msjRed")
             } else {
-                //itmeForm.classList.add("is-valid")
                 itmeForm.nextElementSibling.innerHTML = ""
                 itmeForm.nextElementSibling.classList.remove("msjRed")
                 itmeForm.classList.remove("is-invalid")
+                
             }
         
     })
@@ -35,12 +35,12 @@ for (let i=0; i < inputsForm.length; i++){
     const productModelField = inputsForm[0].querySelector(".productEdit");
     productModelField.addEventListener('input', (e) => {
         if (productModelField.value.length < 5){
-            productModelField.nextElementSibling.innerText = 'El campo debe contener al menos 5 digitos'
+            productModelField.nextElementSibling.innerHTML = 'El campo debe contener al menos 5 digitos'
             productModelField.nextElementSibling.classList.add("msjRed")
             productModelField.classList.add('is-invalid')
             
         } else {
-            productModelField.nextElementSibling.innerText = ""
+            productModelField.nextElementSibling.innerHTML = ""
             productModelField.nextElementSibling.classList.remove("msjRed")
             productModelField.classList.add('is-valid')
         }
@@ -49,12 +49,12 @@ for (let i=0; i < inputsForm.length; i++){
     const productDescriptionField = inputsForm[1].querySelector(".productEdit");
     productDescriptionField.addEventListener('input', (e) => {
         if (productDescriptionField.value.length < 20){
-            productDescriptionField.nextElementSibling.innerText = 'El campo debe contener al menos 20 digitos'
+            productDescriptionField.nextElementSibling.innerHTML = 'El campo debe contener al menos 20 digitos'
             productDescriptionField.nextElementSibling.classList.add("msjRed")
             productDescriptionField.classList.add('is-invalid')
             
         } else {
-            productDescriptionField.nextElementSibling.innerText = ""
+            productDescriptionField.nextElementSibling.innerHTML = ""
             productDescriptionField.nextElementSibling.classList.remove("msjRed")
             productDescriptionField.classList.add('is-valid')
         }

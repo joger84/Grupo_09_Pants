@@ -9,7 +9,7 @@ const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
-
+//MD que nos permite recibir la informacion que viaja por formularios(post en req.body) 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

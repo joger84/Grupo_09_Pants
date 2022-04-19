@@ -89,10 +89,21 @@ const contollerProducts = {
 		const sizes = await Size.findAll({});
 		const genres = await Genre.findAll({});
         return res.render('./products/editProduct', {productEdit,colors,sizes,genres});
-
+        
     },
     update: async(req, res) => {
+        const productEdit = await Product.findByPk(req.params.id,{include: ['colors','sizes','genres']});
+        const colors = await Color.findAll({});
+        const sizes = await Size.findAll({});
+        const genres = await Genre.findAll({});
         const id = req.params.id
+        let productValidation = validationResult(req);
+        //console.log(productValidation)
+        //return res.json(productValidation)
+        if (productValidation.errors.length) {
+            return res.render('./products/editProduct', { errors: productValidation.mapped(),productEdit,colors,sizes,genres })//el mapped me da un objeto de objetos
+        }
+
         const productUpdate = await Product.findByPk(id,{include: ['colors','sizes','genres']});
         
         productUpdate.model = req.body.model ? req.body.model : productUpdate.model;
@@ -114,14 +125,15 @@ const contollerProducts = {
             productUpdate.removeSizes(productUpdate.sizes)
             productUpdate.addSizes(req.body.sizes)
         }
-        productUpdate.save();
+        
        
-        // return res.json(productUpdate)
+          productUpdate.save();
+          return res.redirect(`/products/productDetail/${id}`);
 
-        return res.redirect(`/products/productDetail/${id}`);
-		
-    },
-    delete: async(req, res) => {
+},
+        
+    
+ delete: async(req, res) => {
         const productId = req.params.id;
         try {
             const productToDelete = await Product.findByPk(productId, { include: ['colors','sizes','genres']});

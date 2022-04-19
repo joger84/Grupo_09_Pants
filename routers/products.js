@@ -44,7 +44,8 @@ router.get("/search-results", controller.searchResults);
 
 router.get('/edit/:id', controller.edit);
 
-router.put('/edit/:id', upload.single("image"), validationEditProduct,controller.update);
+router.put('/edit/:id', upload.single("image"), validationEditProduct,controller.update); // al ser un form que tiene
+//envio de Img tiene el ejs el multipart/form-data, por eso parsea 1ro la info y luego el MD de validaciones  
 
 router.delete('/:id', controller.delete);
 

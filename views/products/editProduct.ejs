@@ -9,21 +9,49 @@
                 <h2>Deseas modificar el producto: </h2>
                 <label>Modelo</label>
                 <input class="productEdit" id="Modelo" type= "text" name='model' value="<%= productEdit.model %>" autofocus>
+                <% if (locals.errors && errors.model) { %>
+                    <p class="danger">
+                        <%= errors.model.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class="formItem">
                 <label>Descripción</label>
                 <input class="productEdit" id="Descripcion" type= "text" name='description' value="<%= productEdit.description %>">
+                <% if(locals.errors && errors.description) { %>
+                    <p class="danger">
+                        <%= errors.description.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class="formItem">
                 <label>Cantidad</label>
                 <input class="productEdit" id="Cantidad" type="number" name='quantity' value="<%= productEdit.quantity %>">
+                <% if(locals.errors && errors.quantity) { %>
+                    <p class="danger">
+                        <%= errors.quantity.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class="formItem">
                 <label>Imagen</label>
                 <input class ="productEdit" type="file" name="image" multiple id="image" >
+                <% if(locals.errors && errors.image) { %>
+                    <p class="danger">
+                        <%= errors.image.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class='containerImg'>
@@ -40,6 +68,13 @@
                         </option>
                     <% }) %>
                 </select>
+                <% if(locals.errors && errors.genres) { %>
+                    <p class="danger">
+                        <%= errors.genres.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class="formItem">
@@ -52,6 +87,13 @@
                         </option>
                     <% }) %>
                 </select>
+                <% if(locals.errors && errors.colors) { %>
+                    <p class="danger">
+                        <%= errors.colors.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class="formItem">
@@ -64,11 +106,25 @@
                         </option>
                     <% }) %>
                 </select>
+                <% if(locals.errors && errors.sizes) { %>
+                    <p class="danger">
+                        <%= errors.sizes.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
             </div>
             <div class="formItem">
                 <label>Precio</label>
                 <input class="productEdit" id="Precio" type="text" name='price' value="<%= productEdit.price %>"> $
+                <% if(locals.errors && errors.price) { %>
+                    <p class="danger">
+                        <%= errors.price.msg %>
+                    </p>
+                <% } else { %>
+                    <p></p>
+                <% } %>
                 <span></span>
                 <br>
             </div>
