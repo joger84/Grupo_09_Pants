@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const productPath = path.resolve(__dirname, "../data/products.json");
+// const fs = require('fs');
+// const path = require('path');
+// const productPath = path.resolve(__dirname, "../data/products.json");
 // const products = JSON.parse(fs.readFileSync(productPath, "utf-8"));
 const { Op } = require("sequelize");
 const {Product,Color,Size,Genre} = require("../src/database/models")
@@ -15,6 +15,7 @@ const contollerProducts = {
         })*/
       try {
           const products = await Product.findAll({include: ['colors','sizes','genres']})
+          console.log(products)
           return res.render('./products/products',{products});
         //   return res.json(products);
         
