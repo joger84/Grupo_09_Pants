@@ -1,4 +1,4 @@
-// *********Middleware de Validaciones PRODUCT Create **************
+// *********Middleware de Validaciones PRODUCT EDIT**************
 const path = require('path');
 const {body} = require("express-validator");
 
@@ -6,13 +6,13 @@ const {body} = require("express-validator");
 
 
 module.exports = [
-    body('model').notEmpty().withMessage('Ingresa un nombre del modelo'),
-    body('description').notEmpty().withMessage('Ingresa una descripcion del producto'),
-    body('quantity').notEmpty().withMessage('Ingresa una cantidad'),
-    body('genres').notEmpty().withMessage('Ingresa un género'),
-    body('colors').notEmpty().withMessage('Ingresa un color'),
-    body('sizes').notEmpty().withMessage('Ingresa una talla'),
-    body('price').notEmpty().withMessage('Ingresa un precio'),
+    body('model').notEmpty().withMessage('BACK -Debes ingresar un nombre del modelo'),
+    body('description').notEmpty().withMessage('BACK -Debes ingresar la descripcion del producto'),
+    body('quantity').notEmpty().withMessage('BACK -Debes ingresar una cantidad'),
+    body('genres').notEmpty().withMessage('BACK -Debes ingresar un género'),
+    body('colors').notEmpty().withMessage('BACK -Debes ingresar un color'),
+    body('sizes').notEmpty().withMessage('BACK -Debes ingresar un talle'),
+    body('price').notEmpty().withMessage('BACK -Debes ingresar un precio'),
 
     
     body('image').custom((value,{req}) =>{

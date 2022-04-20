@@ -6,8 +6,9 @@
     <section class="overflow">
         <form class="formCreate" action="/products/createProduct" method="POST" enctype="multipart/form-data">
             <div class="formItem">
+                <h2>Vas a crear un producto: </h2>
                 <label>Modelo</label>
-                <input class="createProduct" type= "text" name='model' value="<%=locals.oldDate ? oldDate.model : null%>">
+                <input class="createProduct" type= "text" name='model' value="<%=locals.oldDate ? oldDate.model : null%>" autofocus>
                 <% if (locals.errors && errors.model) { %>
                     <p class="danger">
                         <%= errors.model.msg %>

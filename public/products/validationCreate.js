@@ -19,10 +19,9 @@
         const formItem = arrayDiv[index].querySelector('.createProduct');
         formItem.addEventListener('blur', (e) => {
             if(formItem.value.trim() === ''){
-                formItem.nextElementSibling.innerHTML = 'campo obligatorio'
+                formItem.nextElementSibling.innerHTML = 'Campo obligatorio'
                 formItem.nextElementSibling.classList.add('msjRed')
-                
-            }else{
+            } else {
                 formItem.nextElementSibling.innerHTML = ''
                 formItem.nextElementSibling.classList.remove('msjRed')
                 formItem.classList.remove('is-invalid')
@@ -33,7 +32,7 @@
         const firtsImput = arrayDiv[0].querySelector('.createProduct');
         firtsImput.addEventListener('input', () => {
             if(firtsImput.value.length < 5){
-                firtsImput.nextElementSibling.innerHTML = 'el campo debe terner mas de 5 caracteres'
+                firtsImput.nextElementSibling.innerHTML = 'El campo debe terner mas de 5 caracteres'
                 firtsImput.nextElementSibling.classList.add('msjRed')
                 firtsImput.classList.add('is-invalid')
             }else{
@@ -46,7 +45,7 @@
         const secondImput = arrayDiv[1].querySelector('.createProduct');
         secondImput.addEventListener('input', () => {
             if(secondImput.value.length < 20){
-                secondImput.nextElementSibling.innerHTML = 'el campo debe terner mas de 20 caracteres'
+                secondImput.nextElementSibling.innerHTML = 'El campo debe terner mas de 20 caracteres'
                 secondImput.nextElementSibling.classList.add('msjRed')
                 secondImput.classList.add('is-invalid')
             }else{

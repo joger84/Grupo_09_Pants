@@ -3,7 +3,7 @@
 
 function guestMiddleware (req, res, next){
     if (req.session.userLogged !== undefined){ // si es distinto de undef...entonces hay alguien logueado
-        return res.redirect("/user/profile"); /* si no estas logueado te redirecciono a profile*/
+        return res.redirect("/user/login"); /* si no estas logueado te redirecciono a profile*/
     }
     next(); // si estas logueado podes seguir
 

@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
-const validationProductCreateandEdit = require('../middlewares/validationProduct');
+const validationProductCreate = require('../middlewares/validationProduct');
+const validationEditProduct = require('../middlewares/validationEditProduct');
+const authMiddleware = require("../middlewares/authMiddleware");
 const multer = require('multer');
 
 const controller = require('../controllers/products');
@@ -35,15 +37,16 @@ router.get('/productDetail/:id', controller.detail);
 
 router.get('/productCart', controller.cart);
 
-router.get('/createProduct', controller.create);
+router.get('/createProduct', authMiddleware, controller.create);
 
-router.post("/createProduct",upload.single("image"), validationProductCreateandEdit,controller.store);
+router.post("/createProduct",upload.single("image"), validationProductCreate,controller.store);
 
 router.get("/search-results", controller.searchResults);
 
-router.get('/edit/:id', controller.edit);
+router.get('/edit/:id', authMiddleware, controller.edit);
 
-router.put('/edit/:id', upload.single("image"), validationProductCreateandEdit,controller.update);
+router.put('/edit/:id', upload.single("image"), validationEditProduct,controller.update); // al ser un form que tiene
+//envio de Img tiene el ejs el multipart/form-data, por eso parsea 1ro la info y luego el MD de validaciones  
 
 router.delete('/:id', controller.delete);
 

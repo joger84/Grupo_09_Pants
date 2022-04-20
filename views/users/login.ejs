@@ -7,8 +7,9 @@
     <form class='formLogin' action="/user/login" method="post">
         <div class="login">
             <br>
+            <h2>Login: </h2>
             <label> Correo Electronico</label>
-              <input class='cantidad' type = "text" name ="eMail" value="<%=locals.oldDate ? oldDate.email : null%>" autofocus >
+              <input class='cantidad' id="Correo electrónico" type = "text" name ="eMail" value="<%=locals.oldDate ? oldDate.email : null%>" autofocus >
               <span></span>
               <% if (locals.errors && errors.eMail) { %>
                 <div class="danger">
@@ -18,7 +19,7 @@
             <br>
             <br>
             <label> Contraseña</label>
-            <input class='cantidad' type = "password" name = "password" id = "password">
+            <input class='cantidad' id="Contraseña" type = "password" name = "password" id = "password">
             <span></span>
             <% if (locals.errors && errors.password) { %>
               <div class="danger">
