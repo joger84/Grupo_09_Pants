@@ -6,13 +6,13 @@ const {body} = require("express-validator");
 
 
 module.exports = [
-    body('model').notEmpty().withMessage('Ingresa un nombre del modelo'),
-    body('description').notEmpty().withMessage('Ingresa una descripcion del producto'),
-    body('quantity').notEmpty().withMessage('Ingresa una cantidad'),
-    body('genres').notEmpty().withMessage('Ingresa un género'),
-    body('colors').notEmpty().withMessage('Ingresa un color'),
-    body('sizes').notEmpty().withMessage('Ingresa una talla'),
-    body('price').notEmpty().withMessage('Ingresa un precio'),
+    body('model').notEmpty().withMessage('Ingresa un nombre del Modelo, con al menos 5 digitos'),
+    body('description').notEmpty().withMessage('Ingresa una Descripcion del producto, con al menos 20 caracteres'),
+    body('quantity').notEmpty().withMessage('Ingresa una Cantidad'),
+    body('genres').notEmpty().withMessage('Ingresa un Género'),
+    body('colors').notEmpty().withMessage('Ingresa un Color'),
+    body('sizes').notEmpty().withMessage('Ingresa una Talla'),
+    body('price').notEmpty().withMessage('Ingresa un Precio'),
 
     
     body('image').custom((value,{req}) =>{

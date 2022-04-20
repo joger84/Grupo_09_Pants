@@ -113,7 +113,7 @@ const controllerUser = {
                  // 5. Redireccionamos a users/profileUsers
                 }
                 if(req.body.remember_User){
-                    res.cookie('userEmail', req.body.eMail, {maxAge: (1000 * 60) * 5}) // seteo de cookie
+                    res.cookie('userEmail', req.body.eMail, {maxAge: (10.000 * 60) * 5}) // seteo de cookie
                 }
                 return res.redirect("/user/profile")      
           

@@ -1,4 +1,4 @@
-
+        
     console.log("Estas dentro del Form Create Product")
     const formProductCreate = document.querySelector(".formCreate");
     const productCreateimgField = document.querySelector('#image')
@@ -72,6 +72,59 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     // errorCreateArray=0;
     // const validationEmptyFieldCreateProd = (e) =>{
     //     const field = e.target //target indica que elemento fue el que disparo el evento
