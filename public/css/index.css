@@ -46,6 +46,10 @@ h3{
     opacity: 0.9;
     
 }
+.headerfixed{
+    position:fixed;
+    width: 100%;
+}
 .container-img{
     width: 150px;
 }
@@ -398,6 +402,7 @@ label{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding: 150px;
     
 }
 .producto{
