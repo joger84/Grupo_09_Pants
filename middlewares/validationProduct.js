@@ -6,7 +6,7 @@ const {body} = require("express-validator");
 
 
 module.exports = [
-    body('model').notEmpty().withMessage('Ingresa un nombre del Modelo, con al menos 5 digitos'),
+    body('model').notEmpty().withMessage('Ingresa un nombre del Modelo, con al menos 5 digitos').bail(),
     body('description').notEmpty().withMessage('Ingresa una Descripcion del producto, con al menos 20 caracteres'),
     body('quantity').notEmpty().withMessage('Ingresa una Cantidad'),
     body('genres').notEmpty().withMessage('Ingresa un Género'),
