@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         dateBirth:DataTypes.DATE,
         country:DataTypes.STRING,
         address:DataTypes.STRING,
-        role:DataTypes.STRING, //revisar este dato debe ser por defecto = 0
+        role:DataTypes.STRING, 
         image:DataTypes.STRING,
         deletedAt:DataTypes.DATE
 

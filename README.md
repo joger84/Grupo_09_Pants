@@ -40,3 +40,7 @@ https://marvelapp.com/project/5971752
 // Enlace Tablero de Trabajo
 
 https://trello.com/b/igZW7EDY/grupo09pantsalone
+
+// Enlace Dashboard-react
+
+https://github.com/joger84/dashboard-react.git
